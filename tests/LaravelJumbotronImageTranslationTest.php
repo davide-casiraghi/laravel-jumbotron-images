@@ -4,6 +4,7 @@ namespace Davidecasiraghi\LaravelJumbotronImages\Tests;
 
 use Orchestra\Testbench\TestCase;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
+use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 use DavideCasiraghi\LaravelJumbotronImages\Facades\PhpResponsiveQuote;
 use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
 
@@ -88,7 +89,7 @@ class LaravelJumbotronImageTranslationTest extends TestCase
             'locale' => 'en',
         ]);
 
-        QuoteTranslation::insert([
+        JumbotronImageTranslation::insert([
             'jumbotron_image_id' => $id,
             'title' => 'test title spanish',
             'body' => 'test body spanish',
@@ -123,7 +124,7 @@ class LaravelJumbotronImageTranslationTest extends TestCase
             ->followingRedirects()
             ->post('/jumbotron-images-translation', $data);
 
-        $this->assertDatabaseHas('quote_translations', ['text' => 'test translation text']);
+        $this->assertDatabaseHas('jumbotron_images', ['text' => 'test translation text']);
     }
 
     /** @test */
@@ -141,7 +142,7 @@ class LaravelJumbotronImageTranslationTest extends TestCase
             'locale' => 'en',
         ]);
 
-        QuoteTranslation::insert([
+        JumbotronImageTranslation::insert([
             'jumbotron_image_id' => $id,
             'title' => 'test title spanish',
             'body' => 'test body spanish',
@@ -168,7 +169,7 @@ class LaravelJumbotronImageTranslationTest extends TestCase
             'locale' => 'en',
         ]);
 
-        QuoteTranslation::insert([
+        $translationId = JumbotronImageTranslation::insert([
             'jumbotron_image_id' => $id,
             'title' => 'test title spanish',
             'body' => 'test body spanish',

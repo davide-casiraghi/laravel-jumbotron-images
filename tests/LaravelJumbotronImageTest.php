@@ -58,20 +58,6 @@ class LaravelJumbotronImageTest extends TestCase
     /***************************************************************/
 
     /** @test */
-    public function the_console_command_returns_a_quote()
-    {
-        $this->withoutMockingConsoleOutput();
-
-        PhpResponsiveJumbotronImage::shouldReceive('getRandomQuote')
-            ->once()
-            ->andReturn('some joke');
-
-        $this->artisan('jumbotron-images');
-        $output = Artisan::output();
-        $this->assertSame('some joke'.PHP_EOL, $output);
-    }
-
-    /** @test */
     public function it_runs_the_migrations()
     {
 
