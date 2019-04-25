@@ -1,4 +1,3 @@
-
 <?php
 
 namespace DavideCasiraghi\LaravelJumbotronImages\Models;

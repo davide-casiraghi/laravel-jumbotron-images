@@ -57,7 +57,7 @@ class LaravelQuoteTranslationTest extends TestCase
     /** @test */
     public function the_route_create_translation_can_be_accessed()
     {
-        dd("aas 1");
+        
         $id = JumbotronImage::insertGetId([
             'author' => 'test author name',
         ]);

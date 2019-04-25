@@ -5,10 +5,10 @@ namespace Davidecasiraghi\LaravelJumbotronImages\Tests;
 use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
-use DavideCasiraghi\PhpResponsiveRandomQuote\Models\Quote;
-use DavideCasiraghi\PhpResponsiveRandomQuote\Models\QuoteTranslation;
-use DavideCasiraghi\PhpResponsiveRandomQuote\Facades\PhpResponsiveQuote;
-use DavideCasiraghi\PhpResponsiveRandomQuote\LaravelJumbotronImagesServiceProvider;
+use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
+use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
+use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImagesFacade;
+use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
 
 class LaravelQuoteTest extends TestCase
 {
@@ -75,7 +75,7 @@ class LaravelQuoteTest extends TestCase
     /** @test */
     public function it_runs_the_migrations()
     {
-        dd("aas 1");
+        
         // Shows all the tables in the sqlite DB
         /*$tables = DB::select("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;");
         $tables = array_map('current',$tables);
