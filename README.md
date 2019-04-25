@@ -3,7 +3,6 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/davide-casiraghi/laravel-jumbotron-images.svg?style=flat-square)](https://packagist.org/packages/davide-casiraghi/laravel-jumbotron-images)
 [![Build Status](https://img.shields.io/travis/davide-casiraghi/laravel-jumbotron-images/master.svg?style=flat-square)](https://travis-ci.org/davide-casiraghi/laravel-jumbotron-images)
 [![Quality Score](https://img.shields.io/scrutinizer/g/davide-casiraghi/laravel-jumbotron-images.svg?style=flat-square)](https://scrutinizer-ci.com/g/davide-casiraghi/laravel-jumbotron-images)
-
 [![Coverage Status](https://scrutinizer-ci.com/g/davide-casiraghi/laravel-jumbotron-images/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/davide-casiraghi/laravel-jumbotron-images/)
 <a href="https://codeclimate.com/github/davide-casiraghi/laravel-jumbotron-images/maintainability"><img src="https://api.codeclimate.com/v1/badges/998c23a3b93bddddde3f/maintainability" /></a>
 [![GitHub last commit](https://img.shields.io/github/last-commit/davide-casiraghi/laravel-jumbotron-images.svg)](https://github.com/davide-casiraghi/laravel-jumbotron-images) 
