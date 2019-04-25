@@ -57,11 +57,14 @@ class LaravelJumbotronImageTranslationTest extends TestCase
     public function the_route_create_translation_can_be_accessed()
     {
         $id = JumbotronImage::insertGetId([
-            'author' => 'test author name',
+            'image_file_name' => 'test image name',
+            'button_url' => 'test button url',
         ]);
-        QuoteTranslation::insert([
-            'quote_id' => $id,
-            'text' => 'test text',
+        JumbotronImageTranslation::insert([
+            'jumbotron_image_id' => $id,
+            'title' => 'test title',
+            'body' => 'test body',
+            'button_text' => 'test button text',
             'locale' => 'en',
         ]);
 
@@ -74,18 +77,22 @@ class LaravelJumbotronImageTranslationTest extends TestCase
     public function the_route_edit_translation_can_be_accessed()
     {
         $id = JumbotronImage::insertGetId([
-            'author' => 'test author name',
+            'image_file_name' => 'test image name',
+            'button_url' => 'test button url',
         ]);
-
-        QuoteTranslation::insert([
-            'quote_id' => $id,
-            'text' => 'test text',
+        JumbotronImageTranslation::insert([
+            'jumbotron_image_id' => $id,
+            'title' => 'test title',
+            'body' => 'test body',
+            'button_text' => 'test button text',
             'locale' => 'en',
         ]);
 
         QuoteTranslation::insert([
-            'quote_id' => $id,
-            'text' => 'test spanish text',
+            'jumbotron_image_id' => $id,
+            'title' => 'test title spanish',
+            'body' => 'test body spanish',
+            'button_text' => 'test button text spanish ',
             'locale' => 'es',
         ]);
 
@@ -100,13 +107,16 @@ class LaravelJumbotronImageTranslationTest extends TestCase
     public function the_route_store_translation_can_be_accessed()
     {
         $id = JumbotronImage::insertGetId([
-            'author' => 'test author name',
+            'image_file_name' => 'test image name',
+            'button_url' => 'test button url',
         ]);
 
         $data = [
             'quote_id' => $id,
             'language_code' => 'es',
-            'text' => 'test translation text',
+            'title' => 'test title spanish',
+            'body' => 'test body spanish',
+            'button_text' => 'test button text spanish ',
         ];
 
         $this
@@ -120,18 +130,22 @@ class LaravelJumbotronImageTranslationTest extends TestCase
     public function the_route_destroy_can_be_accessed()
     {
         $id = JumbotronImage::insertGetId([
-            'author' => 'test author name',
+            'image_file_name' => 'test image name',
+            'button_url' => 'test button url',
         ]);
-
-        QuoteTranslation::insert([
-            'quote_id' => $id,
-            'text' => 'test text',
+        JumbotronImageTranslation::insert([
+            'jumbotron_image_id' => $id,
+            'title' => 'test title',
+            'body' => 'test body',
+            'button_text' => 'test button text',
             'locale' => 'en',
         ]);
 
         QuoteTranslation::insert([
-            'quote_id' => $id,
-            'text' => 'test spanish text',
+            'jumbotron_image_id' => $id,
+            'title' => 'test title spanish',
+            'body' => 'test body spanish',
+            'button_text' => 'test button text spanish ',
             'locale' => 'es',
         ]);
 
@@ -143,18 +157,22 @@ class LaravelJumbotronImageTranslationTest extends TestCase
     public function the_route_update_can_be_accessed()
     {
         $id = JumbotronImage::insertGetId([
-            'author' => 'test author name',
+            'image_file_name' => 'test image name',
+            'button_url' => 'test button url',
         ]);
-
-        QuoteTranslation::insert([
-            'quote_id' => $id,
-            'text' => 'test text',
+        JumbotronImageTranslation::insert([
+            'jumbotron_image_id' => $id,
+            'title' => 'test title',
+            'body' => 'test body',
+            'button_text' => 'test button text',
             'locale' => 'en',
         ]);
 
-        $translationId = QuoteTranslation::insertGetId([
-            'quote_id' => $id,
-            'text' => 'test spanish text',
+        QuoteTranslation::insert([
+            'jumbotron_image_id' => $id,
+            'title' => 'test title spanish',
+            'body' => 'test body spanish',
+            'button_text' => 'test button text spanish ',
             'locale' => 'es',
         ]);
 
