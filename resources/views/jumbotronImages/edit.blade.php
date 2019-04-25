@@ -9,7 +9,7 @@
                 </div>
             </div>
 
-            @include('php-responsive-quote::partials.error-management', [
+            @include('php-responsive-JumbotronImage::partials.error-management', [
                   'style' => 'alert-danger',
             ])
 
@@ -21,7 +21,7 @@
                     
                     {{-- Author  --}}
                     <div class="col-12">
-                        @include('php-responsive-quote::partials.input', [
+                        @include('php-responsive-JumbotronImage::partials.input', [
                             'title' => 'Author',
                             'name' => 'author',
                             'placeholder' => '', 
@@ -31,7 +31,7 @@
     
                     {{-- Text --}}
                     <div class="col-12">
-                        @include('php-responsive-quote::partials.textarea-plain', [
+                        @include('php-responsive-JumbotronImage::partials.textarea-plain', [
                             'title' =>  'Text',
                             'name' => 'text',
                             'value' => $quote->text
@@ -40,7 +40,7 @@
                     
                     
                     <div class="col-12">
-                        @include('php-responsive-quote::partials.buttons-back-submit', [
+                        @include('php-responsive-JumbotronImage::partials.buttons-back-submit', [
                             'route' => 'php-responsive-quote.index'  
                         ])
                     </div>

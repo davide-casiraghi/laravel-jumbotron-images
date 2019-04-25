@@ -49,7 +49,7 @@ class LaravelQuoteTranslationTest extends TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'PhpResponsiveQuote' => PhpResponsiveQuote::class, // facade called PhpResponsiveQuote and the name of the facade class
+            'PhpResponsiveQuote' => PhpResponsiveJumbotronImage::class, // facade called PhpResponsiveQuote and the name of the facade class
             'LaravelLocalization' => \Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
         ];
     }
@@ -57,7 +57,7 @@ class LaravelQuoteTranslationTest extends TestCase
     /** @test */
     public function the_route_create_translation_can_be_accessed()
     {
-        $id = Quote::insertGetId([
+        $id = JumbotronImage::insertGetId([
             'author' => 'test author name',
         ]);
         QuoteTranslation::insert([
@@ -74,7 +74,7 @@ class LaravelQuoteTranslationTest extends TestCase
     /** @test */
     public function the_route_edit_translation_can_be_accessed()
     {
-        $id = Quote::insertGetId([
+        $id = JumbotronImage::insertGetId([
             'author' => 'test author name',
         ]);
 
@@ -100,7 +100,7 @@ class LaravelQuoteTranslationTest extends TestCase
     /** @test */
     public function the_route_store_translation_can_be_accessed()
     {
-        $id = Quote::insertGetId([
+        $id = JumbotronImage::insertGetId([
             'author' => 'test author name',
         ]);
 
@@ -120,7 +120,7 @@ class LaravelQuoteTranslationTest extends TestCase
     /** @test */
     public function the_route_destroy_can_be_accessed()
     {
-        $id = Quote::insertGetId([
+        $id = JumbotronImage::insertGetId([
             'author' => 'test author name',
         ]);
 
@@ -143,7 +143,7 @@ class LaravelQuoteTranslationTest extends TestCase
     /** @test */
     public function the_route_update_can_be_accessed()
     {
-        $id = Quote::insertGetId([
+        $id = JumbotronImage::insertGetId([
             'author' => 'test author name',
         ]);
 

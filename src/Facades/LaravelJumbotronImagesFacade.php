@@ -1,6 +1,6 @@
 <?php
 
-namespace DavideCasiraghi\LaravelJumbotronImages;
+namespace DavideCasiraghi\LaravelJumbotronImages\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

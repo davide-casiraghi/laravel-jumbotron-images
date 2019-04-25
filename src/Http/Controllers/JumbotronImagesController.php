@@ -23,15 +23,15 @@ class JumbotronImagesController
         $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
         if ($searchKeywords) {
-            $quotes = Quote::orderBy('author')
+            $jumbotronImages = JumbotronImage::orderBy('author')
                                      ->where('author', 'like', '%'.$request->input('keywords').'%')
                                      ->paginate(20);
         } else {
-            $quotes = Quote::orderBy('author')
+            $jumbotronImages = JumbotronImage::orderBy('author')
                                      ->paginate(20);
         }
 
-        return view('laravel-jumbotron-images::jumbotronImages.index', compact('quotes'))
+        return view('laravel-jumbotron-images::jumbotronImages.index', compact('jumbotronImages'))
                              ->with('i', (request()->input('page', 1) - 1) * 20)
                              ->with('searchKeywords', $searchKeywords)
                              ->with('countriesAvailableForTranslations', $countriesAvailableForTranslations);
@@ -59,14 +59,14 @@ class JumbotronImagesController
      */
     public function store(Request $request)
     {
-        $quote = new Quote();
-        $quote->author = $request->get('author');
-        $quote->text = $request->get('text');
+        $jumbotronImage = new Quote();
+        $jumbotronImage->author = $request->get('author');
+        $jumbotronImage->text = $request->get('text');
 
         // Set the default language to edit the quote in English
         App::setLocale('en');
 
-        $this->saveOnDb($request, $quote);
+        $this->saveOnDb($request, $jumbotronImage);
 
         return redirect()->route('jumbotron-images.index')
                             ->with('success', 'Quote added succesfully');
@@ -77,12 +77,12 @@ class JumbotronImagesController
     /**
      * Display the specified resource.
      *
-     * @param  int $quoteId
+     * @param  int $jumbotronImageId
      * @return \Illuminate\Http\Response
      */
-    public function show($quoteId = null)
+    public function show($jumbotronImageId = null)
     {
-        $quote = Quote::find($quoteId);
+        $jumbotronImage = JumbotronImage::find($jumbotronImageId);
 
         return view('laravel-jumbotron-images::jumbotronImages.show', compact('quote'));
     }
@@ -92,12 +92,12 @@ class JumbotronImagesController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $quoteId
+     * @param  int $jumbotronImageId
      * @return \Illuminate\Http\Response
      */
-    public function edit($quoteId = null)
+    public function edit($jumbotronImageId = null)
     {
-        $quote = Quote::find($quoteId);
+        $jumbotronImage = JumbotronImage::find($jumbotronImageId);
 
         return view('laravel-jumbotron-images::jumbotronImages.edit', compact('quote'));
     }
@@ -108,17 +108,17 @@ class JumbotronImagesController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $quoteId
+     * @param  int  $jumbotronImageId
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $quoteId)
+    public function update(Request $request, $jumbotronImageId)
     {
-        $quote = Quote::find($quoteId);
+        $jumbotronImage = JumbotronImage::find($jumbotronImageId);
 
         // Set the default language to update the quote in English
         App::setLocale('en');
 
-        $this->saveOnDb($request, $quote);
+        $this->saveOnDb($request, $jumbotronImage);
 
         return redirect()->route('jumbotron-images.index')
                             ->with('success', 'Quote updated succesfully');
@@ -129,13 +129,13 @@ class JumbotronImagesController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $quoteId
+     * @param  int  $jumbotronImageId
      * @return \Illuminate\Http\Response
      */
-    public function destroy($quoteId)
+    public function destroy($jumbotronImageId)
     {
-        $quote = Quote::find($quoteId);
-        $quote->delete();
+        $jumbotronImage = JumbotronImage::find($jumbotronImageId);
+        $jumbotronImage->delete();
 
         return redirect()->route('jumbotron-images.index')
                             ->with('success', 'Quote deleted succesfully');
@@ -146,14 +146,14 @@ class JumbotronImagesController
     /**
      * Save the record on DB.
      * @param  \Illuminate\Http\Request  $request
-     * @param  \DavideCasiraghi\PhpResponsiveRandomQuote\Models\Quote  $quote
+     * @param  \DavideCasiraghi\PhpResponsiveRandomQuote\Models\Quote  $jumbotronImage
      * @return void
      */
-    public function saveOnDb($request, $quote)
+    public function saveOnDb($request, $jumbotronImage)
     {
-        $quote->translateOrNew('en')->text = $request->get('text');
-        $quote->author = $request->get('author');
-        $quote->save();
+        $jumbotronImage->translateOrNew('en')->text = $request->get('text');
+        $jumbotronImage->author = $request->get('author');
+        $jumbotronImage->save();
     }
 
     /***************************************************************************/
@@ -165,12 +165,12 @@ class JumbotronImagesController
      */
     public function showRandomQuote()
     {
-        $quote = PhpResponsiveQuote::getRandomQuote();
+        $jumbotronImage = PhpResponsiveJumbotronImage::getRandomQuote();
 
         // the view name is set in the - Service provider - boot - loadViewsFrom
-        return view('php-responsive-quote::show-random-quote', [
-            'quoteAuthor' => $quote['author'],
-            'quoteText' => $quote['text'],
+        return view('php-responsive-JumbotronImage::show-random-quote', [
+            'quoteAuthor' => $jumbotronImage['author'],
+            'quoteText' => $jumbotronImage['text'],
         ]);
     }
 }

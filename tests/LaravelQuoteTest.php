@@ -51,7 +51,7 @@ class LaravelQuoteTest extends TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'PhpResponsiveQuote' => PhpResponsiveQuote::class, // facade called PhpResponsiveQuote and the name of the facade class
+            'PhpResponsiveQuote' => PhpResponsiveJumbotronImage::class, // facade called PhpResponsiveQuote and the name of the facade class
             'LaravelLocalization' => \Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
         ];
     }
@@ -63,7 +63,7 @@ class LaravelQuoteTest extends TestCase
     {
         $this->withoutMockingConsoleOutput();
 
-        PhpResponsiveQuote::shouldReceive('getRandomQuote')
+        PhpResponsiveJumbotronImage::shouldReceive('getRandomQuote')
             ->once()
             ->andReturn('some joke');
 
@@ -80,11 +80,11 @@ class LaravelQuoteTest extends TestCase
         $tables = array_map('current',$tables);
         dd($tables);*/
 
-        Quote::insert([
+        JumbotronImage::insert([
             'author' => 'test author name',
         ]);
 
-        $quote = Quote::where('author', '=', 'test author name')->first();
+        $quote = JumbotronImage::where('author', '=', 'test author name')->first();
 
         $this->assertEquals('test author name', $quote->author);
     }
@@ -108,7 +108,7 @@ class LaravelQuoteTest extends TestCase
     /** @test */
     public function the_route_destroy_can_be_accessed()
     {
-        $id = Quote::insertGetId([
+        $id = JumbotronImage::insertGetId([
             'author' => 'test author name',
         ]);
 
@@ -125,7 +125,7 @@ class LaravelQuoteTest extends TestCase
     /** @test */
     public function the_route_update_can_be_accessed()
     {
-        $id = Quote::insertGetId([
+        $id = JumbotronImage::insertGetId([
             'author' => 'test author name',
         ]);
 
@@ -163,7 +163,7 @@ class LaravelQuoteTest extends TestCase
     /** @test */
     public function the_route_show_can_be_accessed()
     {
-        $id = Quote::insertGetId([
+        $id = JumbotronImage::insertGetId([
             'author' => 'test author name',
         ]);
 
@@ -182,7 +182,7 @@ class LaravelQuoteTest extends TestCase
     /** @test */
     public function the_route_edit_can_be_accessed()
     {
-        $id = Quote::insertGetId([
+        $id = JumbotronImage::insertGetId([
             'author' => 'test author name',
         ]);
 
@@ -201,7 +201,7 @@ class LaravelQuoteTest extends TestCase
     /** @test */
     public function the_route_random_quote_can_be_accessed()
     {
-        /*PhpResponsiveQuote::shouldReceive('getRandomQuote')
+        /*PhpResponsiveJumbotronImage::shouldReceive('getRandomQuote')
             ->once()
             ->andReturn([
                 'author' => 'Moshe Feldenkreis',
@@ -209,7 +209,7 @@ class LaravelQuoteTest extends TestCase
             ]);*/
 
         $this->get('random-quote')
-            ->assertViewIs('php-responsive-quote::show-random-quote')
+            ->assertViewIs('php-responsive-JumbotronImage::show-random-quote')
             ->assertStatus(200);
         //->assertViewHas('quoteAuthor')
             //->assertViewHas('quoteText')
