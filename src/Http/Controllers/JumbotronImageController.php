@@ -65,12 +65,7 @@ class JumbotronImageController
     public function store(Request $request)
     {
         $jumbotronImage = new JumbotronImage();
-        $jumbotronImage->title = $request->get('title');
-        $jumbotronImage->body = $request->get('body');
-        $jumbotronImage->button_text = $request->get('button_text');
-        $jumbotronImage->image_file_name = $request->get('image_file_name');
-        $jumbotronImage->button_url = $request->get('button_url');
-
+        
         // Set the default language to edit the quote in English
         App::setLocale('en');
 
