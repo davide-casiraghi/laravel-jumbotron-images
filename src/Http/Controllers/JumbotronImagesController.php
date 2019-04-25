@@ -22,11 +22,11 @@ class JumbotronImagesController
         $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
         if ($searchKeywords) {
-            $jumbotronImages = JumbotronImage::orderBy('author')
-                                     ->where('author', 'like', '%'.$request->input('keywords').'%')
+            $jumbotronImages = JumbotronImage::orderBy('title')
+                                     ->where('title', 'like', '%'.$request->input('keywords').'%')
                                      ->paginate(20);
         } else {
-            $jumbotronImages = JumbotronImage::orderBy('author')
+            $jumbotronImages = JumbotronImage::orderBy('title')
                                      ->paginate(20);
         }
 
@@ -59,8 +59,11 @@ class JumbotronImagesController
     public function store(Request $request)
     {
         $jumbotronImage = new JumbotronImage();
-        $jumbotronImage->author = $request->get('author');
-        $jumbotronImage->text = $request->get('text');
+        $jumbotronImage->title = $request->get('title');
+        $jumbotronImage->body = $request->get('body');
+        $jumbotronImage->button_text = $request->get('button_text');
+        $jumbotronImage->image_file_name = $request->get('image_file_name');
+        $jumbotronImage->button_url = $request->get('button_url');
 
         // Set the default language to edit the quote in English
         App::setLocale('en');
@@ -68,7 +71,7 @@ class JumbotronImagesController
         $this->saveOnDb($request, $jumbotronImage);
 
         return redirect()->route('jumbotron-images.index')
-                            ->with('success', 'Quote added succesfully');
+                            ->with('success', 'Jumbotron image added succesfully');
     }
 
     /***************************************************************************/
@@ -83,7 +86,7 @@ class JumbotronImagesController
     {
         $jumbotronImage = JumbotronImage::find($jumbotronImageId);
 
-        return view('laravel-jumbotron-images::jumbotronImages.show', compact('quote'));
+        return view('laravel-jumbotron-images::jumbotronImages.show', compact('jumbotronImage'));
     }
 
     /***************************************************************************/
@@ -120,7 +123,7 @@ class JumbotronImagesController
         $this->saveOnDb($request, $jumbotronImage);
 
         return redirect()->route('jumbotron-images.index')
-                            ->with('success', 'Quote updated succesfully');
+                            ->with('success', 'Jumbotron image updated succesfully');
     }
 
     /***************************************************************************/
@@ -137,7 +140,7 @@ class JumbotronImagesController
         $jumbotronImage->delete();
 
         return redirect()->route('jumbotron-images.index')
-                            ->with('success', 'Quote deleted succesfully');
+                            ->with('success', 'Jumbotron image deleted succesfully');
     }
 
     /***************************************************************************/
@@ -145,13 +148,17 @@ class JumbotronImagesController
     /**
      * Save the record on DB.
      * @param  \Illuminate\Http\Request  $request
-     * @param  \DavideCasiraghi\PhpResponsiveRandomQuote\Models\Quote  $jumbotronImage
+     * @param  \DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage  $jumbotronImage
      * @return void
      */
     public function saveOnDb($request, $jumbotronImage)
     {
-        $jumbotronImage->translateOrNew('en')->text = $request->get('text');
-        $jumbotronImage->author = $request->get('author');
+        $jumbotronImage->translateOrNew('en')->text = $request->get('title');
+        $jumbotronImage->translateOrNew('en')->body = $request->get('body');
+        $jumbotronImage->translateOrNew('en')->button_text = $request->get('button_text');
+        $jumbotronImage->image_file_name = $request->get('image_file_name');
+        $jumbotronImage->button_url = $request->get('button_url');
+        
         $jumbotronImage->save();
     }
 

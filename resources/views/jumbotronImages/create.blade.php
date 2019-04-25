@@ -17,22 +17,42 @@
                 @csrf
                 
                 <div class="row">
-                    {{-- Author  --}}
+                    {{-- Title  --}}
                     <div class="col-12">
                         @include('php-responsive-JumbotronImage::partials.input', [
-                            'title' => 'Author',
-                            'name' => 'author',
+                            'title' => 'Title',
+                            'name' => 'title',
                             'placeholder' => '', 
-                            'value' => old('author')
+                            'value' => old('title')
                         ])
                     </div>
     
-                    {{-- Text --}}
+                    {{-- Body --}}
                     <div class="col-12">
                         @include('php-responsive-JumbotronImage::partials.textarea-plain', [
-                            'title' =>  'Text',
-                            'name' => 'text',
-                            'value' => old('text')
+                            'title' =>  'Body',
+                            'name' => 'body',
+                            'value' => old('body')
+                        ])
+                    </div>
+                    
+                    {{-- Button url --}}
+                    <div class="col-12">
+                        @include('php-responsive-JumbotronImage::partials.input', [
+                            'title' =>  'Button url',
+                            'name' => 'button_url',
+                            'placeholder' => 'https://...', 
+                            'value' => old('button_url')
+                        ])
+                    </div>
+                    
+                    {{-- Button text --}}
+                    <div class="col-12">
+                        @include('php-responsive-JumbotronImage::partials.input', [
+                            'title' =>  'Button text',
+                            'name' => 'button_text',
+                            'placeholder' => '', 
+                            'value' => old('button_text')
                         ])
                     </div>
         
