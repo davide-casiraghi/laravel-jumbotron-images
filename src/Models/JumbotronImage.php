@@ -13,7 +13,7 @@ class JumbotronImage extends Model
 
     public $translatedAttributes = ['title', 'body', 'button_text'];
     protected $fillable = [
-        'image_name',
+        'image_file_name',
         'button_url',
     ];
 }

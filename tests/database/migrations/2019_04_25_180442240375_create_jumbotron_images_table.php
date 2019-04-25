@@ -10,7 +10,7 @@ class CreateJumbotronImagesTable extends Migration
     {
         Schema::create('jumbotron_images', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image_name')->nullable();
+            $table->string('image_file_name')->nullable();
             $table->string('button_url')->nullable();
             $table->timestamps();
         });

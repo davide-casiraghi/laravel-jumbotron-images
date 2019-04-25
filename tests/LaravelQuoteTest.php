@@ -80,13 +80,13 @@ class LaravelQuoteTest extends TestCase
         dd($tables);*/
 
         JumbotronImage::insert([
-            'image_name' => 'test image name',
+            'image_file_name' => 'test image name',
             'button_url' => 'test button url',
         ]);
 
-        $jumbotronImage = JumbotronImage::where('image_name', '=', 'test image name')->first();
+        $jumbotronImage = JumbotronImage::where('image_file_name', '=', 'test image name')->first();
 
-        $this->assertEquals('test image name', $jumbotronImage->image_name);
+        $this->assertEquals('test image name', $jumbotronImage->image_file_name);
     }
 
     /** @test */
