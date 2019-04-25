@@ -144,8 +144,8 @@ class LaravelJumbotronImageTranslationTest extends TestCase
 
         $request = new \Illuminate\Http\Request();
         $request->replace([
-              'author' => 'test author name updated',
-              'text' => 'test text updated',
+              'title' => 'test title updated',
+              'body' => 'test body updated',
           ]);
 
         $this->put('jumbotron-images/1', [$request, 1])
