@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use DavideCasiraghi\LaravelJumbotronImages\Facades\PhpResponsiveQuote;
+use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImagesFacade;
 
 class JumbotronImagesController
 {
@@ -59,7 +59,7 @@ class JumbotronImagesController
      */
     public function store(Request $request)
     {
-        $jumbotronImage = new Quote();
+        $jumbotronImage = new JumbotronImage();
         $jumbotronImage->author = $request->get('author');
         $jumbotronImage->text = $request->get('text');
 
@@ -163,9 +163,9 @@ class JumbotronImagesController
      *
      * @return \Illuminate\Http\Response
      */
-    public function showRandomQuote()
+    public function showRandomJumbotronImage()
     {
-        $jumbotronImage = PhpResponsiveJumbotronImage::getRandomQuote();
+        $jumbotronImage = PhpResponsiveJumbotronImage::getRandomJumbotronImage();
 
         // the view name is set in the - Service provider - boot - loadViewsFrom
         return view('php-responsive-JumbotronImage::show-random-quote', [

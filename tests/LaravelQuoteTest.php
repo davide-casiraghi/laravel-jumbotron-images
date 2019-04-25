@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Artisan;
 use DavideCasiraghi\PhpResponsiveRandomQuote\Models\Quote;
 use DavideCasiraghi\PhpResponsiveRandomQuote\Models\QuoteTranslation;
 use DavideCasiraghi\PhpResponsiveRandomQuote\Facades\PhpResponsiveQuote;
-use DavideCasiraghi\PhpResponsiveRandomQuote\PhpResponsiveRandomQuoteServiceProvider;
+use DavideCasiraghi\PhpResponsiveRandomQuote\LaravelJumbotronImagesServiceProvider;
 
 class LaravelQuoteTest extends TestCase
 {
@@ -43,7 +43,7 @@ class LaravelQuoteTest extends TestCase
     protected function getPackageProviders($app)
     {
         return [
-            PhpResponsiveRandomQuoteServiceProvider::class,
+            LaravelJumbotronImagesServiceProvider::class,
             \Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
         ];
     }
@@ -75,6 +75,7 @@ class LaravelQuoteTest extends TestCase
     /** @test */
     public function it_runs_the_migrations()
     {
+        dd("aas 1");
         // Shows all the tables in the sqlite DB
         /*$tables = DB::select("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;");
         $tables = array_map('current',$tables);

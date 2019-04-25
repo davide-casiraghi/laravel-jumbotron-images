@@ -3,10 +3,10 @@
 namespace Davidecasiraghi\LaravelJumbotronImages\Tests;
 
 use Orchestra\Testbench\TestCase;
-use DavideCasiraghi\PhpResponsiveRandomQuote\Models\JumbotronImage;
-use DavideCasiraghi\PhpResponsiveRandomQuote\Models\JumbotronImageTranslation;
-use DavideCasiraghi\PhpResponsiveRandomQuote\Facades\PhpResponsiveQuote;
-use DavideCasiraghi\PhpResponsiveRandomQuote\PhpResponsiveRandomQuoteServiceProvider;
+use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
+use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
+use DavideCasiraghi\LaravelJumbotronImages\Facades\PhpResponsiveQuote;
+use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
 
 class LaravelQuoteTranslationTest extends TestCase
 {
@@ -41,7 +41,7 @@ class LaravelQuoteTranslationTest extends TestCase
     protected function getPackageProviders($app)
     {
         return [
-            PhpResponsiveRandomQuoteServiceProvider::class,
+            LaravelJumbotronImagesServiceProvider::class,
             \Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
         ];
     }
@@ -57,6 +57,7 @@ class LaravelQuoteTranslationTest extends TestCase
     /** @test */
     public function the_route_create_translation_can_be_accessed()
     {
+        dd("aas 1");
         $id = JumbotronImage::insertGetId([
             'author' => 'test author name',
         ]);
