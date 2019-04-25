@@ -1,0 +1,54 @@
+{
+    "name": "davide-casiraghi/laravel-jumbotron-images",
+    "description": "Add a jumbotron images with title and description to your pages. The titles and descriptions support multilanguage.",
+    "keywords": [
+        "davide-casiraghi",
+        "laravel-jumbotron-images"
+    ],
+    "homepage": "https://github.com/davide-casiraghi/laravel-jumbotron-images",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Davide Casiraghi",
+            "email": "davide.casiraghi@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "5.8.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DavideCasiraghi\\LaravelJumbotronImages\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DavideCasiraghi\\LaravelJumbotronImages\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DavideCasiraghi\\LaravelJumbotronImages\\LaravelJumbotronImagesServiceProvider"
+            ],
+            "aliases": {
+                "LaravelJumbotronImages": "DavideCasiraghi\\LaravelJumbotronImages\\LaravelJumbotronImagesFacade"
+            }
+        }
+    }
+}
