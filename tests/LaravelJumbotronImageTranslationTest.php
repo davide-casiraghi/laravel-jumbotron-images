@@ -7,7 +7,7 @@ use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 use DavideCasiraghi\LaravelJumbotronImages\Facades\PhpResponsiveQuote;
 use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
 
-class LaravelQuoteTranslationTest extends TestCase
+class LaravelJumbotronImageTranslationTest extends TestCase
 {
     /**
      * Define environment setup.
