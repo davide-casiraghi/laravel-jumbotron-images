@@ -9,7 +9,7 @@ use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
 
-class LaravelJumbotronImageTranslationTest extends TestCase
+class LaravelJumbotronImageTest extends TestCase
 {
     /**
      * Define environment setup.
