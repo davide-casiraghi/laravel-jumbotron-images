@@ -1,11 +1,13 @@
-# Very short description of the package
+# Laravel Jumbotron Images
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/davide-casiraghi/laravel-jumbotron-images.svg?style=flat-square)](https://packagist.org/packages/davide-casiraghi/laravel-jumbotron-images)
 [![Build Status](https://img.shields.io/travis/davide-casiraghi/laravel-jumbotron-images/master.svg?style=flat-square)](https://travis-ci.org/davide-casiraghi/laravel-jumbotron-images)
 [![Quality Score](https://img.shields.io/scrutinizer/g/davide-casiraghi/laravel-jumbotron-images.svg?style=flat-square)](https://scrutinizer-ci.com/g/davide-casiraghi/laravel-jumbotron-images)
-[![Total Downloads](https://img.shields.io/packagist/dt/davide-casiraghi/laravel-jumbotron-images.svg?style=flat-square)](https://packagist.org/packages/davide-casiraghi/laravel-jumbotron-images)
+[![Coverage Status](https://scrutinizer-ci.com/g/davide-casiraghi/laravel-jumbotron-images/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/davide-casiraghi/laravel-jumbotron-images/)
+<a href="https://codeclimate.com/github/davide-casiraghi/laravel-jumbotron-images/maintainability"><img src="https://api.codeclimate.com/v1/badges/998c23a3b93bddddde3f/maintainability" /></a>
+[![GitHub last commit](https://img.shields.io/github/last-commit/davide-casiraghi/laravel-jumbotron-images.svg)](https://github.com/davide-casiraghi/laravel-jumbotron-images) 
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+Add a jumbotron images with title and description to your pages. The titles and descriptions support multilanguage.
 
 ## Installation
 
@@ -23,9 +25,11 @@ composer require davide-casiraghi/laravel-jumbotron-images
 
 ### Testing
 
+You can run unit tests checking the code coverage using this command.
 ``` bash
-composer test
+./vendor/bin/phpunit --coverage-html=html
 ```
+So you can find the reports about the code coverage in this file **/html/index.html**
 
 ### Changelog
 
