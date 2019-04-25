@@ -1,11 +1,11 @@
-# Very short description of the package
+# Laravel Jumbotron Images
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/davide-casiraghi/laravel-jumbotron-images.svg?style=flat-square)](https://packagist.org/packages/davide-casiraghi/laravel-jumbotron-images)
 [![Build Status](https://img.shields.io/travis/davide-casiraghi/laravel-jumbotron-images/master.svg?style=flat-square)](https://travis-ci.org/davide-casiraghi/laravel-jumbotron-images)
 [![Quality Score](https://img.shields.io/scrutinizer/g/davide-casiraghi/laravel-jumbotron-images.svg?style=flat-square)](https://scrutinizer-ci.com/g/davide-casiraghi/laravel-jumbotron-images)
 [![Total Downloads](https://img.shields.io/packagist/dt/davide-casiraghi/laravel-jumbotron-images.svg?style=flat-square)](https://packagist.org/packages/davide-casiraghi/laravel-jumbotron-images)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+Add a jumbotron images with title and description to your pages. The titles and descriptions support multilanguage.
 
 ## Installation
 
