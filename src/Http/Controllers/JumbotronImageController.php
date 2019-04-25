@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\App;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 
-class JumbotronImagesController
+class JumbotronImageController
 {
     /**
      * Display the specified resource.
@@ -174,7 +174,7 @@ class JumbotronImagesController
         $jumbotronImage = PhpResponsiveJumbotronImage::getRandomJumbotronImage();
 
         // the view name is set in the - Service provider - boot - loadViewsFrom
-        return view('php-responsive-JumbotronImage::show-random-quote', [
+        return view('laravel-jumbotron-images::show-random-quote', [
             'quoteAuthor' => $jumbotronImage['author'],
             'quoteText' => $jumbotronImage['text'],
         ]);

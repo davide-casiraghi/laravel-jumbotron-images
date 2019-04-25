@@ -6,7 +6,7 @@ use Validator;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-class JumbotronImagesTranslationController
+class JumbotronImageTranslationController
 {
     /***************************************************************************/
 

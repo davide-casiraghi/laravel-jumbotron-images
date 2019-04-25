@@ -9,7 +9,7 @@
                 </div>
             </div>
 
-            @include('php-responsive-JumbotronImage::partials.error-management', [
+            @include('laravel-jumbotron-images::partials.error-management', [
                   'style' => 'alert-danger',
             ])
 
@@ -19,7 +19,7 @@
                 <div class="row">
                     {{-- Title  --}}
                     <div class="col-12">
-                        @include('php-responsive-JumbotronImage::partials.input', [
+                        @include('laravel-jumbotron-images::partials.input', [
                             'title' => 'Title',
                             'name' => 'title',
                             'placeholder' => '', 
@@ -29,7 +29,7 @@
     
                     {{-- Body --}}
                     <div class="col-12">
-                        @include('php-responsive-JumbotronImage::partials.textarea-plain', [
+                        @include('laravel-jumbotron-images::partials.textarea-plain', [
                             'title' =>  'Body',
                             'name' => 'body',
                             'value' => old('body')
@@ -38,7 +38,7 @@
                     
                     {{-- Button url --}}
                     <div class="col-12">
-                        @include('php-responsive-JumbotronImage::partials.input', [
+                        @include('laravel-jumbotron-images::partials.input', [
                             'title' =>  'Button url',
                             'name' => 'button_url',
                             'placeholder' => 'https://...', 
@@ -48,7 +48,7 @@
                     
                     {{-- Button text --}}
                     <div class="col-12">
-                        @include('php-responsive-JumbotronImage::partials.input', [
+                        @include('laravel-jumbotron-images::partials.input', [
                             'title' =>  'Button text',
                             'name' => 'button_text',
                             'placeholder' => '', 
@@ -57,7 +57,7 @@
                     </div>
         
                     <div class="col-12">
-                        @include('php-responsive-JumbotronImage::partials.buttons-back-submit', [
+                        @include('laravel-jumbotron-images::partials.buttons-back-submit', [
                            'route' => 'jumbotron-images.index'  
                        ])
                     </div>

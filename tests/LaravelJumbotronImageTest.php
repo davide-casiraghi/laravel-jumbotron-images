@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Artisan;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
 
-class LaravelQuoteTest extends TestCase
+class LaravelJumbotronImageTranslationTest extends TestCase
 {
     /**
      * Define environment setup.
@@ -49,7 +49,7 @@ class LaravelQuoteTest extends TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'PhpResponsiveQuote' => PhpResponsiveJumbotronImage::class, // facade called PhpResponsiveQuote and the name of the facade class
+            'PhpResponsiveJumbotronImage' => PhpResponsiveJumbotronImage::class, // facade called PhpResponsiveQuote and the name of the facade class
             'LaravelLocalization' => \Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
         ];
     }
@@ -209,7 +209,7 @@ class LaravelQuoteTest extends TestCase
             ]);*/
 
         $this->get('random-quote')
-            ->assertViewIs('php-responsive-JumbotronImage::show-random-quote')
+            ->assertViewIs('laravel-jumbotron-images::show-random-quote')
             ->assertStatus(200);
         //->assertViewHas('quoteAuthor')
             //->assertViewHas('quoteText')
