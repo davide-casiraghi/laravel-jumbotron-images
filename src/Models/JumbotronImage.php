@@ -16,6 +16,4 @@ class JumbotronImage extends Model
         'image_name',
         'button_url',
     ];
-
-    
 }

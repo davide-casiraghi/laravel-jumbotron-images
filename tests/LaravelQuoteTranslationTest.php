@@ -4,7 +4,6 @@ namespace Davidecasiraghi\LaravelJumbotronImages\Tests;
 
 use Orchestra\Testbench\TestCase;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
-use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 use DavideCasiraghi\LaravelJumbotronImages\Facades\PhpResponsiveQuote;
 use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
 
@@ -57,7 +56,6 @@ class LaravelQuoteTranslationTest extends TestCase
     /** @test */
     public function the_route_create_translation_can_be_accessed()
     {
-        
         $id = JumbotronImage::insertGetId([
             'author' => 'test author name',
         ]);

@@ -4,9 +4,8 @@ namespace DavideCasiraghi\LaravelJumbotronImages\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImagesFacade;
+use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 
 class JumbotronImagesController
 {
