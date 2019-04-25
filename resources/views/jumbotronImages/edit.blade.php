@@ -41,7 +41,7 @@
                     
                     <div class="col-12">
                         @include('php-responsive-JumbotronImage::partials.buttons-back-submit', [
-                            'route' => 'php-responsive-quote.index'  
+                            'route' => 'jumbotron-images.index'  
                         ])
                     </div>
                     

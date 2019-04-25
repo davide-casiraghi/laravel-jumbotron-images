@@ -67,7 +67,7 @@ class LaravelQuoteTest extends TestCase
             ->once()
             ->andReturn('some joke');
 
-        $this->artisan('php-responsive-quote');
+        $this->artisan('jumbotron-images');
         $output = Artisan::output();
         $this->assertSame('some joke'.PHP_EOL, $output);
     }
@@ -92,7 +92,7 @@ class LaravelQuoteTest extends TestCase
     /** @test */
     public function the_route_index_can_be_accessed()
     {
-        $this->get('php-responsive-quote')
+        $this->get('jumbotron-images')
             ->assertViewIs('laravel-jumbotron-images::jumbotronImages.index')
             ->assertStatus(200);
     }
@@ -100,7 +100,7 @@ class LaravelQuoteTest extends TestCase
     /** @test */
     public function the_route_create_can_be_accessed()
     {
-        $this->get('php-responsive-quote/create')
+        $this->get('jumbotron-images/create')
             ->assertViewIs('laravel-jumbotron-images::jumbotronImages.create')
             ->assertStatus(200);
     }
@@ -118,7 +118,7 @@ class LaravelQuoteTest extends TestCase
             'locale' => 'en',
         ]);
 
-        $this->delete('php-responsive-quote/1')
+        $this->delete('jumbotron-images/1')
             ->assertStatus(302);
     }
 
@@ -141,7 +141,7 @@ class LaravelQuoteTest extends TestCase
               'text' => 'test text updated',
           ]);
 
-        $this->put('php-responsive-quote/1', [$request, 1])
+        $this->put('jumbotron-images/1', [$request, 1])
              ->assertStatus(302);
     }
 
@@ -155,7 +155,7 @@ class LaravelQuoteTest extends TestCase
 
         $this
             ->followingRedirects()
-            ->post('/php-responsive-quote', $data);
+            ->post('/jumbotron-images', $data);
 
         $this->assertDatabaseHas('quotes', ['author' => 'test author name']);
     }
@@ -173,7 +173,7 @@ class LaravelQuoteTest extends TestCase
             'locale' => 'en',
         ]);
 
-        $this->get('php-responsive-quote/1')
+        $this->get('jumbotron-images/1')
             ->assertViewIs('laravel-jumbotron-images::jumbotronImages.show')
             ->assertViewHas('quote')
             ->assertStatus(200);
@@ -192,7 +192,7 @@ class LaravelQuoteTest extends TestCase
             'locale' => 'en',
         ]);
 
-        $this->get('php-responsive-quote/1/edit')
+        $this->get('jumbotron-images/1/edit')
             ->assertViewIs('laravel-jumbotron-images::jumbotronImages.edit')
             ->assertViewHas('quote')
             ->assertStatus(200);

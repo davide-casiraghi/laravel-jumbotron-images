@@ -66,7 +66,7 @@ class LaravelQuoteTranslationTest extends TestCase
             'locale' => 'en',
         ]);
 
-        $this->get('php-responsive-quote-translation/'.$id.'/es/create')
+        $this->get('jumbotron-images-translation/'.$id.'/es/create')
             ->assertViewIs('laravel-jumbotron-images::jumbotronImagesTranslations.create')
             ->assertStatus(200);
     }
@@ -90,7 +90,7 @@ class LaravelQuoteTranslationTest extends TestCase
             'locale' => 'es',
         ]);
 
-        $this->get('php-responsive-quote-translation/'.$id.'/es/edit')
+        $this->get('jumbotron-images-translation/'.$id.'/es/edit')
             ->assertViewIs('laravel-jumbotron-images::jumbotronImagesTranslations.edit')
             ->assertViewHas('quoteId')
             ->assertViewHas('languageCode')
@@ -112,7 +112,7 @@ class LaravelQuoteTranslationTest extends TestCase
 
         $this
             ->followingRedirects()
-            ->post('/php-responsive-quote-translation', $data);
+            ->post('/jumbotron-images-translation', $data);
 
         $this->assertDatabaseHas('quote_translations', ['text' => 'test translation text']);
     }
@@ -136,7 +136,7 @@ class LaravelQuoteTranslationTest extends TestCase
             'locale' => 'es',
         ]);
 
-        $this->delete('php-responsive-quote-translation/'.$id)
+        $this->delete('jumbotron-images-translation/'.$id)
             ->assertStatus(302);
     }
 
@@ -169,10 +169,10 @@ class LaravelQuoteTranslationTest extends TestCase
 
         //dd($request);
         /*$this->followingRedirects()
-             ->put('php-responsive-quote-translation/'.$translationId, [$request, $translationId])->dump();
+             ->put('jumbotron-images-translation/'.$translationId, [$request, $translationId])->dump();
              //->assertStatus(302);*/
 
-        $this->put('php-responsive-quote-translation/'.$translationId, [$request, $translationId])
+        $this->put('jumbotron-images-translation/'.$translationId, [$request, $translationId])
                   ->assertStatus(302);
 
         //$this->assertDatabaseHas('quote_translations', ['text' => 'test spanish text updated']);
