@@ -4,7 +4,6 @@ namespace Davidecasiraghi\LaravelJumbotronImages\Tests;
 
 use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Artisan;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
