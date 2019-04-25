@@ -108,12 +108,12 @@ class LaravelJumbotronImageTranslationTest extends TestCase
     public function the_route_store_translation_can_be_accessed()
     {
         $id = JumbotronImage::insertGetId([
-            'image_file_name' => 'test image name',
+            'image_file_name' => 'imageFileName.jpg',
             'button_url' => 'test button url',
         ]);
 
         $data = [
-            'quote_id' => $id,
+            'jumbotron_image_id' => $id,
             'language_code' => 'es',
             'title' => 'test title spanish',
             'body' => 'test body spanish',
@@ -124,7 +124,7 @@ class LaravelJumbotronImageTranslationTest extends TestCase
             ->followingRedirects()
             ->post('/jumbotron-images-translation', $data);
 
-        $this->assertDatabaseHas('jumbotron_images', ['text' => 'test translation text']);
+        $this->assertDatabaseHas('jumbotron_images', ['image_file_name' => 'imageFileName.jpg']);
     }
 
     /** @test */
@@ -179,8 +179,8 @@ class LaravelJumbotronImageTranslationTest extends TestCase
 
         $request = new \Illuminate\Http\Request();
         $request->replace([
-            'quote_translation_id' => $translationId,
-            'quote_id' => $id,
+            'jumbotron_image_translation_id' => $translationId,
+            'jumbotron_image_id' => $id,
             'text' => 'test spanish text updated',
             'language_code' => 'es',
          ]);
