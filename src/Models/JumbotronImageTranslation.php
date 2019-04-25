@@ -1,6 +1,6 @@
 <?php
 
-namespace DavideCasiraghi\PhpResponsiveRandomQuote\Models;
+namespace DavideCasiraghi\LaravelJumbotronImages\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

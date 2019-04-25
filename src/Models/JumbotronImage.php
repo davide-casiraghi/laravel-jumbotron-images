@@ -1,7 +1,7 @@
 
 <?php
 
-namespace DavideCasiraghi\PhpResponsiveRandomQuote\Models;
+namespace DavideCasiraghi\LaravelJumbotronImages\Models;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
