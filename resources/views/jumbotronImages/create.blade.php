@@ -13,7 +13,7 @@
                   'style' => 'alert-danger',
             ])
 
-            <form action="{{ route('php-responsive-quote.store') }}" method="POST">
+            <form action="{{ route('jumbotron-images.store') }}" method="POST">
                 @csrf
                 
                 <div class="row">

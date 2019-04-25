@@ -7,7 +7,7 @@
             <h4>Quotes list</h4>
         </div>
         <div class="col-12 col-sm-6 mt-4 mt-sm-0 text-right">
-            <a class="btn btn-success create-new" href="{{ route('php-responsive-quote.create') }}">Add new quote</a>
+            <a class="btn btn-success create-new" href="{{ route('jumbotron-images.create') }}">Add new quote</a>
         </div>
     </div>
     
@@ -33,8 +33,8 @@
                 </div>
                 
                 <div class="col-12 pb-2">
-                    <form action="{{ route('php-responsive-quote.destroy',$quote->id) }}" method="POST">
-                        <a class="btn btn-primary float-right" href="{{ route('php-responsive-quote.edit',$quote->id) }}">Edit</a>
+                    <form action="{{ route('jumbotron-images.destroy',$quote->id) }}" method="POST">
+                        <a class="btn btn-primary float-right" href="{{ route('jumbotron-images.edit',$quote->id) }}">Edit</a>
                         
                         @csrf
                         @method('DELETE')
@@ -66,17 +66,17 @@
                             <div class="col-12 mb-4 mt-4">
                                 @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
                                     @if($quote->hasTranslation($key))
-                                        <a href="{{ route('php-responsive-quote-translation.edit', ['quoteId' => $quote->id, 'languageCode' => $key]) }}" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
+                                        <a href="{{ route('jumbotron-images-translation.edit', ['quoteId' => $quote->id, 'languageCode' => $key]) }}" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                                     @else
-                                        <a href="{{ route('php-responsive-quote-translation.create', ['quoteId' => $quote->id, 'languageCode' => $key]) }}" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
+                                        <a href="{{ route('jumbotron-images-translation.create', ['quoteId' => $quote->id, 'languageCode' => $key]) }}" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                                     @endif
                                 @endforeach
                             </div>
                             <div class="col-12 pb-2 action">
-                                <form action="{{ route('php-responsive-quote.destroy',$quote->id) }}" method="POST">
+                                <form action="{{ route('jumbotron-images.destroy',$quote->id) }}" method="POST">
 
-                                    <a class="btn btn-primary float-right" href="{{ route('php-responsive-quote.edit',$quote->id) }}">@lang('views.edit')</a>
-                                    <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('php-responsive-quote.show',$quote->id) }}">@lang('views.view')</a>
+                                    <a class="btn btn-primary float-right" href="{{ route('jumbotron-images.edit',$quote->id) }}">@lang('views.edit')</a>
+                                    <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('jumbotron-images.show',$quote->id) }}">@lang('views.view')</a>
                                     
                                     @csrf
                                     @method('DELETE')

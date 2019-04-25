@@ -74,7 +74,7 @@ class JumbotronImagesTranslationController
 
         $this->saveOnDb($request, $quoteTranslation);
 
-        return redirect()->route('php-responsive-quote.index')
+        return redirect()->route('jumbotron-images.index')
                             ->with('success', 'Quote translation added succesfully');
     }
 
@@ -97,7 +97,7 @@ class JumbotronImagesTranslationController
 
         $this->saveOnDb($request, $quoteTranslation);
 
-        return redirect()->route('php-responsive-quote.index')
+        return redirect()->route('jumbotron-images.index')
                             ->with('success', 'Quote translation added succesfully');
     }
 
@@ -146,7 +146,7 @@ class JumbotronImagesTranslationController
         $quoteTranslation = QuoteTranslation::find($quoteTranslationId);
         $quoteTranslation->delete();
 
-        return redirect()->route('php-responsive-quote.index')
+        return redirect()->route('jumbotron-images.index')
                             ->with('success', 'Quote translation deleted succesfully');
     }
 }

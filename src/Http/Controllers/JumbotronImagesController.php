@@ -68,7 +68,7 @@ class JumbotronImagesController
 
         $this->saveOnDb($request, $quote);
 
-        return redirect()->route('php-responsive-quote.index')
+        return redirect()->route('jumbotron-images.index')
                             ->with('success', 'Quote added succesfully');
     }
 
@@ -120,7 +120,7 @@ class JumbotronImagesController
 
         $this->saveOnDb($request, $quote);
 
-        return redirect()->route('php-responsive-quote.index')
+        return redirect()->route('jumbotron-images.index')
                             ->with('success', 'Quote updated succesfully');
     }
 
@@ -137,7 +137,7 @@ class JumbotronImagesController
         $quote = Quote::find($quoteId);
         $quote->delete();
 
-        return redirect()->route('php-responsive-quote.index')
+        return redirect()->route('jumbotron-images.index')
                             ->with('success', 'Quote deleted succesfully');
     }
 
