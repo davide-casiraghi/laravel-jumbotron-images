@@ -4,9 +4,7 @@ namespace DavideCasiraghi\LaravelJumbotronImages\Http\Controllers;
 
 use Validator;
 use Illuminate\Http\Request;
-use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 
 class JumbotronImagesTranslationController
 {
