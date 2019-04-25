@@ -8,7 +8,7 @@ class CreateJumbotronImageTranslationsTable extends Migration
 {
     public function up()
     {
-        Schema::create('jumbotron_images_translations', function (Blueprint $table) {
+        Schema::create('jumbotron_image_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('jumbotron_image_id')->unsigned();
             
@@ -24,6 +24,6 @@ class CreateJumbotronImageTranslationsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('jumbotron_images_translations');
+        Schema::dropIfExists('jumbotron_image_translations');
     }
 }

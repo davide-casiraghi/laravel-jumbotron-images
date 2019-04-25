@@ -29,7 +29,7 @@ class LaravelJumbotronImagesServiceProvider extends ServiceProvider
         }
         if (! class_exists('CreateQuoteTranslationsTable')) {
             $this->publishes([
-                __DIR__.'/../database/migrations/create_jumbotron_images_translations_table.php.stub' => database_path('migrations/'.Carbon::now()->format('Y_m_d_Hmsu').'_create_jumbotron_images_translations_table.php'),
+                __DIR__.'/../database/migrations/create_jumbotron_image_translations_table.php.stub' => database_path('migrations/'.Carbon::now()->format('Y_m_d_Hmsu').'_create_jumbotron_image_translations_table.php'),
             ], 'migrations');
         }
         

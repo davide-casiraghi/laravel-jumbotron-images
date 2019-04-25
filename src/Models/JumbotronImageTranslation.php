@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class JumbotronImageTranslation extends Model
 {
-    protected $table = 'jumbotron_images_translations';
+    protected $table = 'jumbotron_image_translations';
 
     public $timestamps = false;
     protected $fillable = [
