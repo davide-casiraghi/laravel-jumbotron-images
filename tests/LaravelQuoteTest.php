@@ -93,7 +93,7 @@ class LaravelQuoteTest extends TestCase
     public function the_route_index_can_be_accessed()
     {
         $this->get('php-responsive-quote')
-            ->assertViewIs('php-responsive-quote::quotes.index')
+            ->assertViewIs('laravel-jumbotron-images::jumbotronImages.index')
             ->assertStatus(200);
     }
 
@@ -101,7 +101,7 @@ class LaravelQuoteTest extends TestCase
     public function the_route_create_can_be_accessed()
     {
         $this->get('php-responsive-quote/create')
-            ->assertViewIs('php-responsive-quote::quotes.create')
+            ->assertViewIs('laravel-jumbotron-images::jumbotronImages.create')
             ->assertStatus(200);
     }
 
@@ -174,7 +174,7 @@ class LaravelQuoteTest extends TestCase
         ]);
 
         $this->get('php-responsive-quote/1')
-            ->assertViewIs('php-responsive-quote::quotes.show')
+            ->assertViewIs('laravel-jumbotron-images::jumbotronImages.show')
             ->assertViewHas('quote')
             ->assertStatus(200);
     }
@@ -193,7 +193,7 @@ class LaravelQuoteTest extends TestCase
         ]);
 
         $this->get('php-responsive-quote/1/edit')
-            ->assertViewIs('php-responsive-quote::quotes.edit')
+            ->assertViewIs('laravel-jumbotron-images::jumbotronImages.edit')
             ->assertViewHas('quote')
             ->assertStatus(200);
     }

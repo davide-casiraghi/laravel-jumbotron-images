@@ -67,7 +67,7 @@ class LaravelQuoteTranslationTest extends TestCase
         ]);
 
         $this->get('php-responsive-quote-translation/'.$id.'/es/create')
-            ->assertViewIs('php-responsive-quote::quoteTranslations.create')
+            ->assertViewIs('laravel-jumbotron-images::jumbotronImagesTranslations.create')
             ->assertStatus(200);
     }
 
@@ -91,7 +91,7 @@ class LaravelQuoteTranslationTest extends TestCase
         ]);
 
         $this->get('php-responsive-quote-translation/'.$id.'/es/edit')
-            ->assertViewIs('php-responsive-quote::quoteTranslations.edit')
+            ->assertViewIs('laravel-jumbotron-images::jumbotronImagesTranslations.edit')
             ->assertViewHas('quoteId')
             ->assertViewHas('languageCode')
             ->assertStatus(200);

@@ -1,4 +1,4 @@
-@extends('php-responsive-quote::quotes.layout')
+@extends('laravel-jumbotron-images::jumbotronImages.layout')
 
 @section('content')
 

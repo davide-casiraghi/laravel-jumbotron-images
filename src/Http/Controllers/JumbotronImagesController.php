@@ -31,7 +31,7 @@ class JumbotronImagesController
                                      ->paginate(20);
         }
 
-        return view('php-responsive-quote::quotes.index', compact('quotes'))
+        return view('laravel-jumbotron-images::jumbotronImages.index', compact('quotes'))
                              ->with('i', (request()->input('page', 1) - 1) * 20)
                              ->with('searchKeywords', $searchKeywords)
                              ->with('countriesAvailableForTranslations', $countriesAvailableForTranslations);
@@ -46,7 +46,7 @@ class JumbotronImagesController
      */
     public function create()
     {
-        return view('php-responsive-quote::quotes.create');
+        return view('laravel-jumbotron-images::jumbotronImages.create');
     }
 
     /***************************************************************************/
@@ -84,7 +84,7 @@ class JumbotronImagesController
     {
         $quote = Quote::find($quoteId);
 
-        return view('php-responsive-quote::quotes.show', compact('quote'));
+        return view('laravel-jumbotron-images::jumbotronImages.show', compact('quote'));
     }
 
     /***************************************************************************/
@@ -99,7 +99,7 @@ class JumbotronImagesController
     {
         $quote = Quote::find($quoteId);
 
-        return view('php-responsive-quote::quotes.edit', compact('quote'));
+        return view('laravel-jumbotron-images::jumbotronImages.edit', compact('quote'));
     }
 
     /***************************************************************************/

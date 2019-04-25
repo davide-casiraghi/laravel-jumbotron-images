@@ -22,7 +22,7 @@ class JumbotronImagesTranslationController
     {
         $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
 
-        return view('php-responsive-quote::quoteTranslations.create')
+        return view('laravel-jumbotron-images::jumbotronImagesTranslations.create')
                 ->with('quoteId', $quoteId)
                 ->with('languageCode', $languageCode)
                 ->with('selectedLocaleName', $selectedLocaleName);
@@ -45,7 +45,7 @@ class JumbotronImagesTranslationController
 
         $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
 
-        return view('php-responsive-quote::quoteTranslations.edit', compact('quoteTranslation'))
+        return view('laravel-jumbotron-images::jumbotronImagesTranslations.edit', compact('quoteTranslation'))
                     ->with('quoteId', $quoteId)
                     ->with('languageCode', $languageCode)
                     ->with('selectedLocaleName', $selectedLocaleName);
