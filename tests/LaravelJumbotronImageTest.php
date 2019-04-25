@@ -193,12 +193,15 @@ class LaravelJumbotronImageTranslationTest extends TestCase
     public function the_route_edit_can_be_accessed()
     {
         $id = JumbotronImage::insertGetId([
-            'author' => 'test author name',
+            'image_file_name' => 'test image name',
+            'button_url' => 'test button url',
         ]);
 
-        QuoteTranslation::insert([
-            'quote_id' => $id,
-            'text' => 'test text',
+        JumbotronImageTranslation::insert([
+            'jumbotron_image_id' => $id,
+            'title' => 'test title',
+            'body' => 'test body',
+            'button_text' => 'test button text',
             'locale' => 'en',
         ]);
 
