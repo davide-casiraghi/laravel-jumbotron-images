@@ -22,12 +22,18 @@ class JumbotronImageController
         $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
         if ($searchKeywords) {
-            $jumbotronImages = JumbotronImage::orderBy('title')
-                                     ->where('title', 'like', '%'.$request->input('keywords').'%')
-                                     ->paginate(20);
+            $jumbotronImages = JumbotronImage::
+                                select('jumbotron_image_translations.jumbotron_image_id AS id', 'title', 'body', 'button_text', 'image_file_name', 'button_url', 'locale')
+                                ->join('jumbotron_image_translations', 'jumbotron_images.id', '=', 'jumbotron_image_translations.jumbotron_image_id')
+                                ->orderBy('title')
+                                ->where('title', 'like', '%'.$searchKeywords.'%')
+                                ->paginate(20);
         } else {
-            $jumbotronImages = JumbotronImage::orderBy('title')
-                                     ->paginate(20);
+            $jumbotronImages = JumbotronImage::
+                                select('jumbotron_image_translations.jumbotron_image_id AS id', 'title', 'body', 'button_text', 'image_file_name', 'button_url', 'locale')
+                                ->join('jumbotron_image_translations', 'jumbotron_images.id', '=', 'jumbotron_image_translations.jumbotron_image_id')
+                                ->orderBy('title')
+                                ->paginate(20);
         }
 
         return view('laravel-jumbotron-images::jumbotronImages.index', compact('jumbotronImages'))
