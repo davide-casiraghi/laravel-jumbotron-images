@@ -23,9 +23,11 @@ composer require davide-casiraghi/laravel-jumbotron-images
 
 ### Testing
 
+You can run unit tests checking the code coverage using this command.
 ``` bash
-composer test
+./vendor/bin/phpunit --coverage-html=html
 ```
+So you can find the reports about the code coverage in this file **/html/index.html**
 
 ### Changelog
 
