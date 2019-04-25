@@ -6,6 +6,7 @@ use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
+use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
 
 class LaravelJumbotronImageTranslationTest extends TestCase
@@ -109,12 +110,15 @@ class LaravelJumbotronImageTranslationTest extends TestCase
     public function the_route_destroy_can_be_accessed()
     {
         $id = JumbotronImage::insertGetId([
-            'author' => 'test author name',
+            'image_file_name' => 'test image name',
+            'button_url' => 'test button url',
         ]);
 
-        QuoteTranslation::insert([
-            'quote_id' => $id,
-            'text' => 'test text',
+        JumbotronImageTranslation::insert([
+            'jumbotron_image_id' => $id,
+            'title' => 'test title',
+            'body' => 'test body',
+            'button_text' => 'test button text',
             'locale' => 'en',
         ]);
 
@@ -126,12 +130,15 @@ class LaravelJumbotronImageTranslationTest extends TestCase
     public function the_route_update_can_be_accessed()
     {
         $id = JumbotronImage::insertGetId([
-            'author' => 'test author name',
+            'image_file_name' => 'test image name',
+            'button_url' => 'test button url',
         ]);
 
-        QuoteTranslation::insert([
-            'quote_id' => $id,
-            'text' => 'test text',
+        JumbotronImageTranslation::insert([
+            'jumbotron_image_id' => $id,
+            'title' => 'test title',
+            'body' => 'test body',
+            'button_text' => 'test button text',
             'locale' => 'en',
         ]);
 
@@ -164,18 +171,21 @@ class LaravelJumbotronImageTranslationTest extends TestCase
     public function the_route_show_can_be_accessed()
     {
         $id = JumbotronImage::insertGetId([
-            'author' => 'test author name',
+            'image_file_name' => 'test image name',
+            'button_url' => 'test button url',
         ]);
 
-        QuoteTranslation::insert([
-            'quote_id' => $id,
-            'text' => 'test text',
+        JumbotronImageTranslation::insert([
+            'jumbotron_image_id' => $id,
+            'title' => 'test title',
+            'body' => 'test body',
+            'button_text' => 'test button text',
             'locale' => 'en',
         ]);
 
         $this->get('jumbotron-images/1')
             ->assertViewIs('laravel-jumbotron-images::jumbotronImages.show')
-            ->assertViewHas('quote')
+            ->assertViewHas('jumbotronImage')
             ->assertStatus(200);
     }
 
@@ -194,7 +204,7 @@ class LaravelJumbotronImageTranslationTest extends TestCase
 
         $this->get('jumbotron-images/1/edit')
             ->assertViewIs('laravel-jumbotron-images::jumbotronImages.edit')
-            ->assertViewHas('quote')
+            ->assertViewHas('jumbotronImage')
             ->assertStatus(200);
     }
 
