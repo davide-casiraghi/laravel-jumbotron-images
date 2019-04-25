@@ -156,15 +156,18 @@ class LaravelJumbotronImageTranslationTest extends TestCase
     public function the_route_store_can_be_accessed()
     {
         $data = [
-            'author' => 'test author name',
-            'text' => 'dummy quote',
+            'title' => 'test title',
+            'body' => 'test body',
+            'button_text' => 'test button text',
+            'button_url' => 'test button url',
+            'image_file_name' => 'test.jpg',
         ];
 
         $this
             ->followingRedirects()
             ->post('/jumbotron-images', $data);
 
-        $this->assertDatabaseHas('quotes', ['author' => 'test author name']);
+        $this->assertDatabaseHas('jumbotron_images', ['image_file_name' => 'test.jpg']);
     }
 
     /** @test */
