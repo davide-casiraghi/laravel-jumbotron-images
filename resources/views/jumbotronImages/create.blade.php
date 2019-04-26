@@ -78,7 +78,7 @@
                     </div>
                     
                     <div class="col-12">
-                        @include('partials.forms.checkbox', [
+                        @include('laravel-jumbotron-images::partials.checkbox', [
                               'name' => 'scroll_down_arrow',
                               'description' => 'Show scroll down arrow',
                               'value' => old('scroll_down_arrow'),

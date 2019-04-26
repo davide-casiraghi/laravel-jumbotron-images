@@ -16,7 +16,7 @@
 </div>
 
 
-
+{{--
 <div class="jumbotronImage">
     <section class="hero {{$parameters['white_moon']}} {{$parameters['banner_height']}} {{$parameters['parallax']}} {{$parameters['banner_height']}}" style="{{$parameters['image']}} {{$parameters['background_color']}} {{$parameters['parallax']}}" {{$parameters['parallax_ratio']}}>
         <div class="hero-body" style="{{$parameters['vertical_text_alignment']}}">
@@ -43,3 +43,4 @@
         
     
 </div>
+--}}
