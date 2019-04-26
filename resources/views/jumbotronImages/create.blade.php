@@ -56,15 +56,14 @@
                         ])
                     </div>
                     
-                    {{-- Image file name --}}
-                    <div class="col-12">
-                        @include('laravel-jumbotron-images::partials.input', [
-                            'title' =>  'Image file name',
-                            'name' => 'image_file_name',
-                            'placeholder' => '', 
-                            'value' => old('image_file_name')
-                        ])
-                    </div>
+                    {{-- Image --}}
+                    @include('laravel-jumbotron-images::partials.upload-image', [
+                          'title' => 'Jumbotron background image', 
+                          'name' => 'image_file_name',
+                          'folder' => 'jumbotron_images',
+                          'value' => ''
+                    ])
+                    
         
                     <div class="col-12">
                         @include('laravel-jumbotron-images::partials.buttons-back-submit', [
