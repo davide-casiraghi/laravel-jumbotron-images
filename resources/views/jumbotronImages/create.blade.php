@@ -78,6 +78,15 @@
                     </div>
                     
                     <div class="col-12">
+                        @include('partials.forms.checkbox', [
+                              'name' => 'scroll_down_arrow',
+                              'description' => 'Show scroll down arrow',
+                              'value' => old('scroll_down_arrow'),
+                              'required' => false,
+                        ])
+                    </div>
+                    
+                    <div class="col-12">
                         @include('laravel-jumbotron-images::partials.buttons-back-submit', [
                            'route' => 'jumbotron-images.index'  
                        ])
