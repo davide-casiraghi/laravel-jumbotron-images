@@ -30,14 +30,30 @@
          <div class="row">
             <div class="col-12">
                 @include('laravel-jumbotron-images::partials.input', [
-                    'title' => 'Text',
-                    'name' => 'text',
-                    'placeholder' => 'Quote text',
-                    'value' => old('text'),
+                    'title' =>  'Title',
+                    'name' => 'title',
+                    'placeholder' => '', 
+                    'value' => old('title'),
                     'required' => true,
                 ])
             </div>
-            
+            <div class="col-12">
+                @include('laravel-jumbotron-images::partials.textarea-plain', [
+                    'title' =>  'Body',
+                    'name' => 'body',
+                    'value' => old('body'),
+                    'required' => true,
+                ])
+            </div>
+            <div class="col-12">
+                @include('laravel-jumbotron-images::partials.input', [
+                    'title' =>  'Button text',
+                    'name' => 'button_text',
+                    'placeholder' => '', 
+                    'value' => old('button_text'),
+                    'required' => true,
+                ])
+            </div>
         </div>
 
         @include('laravel-jumbotron-images::partials.buttons-back-submit', [

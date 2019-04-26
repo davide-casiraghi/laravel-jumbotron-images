@@ -161,6 +161,7 @@ class LaravelJumbotronImageTranslationTest extends TestCase
             'image_file_name' => 'test image name',
             'button_url' => 'test button url',
         ]);
+        
         JumbotronImageTranslation::insert([
             'jumbotron_image_id' => $id,
             'title' => 'test title',
@@ -169,14 +170,14 @@ class LaravelJumbotronImageTranslationTest extends TestCase
             'locale' => 'en',
         ]);
 
-        $translationId = JumbotronImageTranslation::insert([
+        $translationId = JumbotronImageTranslation::insertGetId([
             'jumbotron_image_id' => $id,
             'title' => 'test title spanish',
             'body' => 'test body spanish',
             'button_text' => 'test button text spanish ',
             'locale' => 'es',
         ]);
-
+        
         $request = new \Illuminate\Http\Request();
         $request->replace([
             'jumbotron_image_translation_id' => $translationId,
@@ -191,7 +192,7 @@ class LaravelJumbotronImageTranslationTest extends TestCase
              //->assertStatus(302);*/
 
         $this->put('jumbotron-images-translation/'.$translationId, [$request, $translationId])
-                  ->assertStatus(302);
+                 ->assertStatus(302);
 
         //$this->assertDatabaseHas('quote_translations', ['text' => 'test spanish text updated']);
     }

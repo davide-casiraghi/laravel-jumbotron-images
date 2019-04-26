@@ -62,12 +62,12 @@ class JumbotronImageTranslationController
     {
 
         // Validate form datas
-        $validator = Validator::make($request->all(), [
+        /*$validator = Validator::make($request->all(), [
                 'text' => 'required',
             ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
-        }
+        }*/
 
         $jumbotronImageTranslation = new JumbotronImageTranslation();
 
@@ -88,14 +88,15 @@ class JumbotronImageTranslationController
      */
     public function update(Request $request, $jumbotronImageTranslationId)
     {
-        request()->validate([
+        /*request()->validate([
             'text' => 'required',
-        ]);
+        ]);*/
+        
 
         $jumbotronImageTranslation = JumbotronImageTranslation::find($jumbotronImageTranslationId);
-
+        //dd($jumbotronImageTranslation);
         $this->saveOnDb($request, $jumbotronImageTranslation);
-
+        
         return redirect()->route('jumbotron-images.index')
                             ->with('success', 'Jumbotron Image translation added succesfully');
     }
@@ -110,13 +111,14 @@ class JumbotronImageTranslationController
      */
     public function saveOnDb($request, $jumbotronImageTranslation)
     {
-        $jumbotronImageTranslation->jumbotron_image_id = $request->get('jumbotron_image_id');
-        $jumbotronImageTranslation->locale = $request->get('language_code');
+        //dd($request);
+        //$jumbotronImageTranslation->jumbotron_image_id = $request->get('jumbotron_image_id');
+        //$jumbotronImageTranslation->locale = $request->get('language_code');
 
         $jumbotronImageTranslation->title = $request->get('title');
         $jumbotronImageTranslation->body = $request->get('body');
         $jumbotronImageTranslation->button_text = $request->get('button_text');
-
+        //dd($jumbotronImageTranslation);
         $jumbotronImageTranslation->save();
     }
 
