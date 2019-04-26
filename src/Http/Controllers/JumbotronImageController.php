@@ -172,7 +172,7 @@ class JumbotronImageController
             $imageSubdir = 'jumbotron_images';
             $imageWidth = '1067';
             $thumbWidth = '690';
-
+    
             $this->uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
             $jumbotronImage->image_file_name = $imageName;
         } else {
@@ -186,10 +186,14 @@ class JumbotronImageController
 
     /**
      * Upload image on server.
+     * $imageFile - the file to upload
+     * $imageSubdir is the subdir in /storage/app/public/images/..
      *
-     * @param  $imageFile - the file to upload
-     * @param  $imageName - the file name
-     * @param  $imageSubdir - the subdir in /storage/app/public/images/..
+     * @param  \Illuminate\Http\UploadedFile $imageFile
+     * @param  string $imageName
+     * @param  string $imageSubdir 
+     * @param  int $imageWidth
+     * @param  int $thumbWidth
      * @return void
      */
     public function uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth)
