@@ -50,7 +50,7 @@
                 "DavideCasiraghi\\LaravelJumbotronImages\\LaravelJumbotronImagesServiceProvider"
             ],
             "aliases": {
-                "LaravelJumbotronImages": "DavideCasiraghi\\LaravelJumbotronImages\\LaravelJumbotronImagesFacade"
+                "LaravelJumbotronImages": "DavideCasiraghi\\LaravelJumbotronImages\\LaravelJumbotronImages"
             }
         }
     }

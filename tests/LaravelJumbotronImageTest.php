@@ -8,7 +8,7 @@ use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
 
-use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImagesFacade;
+use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImages;
 
 class LaravelJumbotronImageTest extends TestCase
 {
@@ -204,7 +204,7 @@ class LaravelJumbotronImageTest extends TestCase
     /** @test */
     public function the_facade_can_be_reached()
     {
-        $testExtension = LaravelJumbotronImagesFacade::show(2);
+        $testExtension = LaravelJumbotronImages::show(2);
         $this->assertStringContainsString($testExtension, 'jpg');
     }
 }

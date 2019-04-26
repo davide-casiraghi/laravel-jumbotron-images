@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \DavideCasiraghi\LaravelJumbotronImages\Skeleton\SkeletonClass
  */
-class LaravelJumbotronImagesFacade extends Facade
+class LaravelJumbotronImages extends Facade
 {
     /**
      * Get the registered name of the component.

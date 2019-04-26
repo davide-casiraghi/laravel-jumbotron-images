@@ -4,7 +4,7 @@ namespace Davidecasiraghi\LaravelJumbotronImages\Tests;
 
 use Orchestra\Testbench\TestCase;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
-use DavideCasiraghi\LaravelJumbotronImages\Facades\PhpResponsiveQuote;
+use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImages;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
 
