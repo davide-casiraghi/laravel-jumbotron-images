@@ -22,19 +22,19 @@
     <div class="quotesList my-4">
         
         {{--
-        @foreach ($quotes as $quote)
+        @foreach ($jumbotronImages as $jumbotronImage)
             <div class="row bg-white shadow-1 rounded mb-3 pb-2 pt-3 mx-1">
                 
                 <div class="col-12 py-1">
-                    <h5>{{ $quote->author }}</h5>
+                    <h5>{{ $jumbotronImage->author }}</h5>
                     <div class="">
-                        {{ $quote->text }}
+                        {{ $jumbotronImage->text }}
                     </div>
                 </div>
                 
                 <div class="col-12 pb-2">
-                    <form action="{{ route('jumbotron-images.destroy',$quote->id) }}" method="POST">
-                        <a class="btn btn-primary float-right" href="{{ route('jumbotron-images.edit',$quote->id) }}">Edit</a>
+                    <form action="{{ route('jumbotron-images.destroy',$jumbotronImage->id) }}" method="POST">
+                        <a class="btn btn-primary float-right" href="{{ route('jumbotron-images.edit',$jumbotronImage->id) }}">Edit</a>
                         
                         @csrf
                         @method('DELETE')
@@ -48,7 +48,7 @@
         --}}
         
         
-        @foreach ($quotes as $quote)
+        @foreach ($jumbotronImages as $jumbotronImage)
                 <div class="row bg-white shadow-1 rounded mb-3 mx-1">
                     
                     <div class="col-12 pb-2 pt-3 px-3">
@@ -56,27 +56,27 @@
                             
                             {{-- Title --}}
                             <div class="col-12 py-1 title">
-                                <h5 class="darkest-gray">{{ $quote->author }}</h5>
+                                <h5 class="darkest-gray">{{ $jumbotronImage->title }}</h5>
                             </div>
                             <div class="col-12">
-                                @if($quote->translate('en')->text){{ $quote->translate('en')->text }}@endif
+                                @if($jumbotronImage->translate('en')->body){{ $jumbotronImage->translate('en')->body }}@endif
                             </div>
                             
                             {{-- Translations --}}
                             <div class="col-12 mb-4 mt-4">
                                 @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
-                                    @if($quote->hasTranslation($key))
-                                        <a href="{{ route('jumbotron-images-translation.edit', ['quoteId' => $quote->id, 'languageCode' => $key]) }}" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
+                                    @if($jumbotronImage->hasTranslation($key))
+                                        <a href="{{ route('jumbotron-images-translation.edit', ['jumbotronImageTranslationId' => $jumbotronImage->id, 'languageCode' => $key]) }}" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                                     @else
-                                        <a href="{{ route('jumbotron-images-translation.create', ['quoteId' => $quote->id, 'languageCode' => $key]) }}" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
+                                        <a href="{{ route('jumbotron-images-translation.create', ['jumbotronImageTranslationId' => $jumbotronImage->id, 'languageCode' => $key]) }}" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                                     @endif
                                 @endforeach
                             </div>
                             <div class="col-12 pb-2 action">
-                                <form action="{{ route('jumbotron-images.destroy',$quote->id) }}" method="POST">
+                                <form action="{{ route('jumbotron-images.destroy',$jumbotronImage->id) }}" method="POST">
 
-                                    <a class="btn btn-primary float-right" href="{{ route('jumbotron-images.edit',$quote->id) }}">@lang('views.edit')</a>
-                                    <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('jumbotron-images.show',$quote->id) }}">@lang('views.view')</a>
+                                    <a class="btn btn-primary float-right" href="{{ route('jumbotron-images.edit',$jumbotronImage->id) }}">@lang('views.edit')</a>
+                                    <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('jumbotron-images.show',$jumbotronImage->id) }}">@lang('views.view')</a>
                                     
                                     @csrf
                                     @method('DELETE')
@@ -85,7 +85,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div>    
+                    </div>
                 </div>    
             @endforeach    
         
