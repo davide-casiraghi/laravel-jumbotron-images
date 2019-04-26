@@ -71,7 +71,7 @@ class JumbotronImageTranslationController
 
         $jumbotronImageTranslation = new JumbotronImageTranslation();
 
-        $this->saveOnDb($request, $jumbotronImageTranslation);
+        $this->saveOnDb($request, $jumbotronImageTranslation, 'save');
 
         return redirect()->route('jumbotron-images.index')
                             ->with('success', 'Jumbotron Image translation added succesfully');
@@ -95,7 +95,7 @@ class JumbotronImageTranslationController
 
         $jumbotronImageTranslation = JumbotronImageTranslation::find($jumbotronImageTranslationId);
         //dd($jumbotronImageTranslation);
-        $this->saveOnDb($request, $jumbotronImageTranslation);
+        $this->saveOnDb($request, $jumbotronImageTranslation, 'update');
         
         return redirect()->route('jumbotron-images.index')
                             ->with('success', 'Jumbotron Image translation added succesfully');
@@ -109,17 +109,23 @@ class JumbotronImageTranslationController
      * @param  \DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation  $jumbotronImageTranslation
      * @return void
      */
-    public function saveOnDb($request, $jumbotronImageTranslation)
+    public function saveOnDb($request, $jumbotronImageTranslation, $saveOrUpdate)
     {
-        //dd($request);
-        $jumbotronImageTranslation->jumbotron_image_id = $request->get('jumbotron_image_id');
-        $jumbotronImageTranslation->locale = $request->get('language_code');
-
         $jumbotronImageTranslation->title = $request->get('title');
         $jumbotronImageTranslation->body = $request->get('body');
         $jumbotronImageTranslation->button_text = $request->get('button_text');
-        //dd($jumbotronImageTranslation);
-        $jumbotronImageTranslation->save();
+        
+        switch ($saveOrUpdate) {
+            case 'save':
+                $jumbotronImageTranslation->jumbotron_image_id = $request->get('jumbotron_image_id');
+                $jumbotronImageTranslation->locale = $request->get('language_code');
+                $jumbotronImageTranslation->save();
+                break;
+            case 'update':
+                $jumbotronImageTranslation->update();
+                break;
+        }
+        
     }
 
     /***************************************************************************/
