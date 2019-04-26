@@ -1,1 +1,49 @@
-create translation view
+@extends('laravel-jumbotron-images::jumbotronImages.layout')
+
+@section('content')
+    
+    <div class="row py-4">
+        <div class="col-12 col-sm-9">
+            <h4>Add new jumbotron image translation</h4>
+        </div>
+        <div class="col-12 col-sm-3 text-right">
+            <span class="badge badge-secondary">{{$selectedLocaleName}}</span>
+        </div>
+    </div>
+
+    @include('laravel-jumbotron-images::partials.error-management', [
+          'style' => 'alert-danger',
+    ])
+
+    <form action="{{ route('jumbotron-images-translation.store') }}" method="POST">
+        @csrf
+
+            @include('laravel-jumbotron-images::partials.input-hidden', [
+                  'name' => 'jumbotron_image_id',
+                  'value' => $jumbotronImageId,
+            ])
+            @include('laravel-jumbotron-images::partials.input-hidden', [
+                  'name' => 'language_code',
+                  'value' => $languageCode
+            ])
+
+         <div class="row">
+            <div class="col-12">
+                @include('laravel-jumbotron-images::partials.input', [
+                    'title' => 'Text',
+                    'name' => 'text',
+                    'placeholder' => 'Quote text',
+                    'value' => old('text'),
+                    'required' => true,
+                ])
+            </div>
+            
+        </div>
+
+        @include('laravel-jumbotron-images::partials.buttons-back-submit', [
+            'route' => 'jumbotron-images.index'  
+        ])
+
+    </form>
+
+@endsection

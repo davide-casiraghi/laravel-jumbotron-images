@@ -13,16 +13,16 @@ class JumbotronImageTranslationController
 
     /**
      * Show the form for creating a new resource.
-     * @param int $jumbotronImageTranslationId
+     * @param int $jumbotronImageId
      * @param string $languageCode
      * @return \Illuminate\Http\Response
      */
-    public function create($jumbotronImageTranslationId, $languageCode)
+    public function create($jumbotronImageId, $languageCode)
     {
         $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
 
         return view('laravel-jumbotron-images::jumbotronImagesTranslations.create')
-                ->with('jumbotronImageTranslationId', $jumbotronImageTranslationId)
+                ->with('jumbotronImageId', $jumbotronImageId)
                 ->with('languageCode', $languageCode)
                 ->with('selectedLocaleName', $selectedLocaleName);
     }
