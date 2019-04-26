@@ -5,10 +5,9 @@ namespace Davidecasiraghi\LaravelJumbotronImages\Tests;
 use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\DB;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
+use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImages;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
-
-use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImages;
 
 class LaravelJumbotronImageTest extends TestCase
 {
@@ -200,7 +199,7 @@ class LaravelJumbotronImageTest extends TestCase
             ->assertViewHas('jumbotronImage')
             ->assertStatus(200);
     }
-    
+
     /** @test */
     public function the_facade_can_be_reached()
     {
@@ -208,7 +207,7 @@ class LaravelJumbotronImageTest extends TestCase
             'image_file_name' => 'test.jpg',
             'button_url' => 'test button url',
         ]);
-        
+
         $jumbotronImage = LaravelJumbotronImages::getJumbotronImage(1);
         $this->assertStringContainsString($jumbotronImage->image_file_name, 'test.jpg');
     }
