@@ -102,7 +102,7 @@ class JumbotronImageController
     {
         $jumbotronImage = JumbotronImage::find($jumbotronImageId);
 
-        return view('laravel-jumbotron-images::jumbotronImages.edit', compact('quote'));
+        return view('laravel-jumbotron-images::jumbotronImages.edit', compact('jumbotronImage'));
     }
 
     /***************************************************************************/

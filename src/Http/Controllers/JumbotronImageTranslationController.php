@@ -5,6 +5,7 @@ namespace DavideCasiraghi\LaravelJumbotronImages\Http\Controllers;
 use Validator;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 
 class JumbotronImageTranslationController
 {
@@ -12,16 +13,16 @@ class JumbotronImageTranslationController
 
     /**
      * Show the form for creating a new resource.
-     * @param int $quoteId
+     * @param int $jumbotronImageTranslationId
      * @param string $languageCode
      * @return \Illuminate\Http\Response
      */
-    public function create($quoteId, $languageCode)
+    public function create($jumbotronImageTranslationId, $languageCode)
     {
         $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
 
         return view('laravel-jumbotron-images::jumbotronImagesTranslations.create')
-                ->with('quoteId', $quoteId)
+                ->with('jumbotronImageTranslationId', $jumbotronImageTranslationId)
                 ->with('languageCode', $languageCode)
                 ->with('selectedLocaleName', $selectedLocaleName);
     }
@@ -31,20 +32,20 @@ class JumbotronImageTranslationController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $quoteId
+     * @param int $jumbotronImageTranslationId
      * @param string $languageCode
      * @return \Illuminate\Http\Response
      */
-    public function edit($quoteId, $languageCode)
+    public function edit($jumbotronImageTranslationId, $languageCode)
     {
-        $quoteTranslation = QuoteTranslation::where('quote_id', $quoteId)
+        $jumbotronImageTranslation = JumbotronImageTranslation::where('jumbotron_image_id', $jumbotronImageTranslationId)
                         ->where('locale', $languageCode)
                         ->first();
 
         $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
 
-        return view('laravel-jumbotron-images::jumbotronImagesTranslations.edit', compact('quoteTranslation'))
-                    ->with('quoteId', $quoteId)
+        return view('laravel-jumbotron-images::jumbotronImagesTranslations.edit', compact('jumbotronImageTranslation'))
+                    ->with('jumbotronImageTranslationId', $jumbotronImageTranslationId)
                     ->with('languageCode', $languageCode)
                     ->with('selectedLocaleName', $selectedLocaleName);
     }
@@ -68,12 +69,12 @@ class JumbotronImageTranslationController
             return back()->withErrors($validator)->withInput();
         }
 
-        $quoteTranslation = new QuoteTranslation();
+        $jumbotronImageTranslation = new JumbotronImageTranslation();
 
-        $this->saveOnDb($request, $quoteTranslation);
+        $this->saveOnDb($request, $jumbotronImageTranslation);
 
         return redirect()->route('jumbotron-images.index')
-                            ->with('success', 'Quote translation added succesfully');
+                            ->with('success', 'Jumbotron Image translation added succesfully');
     }
 
     /***************************************************************************/
@@ -82,21 +83,21 @@ class JumbotronImageTranslationController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $quoteTranslationId
+     * @param  int  $jumbotronImageTranslationId
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $quoteTranslationId)
+    public function update(Request $request, $jumbotronImageTranslationId)
     {
         request()->validate([
             'text' => 'required',
         ]);
 
-        $quoteTranslation = QuoteTranslation::find($quoteTranslationId);
+        $jumbotronImageTranslation = JumbotronImageTranslation::find($jumbotronImageTranslationId);
 
-        $this->saveOnDb($request, $quoteTranslation);
+        $this->saveOnDb($request, $jumbotronImageTranslation);
 
         return redirect()->route('jumbotron-images.index')
-                            ->with('success', 'Quote translation added succesfully');
+                            ->with('success', 'Jumbotron Image translation added succesfully');
     }
 
     /***************************************************************************/
@@ -104,16 +105,19 @@ class JumbotronImageTranslationController
     /**
      * Save the record on DB.
      * @param  \Illuminate\Http\Request  $request
-     * @param  \DavideCasiraghi\PhpResponsiveRandomQuote\Models\QuoteTranslation  $quoteTranslation
+     * @param  \DavideCasiraghi\PhpResponsiveRandomQuote\Models\JumbotronImageTranslation  $jumbotronImageTranslation
      * @return void
      */
-    public function saveOnDb($request, $quoteTranslation)
+    public function saveOnDb($request, $jumbotronImageTranslation)
     {
-        $quoteTranslation->quote_id = $request->get('quote_id');
-        $quoteTranslation->locale = $request->get('language_code');
+        $jumbotronImageTranslation->jumbotron_image_id = $request->get('jumbotron_image_id');
+        $jumbotronImageTranslation->locale = $request->get('language_code');
 
-        $quoteTranslation->text = $request->get('text');
-        $quoteTranslation->save();
+        $jumbotronImageTranslation->title = $request->get('title');
+        $jumbotronImageTranslation->body = $request->get('body');
+        $jumbotronImageTranslation->button_text = $request->get('button_text');
+        	
+        $jumbotronImageTranslation->save();
     }
 
     /***************************************************************************/
@@ -137,14 +141,14 @@ class JumbotronImageTranslationController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $quoteTranslationId
+     * @param  int  $jumbotronImageTranslationId
      */
-    public function destroy($quoteTranslationId)
+    public function destroy($jumbotronImageTranslationId)
     {
-        $quoteTranslation = QuoteTranslation::find($quoteTranslationId);
-        $quoteTranslation->delete();
+        $jumbotronImageTranslation = JumbotronImageTranslation::find($jumbotronImageTranslationId);
+        $jumbotronImageTranslation->delete();
 
         return redirect()->route('jumbotron-images.index')
-                            ->with('success', 'Quote translation deleted succesfully');
+                            ->with('success', 'Jumbotron Image translation deleted succesfully');
     }
 }
