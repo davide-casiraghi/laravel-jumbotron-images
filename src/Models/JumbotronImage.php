@@ -15,5 +15,8 @@ class JumbotronImage extends Model
     protected $fillable = [
         'image_file_name',
         'button_url',
+        'jumbotron_height',
+        'cover_opacity',
+        'scroll_down_arrow',
     ];
 }

@@ -67,12 +67,12 @@
                     <div class="col-12">
                         @include('laravel-jumbotron-images::partials.select', [
                               'title' => "Jumbotron Height",
-                              'name' => 'bannerheight',
+                              'name' => 'jumbotron_height',
                               'placeholder' => "choose one...", 
                               'records' => $jumbotronHeightArray,
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('bannerheight'),
+                              'seleted' => old('jumbotron_height'),
                               'required' => true,
                         ])
                     </div>
