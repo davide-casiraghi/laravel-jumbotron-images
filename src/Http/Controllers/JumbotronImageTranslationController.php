@@ -116,7 +116,7 @@ class JumbotronImageTranslationController
         $jumbotronImageTranslation->title = $request->get('title');
         $jumbotronImageTranslation->body = $request->get('body');
         $jumbotronImageTranslation->button_text = $request->get('button_text');
-        	
+
         $jumbotronImageTranslation->save();
     }
 

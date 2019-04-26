@@ -199,7 +199,7 @@ class LaravelJumbotronImageTest extends TestCase
             ->assertStatus(200);
     }
 
-    /** @test */
+    /* @test */
     /*public function the_route_random_quote_can_be_accessed()
     {
 
@@ -207,7 +207,7 @@ class LaravelJumbotronImageTest extends TestCase
         $this->get('random-quote')
             ->assertViewIs('laravel-jumbotron-images::show-random-quote')
             ->assertStatus(200);
-            
+
         //->assertViewHas('quoteAuthor')
             //->assertViewHas('quoteText')
     }*/
