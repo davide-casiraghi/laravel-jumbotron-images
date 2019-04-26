@@ -4,9 +4,9 @@ namespace DavideCasiraghi\LaravelJumbotronImages\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Intervention\Image\ImageManagerStatic as Image;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
-use Intervention\Image\ImageManagerStatic as Image;
 
 class JumbotronImageController
 {
@@ -162,7 +162,7 @@ class JumbotronImageController
         $jumbotronImage->translateOrNew('en')->button_text = $request->get('button_text');
         //$jumbotronImage->image_file_name = $request->get('image_file_name');
         $jumbotronImage->button_url = $request->get('button_url');
-        
+
         // Teacher profile picture upload
         if ($request->file('image_file_name')) {
             $imageFile = $request->file('image_file_name');
@@ -181,7 +181,7 @@ class JumbotronImageController
     }
 
     /***************************************************************************/
-    
+
     /**
      * Upload image on server.
      *
