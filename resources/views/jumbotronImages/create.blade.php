@@ -78,15 +78,6 @@
                     </div>
                     
                     <div class="col-12">
-                        @include('laravel-jumbotron-images::partials.checkbox', [
-                              'name' => 'scroll_down_arrow',
-                              'description' => 'Show scroll down arrow',
-                              'value' => old('scroll_down_arrow'),
-                              'required' => false,
-                        ])
-                    </div>
-                    
-                    <div class="col-12">
                         @include('laravel-jumbotron-images::partials.select', [
                               'title' => "Cover Opacity",
                               'name' => 'cover_opacity',
@@ -96,6 +87,15 @@
                               'mobileNativeMenu' => true,
                               'seleted' => old('cover_opacity'),
                               'required' => true,
+                        ])
+                    </div>
+                    
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.checkbox', [
+                              'name' => 'scroll_down_arrow',
+                              'description' => 'Show scroll down arrow',
+                              'value' => old('scroll_down_arrow'),
+                              'required' => false,
                         ])
                     </div>
                     
