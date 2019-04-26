@@ -13,7 +13,7 @@
                   'style' => 'alert-danger',
             ])
 
-            <form action="{{ route('jumbotron-images.store') }}" method="POST">
+            <form action="{{ route('jumbotron-images.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 
                 <div class="row">

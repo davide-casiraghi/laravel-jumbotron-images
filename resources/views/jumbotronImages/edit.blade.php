@@ -13,7 +13,7 @@
                   'style' => 'alert-danger',
             ])
 
-            <form action="{{ route('jumbotron-images.update', $jumbotronImage->id) }}" method="POST">
+            <form action="{{ route('jumbotron-images.update', $jumbotronImage->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 
