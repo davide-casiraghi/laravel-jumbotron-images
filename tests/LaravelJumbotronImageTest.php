@@ -204,7 +204,7 @@ class LaravelJumbotronImageTest extends TestCase
     /** @test */
     public function the_facade_can_be_reached()
     {
-        $testExtension = LaravelJumbotronImages::show(2);
+        $testExtension = LaravelJumbotronImages::getJumbotronImage(2);
         $this->assertStringContainsString($testExtension, 'jpg');
     }
 }
