@@ -64,7 +64,6 @@
                           'value' => ''
                     ])
                     
-        
                     <div class="col-12">
                         @include('laravel-jumbotron-images::partials.buttons-back-submit', [
                            'route' => 'jumbotron-images.index'  
