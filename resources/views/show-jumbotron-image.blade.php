@@ -22,14 +22,24 @@
         <div class="hero-body" style="{{$parameters['vertical_text_alignment']}}">
             
             <div class="container" style="{{$parameters['horizontal_text_alignment']}} {{$parameters['text_shadow']}}">
-                <h1 class="title">
-                    <p style="{{$parameters['text_width']}}">{{$parameters['title']}}</p>
-                </h1>
-                <h2 class="subtitle">
-                    <p style="{{$parameters['text_width']}}">{{$parameters['description']}}</p>
-                </h2>
-
-                {{$parameters['button']}}
+                @if($jumbotronImage->title)
+                    <h1 class="title">
+                        <p style="{{$parameters['text_width']}}">{{$jumbotronImage->title}}</p>
+                    </h1>
+                @endif
+                @if($jumbotronImage->body)
+                    <h2 class="subtitle">
+                        <p style="{{$parameters['text_width']}}">{{$jumbotronImage->body}}</p>
+                    </h2>
+                @endif
+                
+                @include('partials.forms.button', [
+                      'text' =>  $jumbotronImage->button_text,
+                      'name' => 'button',
+                      'url' => button_url,
+                      'roundedCorners' => 'true',
+                ])
+                
 
                 {{$parameters['scroll_indicator']}}
                 
@@ -37,7 +47,7 @@
                     
         </div>
 
-        <div class="cover" style="{{$parameters['cover_opacity']}}"></div>
+        <div class="cover" style="{{$jumbotronImage->cover_opacity}}"></div>
 
     </section>
         
