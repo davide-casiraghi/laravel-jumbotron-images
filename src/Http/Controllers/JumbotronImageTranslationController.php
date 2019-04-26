@@ -105,7 +105,7 @@ class JumbotronImageTranslationController
     /**
      * Save the record on DB.
      * @param  \Illuminate\Http\Request  $request
-     * @param  \DavideCasiraghi\PhpResponsiveRandomQuote\Models\JumbotronImageTranslation  $jumbotronImageTranslation
+     * @param  \DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation  $jumbotronImageTranslation
      * @return void
      */
     public function saveOnDb($request, $jumbotronImageTranslation)
