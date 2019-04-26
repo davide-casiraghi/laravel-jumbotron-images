@@ -161,7 +161,7 @@ class LaravelJumbotronImageTranslationTest extends TestCase
             'image_file_name' => 'test image name',
             'button_url' => 'test button url',
         ]);
-        
+
         JumbotronImageTranslation::insert([
             'jumbotron_image_id' => $id,
             'title' => 'test title',
@@ -177,7 +177,7 @@ class LaravelJumbotronImageTranslationTest extends TestCase
             'button_text' => 'test button text spanish ',
             'locale' => 'es',
         ]);
-        
+
         $request = new \Illuminate\Http\Request();
         $request->replace([
             'jumbotron_image_translation_id' => $translationId,

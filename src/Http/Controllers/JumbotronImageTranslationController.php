@@ -91,12 +91,11 @@ class JumbotronImageTranslationController
         /*request()->validate([
             'text' => 'required',
         ]);*/
-        
 
         $jumbotronImageTranslation = JumbotronImageTranslation::find($jumbotronImageTranslationId);
         //dd($jumbotronImageTranslation);
         $this->saveOnDb($request, $jumbotronImageTranslation, 'update');
-        
+
         return redirect()->route('jumbotron-images.index')
                             ->with('success', 'Jumbotron Image translation added succesfully');
     }
@@ -114,7 +113,7 @@ class JumbotronImageTranslationController
         $jumbotronImageTranslation->title = $request->get('title');
         $jumbotronImageTranslation->body = $request->get('body');
         $jumbotronImageTranslation->button_text = $request->get('button_text');
-        
+
         switch ($saveOrUpdate) {
             case 'save':
                 $jumbotronImageTranslation->jumbotron_image_id = $request->get('jumbotron_image_id');
@@ -125,7 +124,6 @@ class JumbotronImageTranslationController
                 $jumbotronImageTranslation->update();
                 break;
         }
-        
     }
 
     /***************************************************************************/
