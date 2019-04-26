@@ -240,11 +240,12 @@ class JumbotronImageController
                  'is-halfheight' => 'Halfheight',
                  'is-fullheight' => 'Fullheight',
              ];
+
         return $ret;
     }
 
     /***************************************************************************/
-    
+
     /**
      * Return and array with the jumbotron possible opacity options.
      *
@@ -260,11 +261,9 @@ class JumbotronImageController
                  '0.4' => '40%',
                  '0.5' => '50%',
              ];
+
         return $ret;
     }
-    
-    /***************************************************************************/
 
-    
-    
+    /***************************************************************************/
 }
