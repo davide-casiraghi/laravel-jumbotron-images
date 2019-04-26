@@ -236,7 +236,6 @@ class JumbotronImageController
                  'is-halfheight' => "Halfheight",
                  'is-fullheight' => "Fullheight",
              ];
-
         return $ret;
     }
     
