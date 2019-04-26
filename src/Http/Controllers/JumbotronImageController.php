@@ -165,19 +165,4 @@ class JumbotronImageController
 
     /***************************************************************************/
 
-    /**
-     * Display the specified resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function showRandomJumbotronImage()
-    {
-        $jumbotronImage = PhpResponsiveJumbotronImage::getRandomJumbotronImage();
-
-        // the view name is set in the - Service provider - boot - loadViewsFrom
-        return view('laravel-jumbotron-images::show-random-quote', [
-            'quoteAuthor' => $jumbotronImage['author'],
-            'quoteText' => $jumbotronImage['text'],
-        ]);
-    }
 }
