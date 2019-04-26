@@ -36,16 +36,16 @@ class JumbotronImageTranslationController
      * @param string $languageCode
      * @return \Illuminate\Http\Response
      */
-    public function edit($jumbotronImageTranslationId, $languageCode)
+    public function edit($jumbotronImageId, $languageCode)
     {
-        $jumbotronImageTranslation = JumbotronImageTranslation::where('jumbotron_image_id', $jumbotronImageTranslationId)
+        $jumbotronImageTranslation = JumbotronImageTranslation::where('jumbotron_image_id', $jumbotronImageId)
                         ->where('locale', $languageCode)
                         ->first();
 
         $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
 
         return view('laravel-jumbotron-images::jumbotronImagesTranslations.edit', compact('jumbotronImageTranslation'))
-                    ->with('jumbotronImageTranslationId', $jumbotronImageTranslationId)
+                    ->with('jumbotronImageId', $jumbotronImageId)
                     ->with('languageCode', $languageCode)
                     ->with('selectedLocaleName', $selectedLocaleName);
     }

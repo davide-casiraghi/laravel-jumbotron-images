@@ -99,7 +99,7 @@ class LaravelJumbotronImageTranslationTest extends TestCase
 
         $this->get('jumbotron-images-translation/'.$id.'/es/edit')
             ->assertViewIs('laravel-jumbotron-images::jumbotronImagesTranslations.edit')
-            ->assertViewHas('jumbotronImageTranslationId')
+            ->assertViewHas('jumbotronImageId')
             ->assertViewHas('languageCode')
             ->assertStatus(200);
     }
