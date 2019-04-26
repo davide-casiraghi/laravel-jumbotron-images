@@ -87,6 +87,19 @@
                     </div>
                     
                     <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.select', [
+                              'title' => "Cover Opacity",
+                              'name' => 'cover_opacity',
+                              'placeholder' => "choose one...", 
+                              'records' => $coverOpacityArray,
+                              'liveSearch' => 'false',
+                              'mobileNativeMenu' => true,
+                              'seleted' => old('cover_opacity'),
+                              'required' => true,
+                        ])
+                    </div>
+                    
+                    <div class="col-12">
                         @include('laravel-jumbotron-images::partials.buttons-back-submit', [
                            'route' => 'jumbotron-images.index'  
                        ])

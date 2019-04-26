@@ -56,7 +56,7 @@ class JumbotronImageController
     {
         return view('laravel-jumbotron-images::jumbotronImages.create')
                     ->with('jumbotronHeightArray', $this->getJumbotronHeightArray())
-                    ->with('jumbotronOpacityArray', $this->getJumbotronOpacityArray());
+                    ->with('coverOpacityArray', $this->getCoverOpacityArray());
     }
 
     /***************************************************************************/
@@ -250,7 +250,7 @@ class JumbotronImageController
      *
      * @return array
      */
-    public static function getJumbotronOpacityArray()
+    public static function getCoverOpacityArray()
     {
         $ret = [
                  '0' => 'none',

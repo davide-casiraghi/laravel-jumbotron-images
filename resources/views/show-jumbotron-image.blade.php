@@ -37,7 +37,7 @@
                     
         </div>
 
-        <div class="cover" style="{{$parameters['opacity']}}"></div>
+        <div class="cover" style="{{$parameters['cover_opacity']}}"></div>
 
     </section>
         
