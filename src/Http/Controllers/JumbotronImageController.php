@@ -167,7 +167,7 @@ class JumbotronImageController
         if ($request->file('image_file_name')) {
             $imageFile = $request->file('image_file_name');
             $imageName = $imageFile->hashName();
-            $imageSubdir = 'teachers_profile';
+            $imageSubdir = 'jumbotron_images';
             $imageWidth = '1067';
             $thumbWidth = '690';
 
