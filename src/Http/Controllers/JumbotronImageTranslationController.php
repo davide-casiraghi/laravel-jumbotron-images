@@ -112,8 +112,8 @@ class JumbotronImageTranslationController
     public function saveOnDb($request, $jumbotronImageTranslation)
     {
         //dd($request);
-        //$jumbotronImageTranslation->jumbotron_image_id = $request->get('jumbotron_image_id');
-        //$jumbotronImageTranslation->locale = $request->get('language_code');
+        $jumbotronImageTranslation->jumbotron_image_id = $request->get('jumbotron_image_id');
+        $jumbotronImageTranslation->locale = $request->get('language_code');
 
         $jumbotronImageTranslation->title = $request->get('title');
         $jumbotronImageTranslation->body = $request->get('body');

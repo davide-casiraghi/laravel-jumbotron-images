@@ -10,8 +10,10 @@ class JumbotronImageTranslation extends Model
 
     public $timestamps = false;
     protected $fillable = [
+        'jumbotron_image_id',
         'title',
         'body',
         'button_text',
+        'locale',
     ];
 }
