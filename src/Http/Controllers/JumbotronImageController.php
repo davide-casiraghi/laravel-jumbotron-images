@@ -159,8 +159,22 @@ class JumbotronImageController
         $jumbotronImage->translateOrNew('en')->title = $request->get('title');
         $jumbotronImage->translateOrNew('en')->body = $request->get('body');
         $jumbotronImage->translateOrNew('en')->button_text = $request->get('button_text');
-        $jumbotronImage->image_file_name = $request->get('image_file_name');
+        //$jumbotronImage->image_file_name = $request->get('image_file_name');
         $jumbotronImage->button_url = $request->get('button_url');
+        
+        // Teacher profile picture upload
+        if ($request->file('image_file_name')) {
+            $imageFile = $request->file('image_file_name');
+            $imageName = $imageFile->hashName();
+            $imageSubdir = 'teachers_profile';
+            $imageWidth = '1067';
+            $thumbWidth = '690';
+
+            $this->uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
+            $jumbotronImage->image_file_name = $imageName;
+        } else {
+            $jumbotronImage->image_file_name = $request->image_file_name;
+        }
 
         $jumbotronImage->save();
     }
