@@ -4,10 +4,10 @@
     
     <div class="row">
         <div class="col-12 col-sm-6">
-            <h4>Quotes list</h4>
+            <h4>Jumbotron images list</h4>
         </div>
         <div class="col-12 col-sm-6 mt-4 mt-sm-0 text-right">
-            <a class="btn btn-success create-new" href="{{ route('jumbotron-images.create') }}">Add new quote</a>
+            <a class="btn btn-success create-new" href="{{ route('jumbotron-images.create') }}">Add new jumbotron image</a>
         </div>
     </div>
     
