@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class JumbotronImageController
 {
@@ -202,7 +203,7 @@ class JumbotronImageController
         // Resize the image with Intervention - http://image.intervention.io/api/resize
         // -  resize and store the image to a width of 300 and constrain aspect ratio (auto height)
         // - save file as jpg with medium quality
-        $image = \Image::make($imageFile->getRealPath())
+        $image = Image::make($imageFile->getRealPath())
                                 ->resize($imageWidth, null,
                                     function ($constraint) {
                                         $constraint->aspectRatio();
