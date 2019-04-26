@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Intervention\Image\ImageManagerStatic as Image;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImages;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 
 class JumbotronImageController
@@ -219,7 +218,7 @@ class JumbotronImageController
                     })
                 ->save(storage_path($destinationPath.'thumb_'.$imageName), 75);
     }
-    
+
     /***************************************************************************/
 
     /**
@@ -230,14 +229,15 @@ class JumbotronImageController
     public static function getJumbotronHeightArray()
     {
         $ret = [
-                 'is-small' => "Small",
-                 'is-medium' => "Medium",
-                 'is-large' => "Large",
-                 'is-halfheight' => "Halfheight",
-                 'is-fullheight' => "Fullheight",
+                 'is-small' => 'Small',
+                 'is-medium' => 'Medium',
+                 'is-large' => 'Large',
+                 'is-halfheight' => 'Halfheight',
+                 'is-fullheight' => 'Fullheight',
              ];
+
         return $ret;
     }
-    
+
     /***************************************************************************/
 }
