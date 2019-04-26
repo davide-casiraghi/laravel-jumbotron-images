@@ -171,7 +171,7 @@ class JumbotronImageController
             $imageSubdir = 'jumbotron_images';
             $imageWidth = '1067';
             $thumbWidth = '690';
-    
+
             $this->uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
             $jumbotronImage->image_file_name = $imageName;
         } else {
@@ -190,7 +190,7 @@ class JumbotronImageController
      *
      * @param  \Illuminate\Http\UploadedFile $imageFile
      * @param  string $imageName
-     * @param  string $imageSubdir 
+     * @param  string $imageSubdir
      * @param  int $imageWidth
      * @param  int $thumbWidth
      * @return void
