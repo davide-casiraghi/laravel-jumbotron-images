@@ -154,7 +154,7 @@ class JumbotronImageController
      */
     public function saveOnDb($request, $jumbotronImage)
     {
-        $jumbotronImage->translateOrNew('en')->text = $request->get('title');
+        $jumbotronImage->translateOrNew('en')->title = $request->get('title');
         $jumbotronImage->translateOrNew('en')->body = $request->get('body');
         $jumbotronImage->translateOrNew('en')->button_text = $request->get('button_text');
         $jumbotronImage->image_file_name = $request->get('image_file_name');
