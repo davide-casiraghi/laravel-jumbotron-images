@@ -27,11 +27,13 @@ class JumbotronImageController
                                 ->join('jumbotron_image_translations', 'jumbotron_images.id', '=', 'jumbotron_image_translations.jumbotron_image_id')
                                 ->orderBy('title')
                                 ->where('title', 'like', '%'.$searchKeywords.'%')
+                                ->where('locale', 'en')
                                 ->paginate(20);
         } else {
             $jumbotronImages = JumbotronImage::
                                 select('jumbotron_image_translations.jumbotron_image_id AS id', 'title', 'body', 'button_text', 'image_file_name', 'button_url', 'locale')
                                 ->join('jumbotron_image_translations', 'jumbotron_images.id', '=', 'jumbotron_image_translations.jumbotron_image_id')
+                                ->where('locale', 'en')
                                 ->orderBy('title')
                                 ->paginate(20);
         }
