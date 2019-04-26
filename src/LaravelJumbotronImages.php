@@ -9,7 +9,7 @@ class LaravelJumbotronImages
     /**
      * Return a random quote.
      *
-     * @return \DavideCasiraghi\PhpResponsiveRandomQuote\Models\Quote
+     * @return \DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage
      */
     public function getJumbotronImage($id)
     {
