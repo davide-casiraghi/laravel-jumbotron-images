@@ -55,7 +55,8 @@ class JumbotronImageController
     public function create()
     {
         return view('laravel-jumbotron-images::jumbotronImages.create')
-                    ->with('jumbotronHeightArray', $this->getJumbotronHeightArray());
+                    ->with('jumbotronHeightArray', $this->getJumbotronHeightArray())
+                    ->with('jumbotronOpacityArray', $this->getJumbotronOpacityArray());
     }
 
     /***************************************************************************/
@@ -226,7 +227,7 @@ class JumbotronImageController
     /***************************************************************************/
 
     /**
-     * Return the gift kind array.
+     * Return and array with the jumbotron possible height options.
      *
      * @return array
      */
@@ -239,9 +240,31 @@ class JumbotronImageController
                  'is-halfheight' => 'Halfheight',
                  'is-fullheight' => 'Fullheight',
              ];
-
         return $ret;
     }
 
     /***************************************************************************/
+    
+    /**
+     * Return and array with the jumbotron possible opacity options.
+     *
+     * @return array
+     */
+    public static function getJumbotronOpacityArray()
+    {
+        $ret = [
+                 '0' => 'none',
+                 '0.1' => '10%',
+                 '0.2' => '20%',
+                 '0.3' => '30%',
+                 '0.4' => '40%',
+                 '0.5' => '50%',
+             ];
+        return $ret;
+    }
+    
+    /***************************************************************************/
+
+    
+    
 }
