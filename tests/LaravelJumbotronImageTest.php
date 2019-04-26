@@ -8,6 +8,8 @@ use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
 
+use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImagesFacade;
+
 class LaravelJumbotronImageTest extends TestCase
 {
     /**
@@ -197,5 +199,12 @@ class LaravelJumbotronImageTest extends TestCase
             ->assertViewIs('laravel-jumbotron-images::jumbotronImages.edit')
             ->assertViewHas('jumbotronImage')
             ->assertStatus(200);
+    }
+    
+    /** @test */
+    public function the_facade_can_be_reached()
+    {
+        $testExtension = LaravelJumbotronImagesFacade::show(2);
+        $this->assertStringContainsString($testExtension, 'jpg');
     }
 }
