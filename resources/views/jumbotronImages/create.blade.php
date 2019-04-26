@@ -65,6 +65,19 @@
                     ])
                     
                     <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.select', [
+                              'title' => "Jumbotron Height",
+                              'name' => 'bannerheight',
+                              'placeholder' => "choose one...", 
+                              'records' => $jumbotronHeightArray,
+                              'liveSearch' => 'false',
+                              'mobileNativeMenu' => true,
+                              'seleted' => old('bannerheight'),
+                              'required' => true,
+                        ])
+                    </div>
+                    
+                    <div class="col-12">
                         @include('laravel-jumbotron-images::partials.buttons-back-submit', [
                            'route' => 'jumbotron-images.index'  
                        ])

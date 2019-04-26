@@ -5,6 +5,7 @@ namespace DavideCasiraghi\LaravelJumbotronImages\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImages;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -54,7 +55,8 @@ class JumbotronImageController
      */
     public function create()
     {
-        return view('laravel-jumbotron-images::jumbotronImages.create');
+        return view('laravel-jumbotron-images::jumbotronImages.create')
+                    ->with('jumbotronHeightArray', $this->getJumbotronHeightArray());
     }
 
     /***************************************************************************/
@@ -217,6 +219,26 @@ class JumbotronImageController
                     })
                 ->save(storage_path($destinationPath.'thumb_'.$imageName), 75);
     }
+    
+    /***************************************************************************/
 
-    // **********************************************************************
+    /**
+     * Return the gift kind array.
+     *
+     * @return array
+     */
+    public static function getJumbotronHeightArray()
+    {
+        $ret = [
+                 'is-small' => "Small",
+                 'is-medium' => "Medium",
+                 'is-large' => "Large",
+                 'is-halfheight' => "Halfheight",
+                 'is-fullheight' => "Fullheight",
+             ];
+
+        return $ret;
+    }
+    
+    /***************************************************************************/
 }
