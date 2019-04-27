@@ -21,6 +21,13 @@ composer require davide-casiraghi/laravel-jumbotron-images
 ## Publish all the vendor files
 ```php artisan vendor:publish --force```
 
+## Add to /resources/js/app.js
+require('./vendor/laravel-jumbotron-images/jquery.stellar');
+require('./vendor/laravel-jumbotron-images/laravel-jumbotron-images');
+
+## Add to /resources/sass/app.scss
+@import 'vendor/laravel-jumbotron-images/laravel-jumbotron-images';
+
 ## Add your jumbotrons to the jumbotrons table
 Once you have published the package you can go to this route to manage your jumbotrons:  
 **/jumbotron-images**
@@ -32,7 +39,7 @@ Include the facade in your controller:
 use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImages;
 ```
 
-Pass to the view the Jumbotron datas
+Pass to the view the Jumbotron datas:
 ``` php
 return view('welcome', [
     'jumbotronImage' => LaravelJumbotronImages::getJumbotronImage(1),
