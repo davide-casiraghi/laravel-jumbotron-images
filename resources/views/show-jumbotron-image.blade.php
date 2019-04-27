@@ -22,7 +22,7 @@
 
 <div class="jumbotronImage">
     <section class="hero {{$jumbotronImage->parameters['white_moon']}} {{$jumbotronImage->jumbotron_height}} {{$jumbotronImage->parameters['parallax']}}" style="{{$jumbotronImage->parameters['image']}} {{$jumbotronImage->parameters['background_color']}} {{$jumbotronImage->parameters['parallax']}}" {!!$jumbotronImage->parameters['parallax_ratio']!!}>
-        <div class="hero-body" style="{{$jumbotronImage->parameters['text_horizontal_alignment']}}">
+        <div class="hero-body" style="{{$jumbotronImage->text_vertical_alignment}}">
             
             <div class="container" style="{{$jumbotronImage->parameters['text_horizontal_alignment']}} {{$jumbotronImage->text_shadow}}">
                 @if($jumbotronImage->title)

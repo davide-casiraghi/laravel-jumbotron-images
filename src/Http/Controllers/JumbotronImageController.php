@@ -356,9 +356,9 @@ class JumbotronImageController
     public static function getTextVerticalAlignmentArray()
     {
         $ret = [
-             'align-items: flex-start;' => 'top',
-             'align-items: center;' => 'center',
-             'align-items: flex-end;' => 'bottom',
+             'align-items: flex-start;' => 'Top',
+             'align-items: center;' => 'Center',
+             'align-items: flex-end;' => 'Bottom',
          ];
 
         return $ret;
