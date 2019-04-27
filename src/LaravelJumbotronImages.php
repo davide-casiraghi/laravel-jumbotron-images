@@ -44,8 +44,6 @@ class LaravelJumbotronImages
      */
     public static function getParametersArray($jumbotronImage)
     {   
-        //$jumbotronImage->parameters['banner_height'] = $jumbotronImage->bannerheight,
-        
         $ret = [
              'opacity' => 'opacity: '.$jumbotronImage->opacity.';',
              'background_color' => "background: #".$jumbotronImage->background_color.";",
@@ -62,10 +60,24 @@ class LaravelJumbotronImages
             $ret['white_moon'] = " moon-curve ";
         }
         
-        /* Scroll indicator */
+        /* Scroll down arrow */
 		if ($jumbotronImage->scroll_down_arrow  == 1){
 			$ret['scroll_down_arrow'] = "<div class='scroll-arrow white'><span>SCROLL DOWN</span><img src='".JURI :: base(true)."/modules/mod_lifefullscreenbanner/img/angle-down-regular.svg'></div>";
 		}
+        
+        if ($jumbotronImage->text_width != 100){
+    		switch ($jumbotronImage->text_horizontal_alignment) {
+    			case 0:	// Left
+    				$ret['text_width'] = "width: ".$jumbotronImage->text_width."%;";
+    			break;
+    			case 1: // Center
+    				$ret['text_width'] = "width: ".$jumbotronImage->text_width."%; margin: auto;";
+    			break;
+    			case 2: // Right
+    				$ret['text_width'] = "width: ".$jumbotronImage->text_width."%; float: right;";
+    			break;
+    		}
+        }
 
         return $ret;
     }

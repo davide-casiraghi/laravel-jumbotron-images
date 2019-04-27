@@ -19,6 +19,10 @@ class CreateJumbotronImagesTable extends Migration
             $table->boolean('scroll_down_arrow')->default(0)->nullable();
             $table->boolean('parallax')->default(0)->nullable();
             $table->boolean('white_moon')->default(0)->nullable();
+            $table->string('text_width')->nullable();
+            $table->string('text_vertical_alignment')->nullable();
+            $table->string('text_horizontal_alignment')->nullable();
+            $table->integer('text_shadow')->nullable();
             $table->timestamps();
         });
     }
