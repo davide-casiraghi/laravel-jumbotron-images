@@ -26,14 +26,12 @@
             
             <div class="container" style="{{$jumbotronImage->parameters['text_horizontal_alignment']}} {{$jumbotronImage->text_shadow}}">
                 @if($jumbotronImage->title)
-                    <h1 class="title">
-                        <p style="{{$parameters['text_width']}}">{{$jumbotronImage->title}}</p>
+                    <h1 class="title mb-4 font-weight-bold">
+                        <div class="mb-5" style="{{$parameters['text_width']}}">{{$jumbotronImage->title}}</div>
                     </h1>
                 @endif
                 @if($jumbotronImage->body)
-                    <h2 class="subtitle">
-                        <p style="{{$jumbotronImage->parameters['text_width']}}">{{$jumbotronImage->body}}</p>
-                    </h2>
+                    <div class="subtitle mb-5" style="{{$jumbotronImage->parameters['text_width']}}">{{$jumbotronImage->body}}</div>
                 @endif
                 
                 @include('partials.forms.button', [
