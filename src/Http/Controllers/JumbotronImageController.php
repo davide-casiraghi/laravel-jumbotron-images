@@ -271,7 +271,7 @@ class JumbotronImageController
     /***************************************************************************/
 
     /**
-     * Return and array with the jumbotron possible opacity options.
+     * Return and array with the button possible color options.
      *
      * @return array
      */
