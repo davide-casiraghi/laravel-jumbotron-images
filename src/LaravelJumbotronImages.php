@@ -15,9 +15,9 @@ class LaravelJumbotronImages
     {
         $jumbotronImage = JumbotronImage::find($jumbotronImageId);
         $jumbotronImage->parameters = $this->getParametersArray($jumbotronImage);
-        
+
         $ret = $jumbotronImage;
-        
+
         return $ret;
     }
 
@@ -32,7 +32,7 @@ class LaravelJumbotronImages
     {
         $jumbotronImage = JumbotronImage::find($jumbotronImageId);
         $jumbotronImage->parameters = $this->getParametersArray($jumbotronImage);
-        
+
         return view('laravel-jumbotron-images::jumbotronImages.show', compact('jumbotronImage'));
     }
 
