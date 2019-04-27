@@ -48,7 +48,7 @@ class LaravelJumbotronImages
         $ret = [
              'opacity' => 'opacity: '.$jumbotronImage->opacity.';',
              'background_color' => 'background: #'.$jumbotronImage->background_color.';',
-             'image' => 'background-image:url(images/banners/'.$jumbotronImage->image_file_name.');',
+             'image' => 'background-image:url(/storage/images/jumbotron_images/'.$jumbotronImage->image_file_name.');',
          ];
 
         /* Parallax - The element is defined with stellar plugin like: <section class="parallax" data-stellar-background-ratio="0.5" ><span>Summer</span></section>*/
