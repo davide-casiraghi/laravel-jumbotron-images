@@ -43,7 +43,7 @@
                       'roundedCorners' => 'true',
                 ])
                 
-                {{$jumbotronImage->parameters['scroll_down_arrow']}}
+                {!!$jumbotronImage->parameters['scroll_down_arrow']!!}
                 
             </div>
                     
