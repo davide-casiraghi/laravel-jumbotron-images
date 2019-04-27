@@ -218,7 +218,7 @@ class LaravelJumbotronImageTest extends TestCase
 
         //$this->assertStringContainsString($jumbotronImage->image_file_name, 'test title');
     }
-    
+
     /** @test */
     public function it_returns_parameters_array()
     {
@@ -236,7 +236,7 @@ class LaravelJumbotronImageTest extends TestCase
             'text_horizontal_alignment' => '1',
             'text_shadow' => 1,
         ]);
-        
+
         $jumbotronImage = JumbotronImage::find($id);
         $parameters = LaravelJumbotronImages::getParametersArray($jumbotronImage);
         $this->assertStringContainsString($parameters['text_horizontal_alignment'], 'text-align: center;');
