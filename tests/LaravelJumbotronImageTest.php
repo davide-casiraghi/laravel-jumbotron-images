@@ -241,4 +241,29 @@ class LaravelJumbotronImageTest extends TestCase
         $parameters = LaravelJumbotronImages::getParametersArray($jumbotronImage);
         $this->assertStringContainsString($parameters['text_horizontal_alignment'], 'text-align: center;');
     }
+    
+    /** @test */
+    public function it_shows_a_jumbotron_image()
+    {
+        $id = JumbotronImage::insertGetId([
+            'image_file_name' => 'test.jpg',
+            'button_url' => 'http://www.google.it',
+            'button_color' => 'press-teal',
+            'jumbotron_height' => 'is-fullheight',
+            'cover_opacity' => '0.3',
+            'scroll_down_arrow' => 1,
+            'parallax' => 1,
+            'white_moon' => 1,
+            'text_width' => '80',
+            'text_vertical_alignment' => 'align-items: center;',
+            'text_horizontal_alignment' => '1',
+            'text_shadow' => 1,
+        ]);
+        
+        $jumbotronImageView = LaravelJumbotronImages::showJumbotronImage($id);
+        //dd($jumbotronImageView->jumbotronImage->text_vertical_alignment);
+        $this->assertStringContainsString($jumbotronImageView->jumbotronImage->text_vertical_alignment, 'align-items: center;');
+    }
+    
+    
 }
