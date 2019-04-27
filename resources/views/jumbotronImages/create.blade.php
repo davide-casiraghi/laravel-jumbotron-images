@@ -56,6 +56,21 @@
                         ])
                     </div>
                     
+                    {{-- Button color --}}
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.select', [
+                              'title' => "Button color",
+                              'name' => 'button_color',
+                              'placeholder' => "choose one...", 
+                              'records' => $buttonColorArray,
+                              'liveSearch' => 'false',
+                              'mobileNativeMenu' => true,
+                              'seleted' => old('button_color'),
+                              'required' => true,
+                              'tooltip' => 'Check the press-css.io website for the preview of the color available.',
+                        ])
+                    </div>
+
                     {{-- Image --}}
                     @include('laravel-jumbotron-images::partials.upload-image', [
                           'title' => 'Jumbotron background image', 
@@ -74,6 +89,7 @@
                               'mobileNativeMenu' => true,
                               'seleted' => old('jumbotron_height'),
                               'required' => true,
+                              'tooltip' => 'The height is expressed in Bulma size unit like, check Bulma website.',
                         ])
                     </div>
                     
@@ -87,6 +103,7 @@
                               'mobileNativeMenu' => true,
                               'seleted' => old('cover_opacity'),
                               'required' => true,
+                              'tooltip' => 'Add an opaque layer above the background image'
                         ])
                     </div>
                     
@@ -99,6 +116,36 @@
                         ])
                     </div>
                     
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.checkbox', [
+                              'name' => 'parallax',
+                              'description' => 'Parallax effect for the background image',
+                              'value' => old('parallax'),
+                              'required' => false,
+                        ])
+                    </div>
+                    
+                    {{-- Background color --}}
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.input', [
+                            'title' =>  'Background color',
+                            'name' => 'background_color',
+                            'tooltip' => 'Exadecimal value for the background color. Active if a value is specified.',
+                            'placeholder' => '#HEX', 
+                            'value' => old('background_color')
+                        ])
+                    </div>
+                    
+                    {{-- White moon --}}
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.checkbox', [
+                              'name' => 'white_moon',
+                              'description' => 'White moon under the banner',
+                              'value' => old('white_moon'),
+                              'required' => false,
+                        ])
+                    </div>
+                                        
                     <div class="col-12">
                         @include('laravel-jumbotron-images::partials.buttons-back-submit', [
                            'route' => 'jumbotron-images.index'  
