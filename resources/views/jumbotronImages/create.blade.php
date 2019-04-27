@@ -23,7 +23,8 @@
                             'title' => 'Title',
                             'name' => 'title',
                             'placeholder' => '', 
-                            'value' => old('title')
+                            'value' => old('title'),
+                            'required' => true,
                         ])
                     </div>
     
@@ -32,42 +33,8 @@
                         @include('laravel-jumbotron-images::partials.textarea-plain', [
                             'title' =>  'Body',
                             'name' => 'body',
-                            'value' => old('body')
-                        ])
-                    </div>
-                    
-                    {{-- Button url --}}
-                    <div class="col-12">
-                        @include('laravel-jumbotron-images::partials.input', [
-                            'title' =>  'Button url',
-                            'name' => 'button_url',
-                            'placeholder' => 'https://...', 
-                            'value' => old('button_url')
-                        ])
-                    </div>
-                    
-                    {{-- Button text --}}
-                    <div class="col-12">
-                        @include('laravel-jumbotron-images::partials.input', [
-                            'title' =>  'Button text',
-                            'name' => 'button_text',
-                            'placeholder' => '', 
-                            'value' => old('button_text')
-                        ])
-                    </div>
-                    
-                    {{-- Button color --}}
-                    <div class="col-12">
-                        @include('laravel-jumbotron-images::partials.select', [
-                              'title' => "Button color",
-                              'name' => 'button_color',
-                              'placeholder' => "choose one...", 
-                              'records' => $buttonColorArray,
-                              'liveSearch' => 'false',
-                              'mobileNativeMenu' => true,
-                              'seleted' => old('button_color'),
-                              'required' => true,
-                              'tooltip' => 'Check the press-css.io website for the preview of the color available.',
+                            'value' => old('body'),
+                            'required' => false,
                         ])
                     </div>
 
@@ -76,9 +43,11 @@
                           'title' => 'Jumbotron background image', 
                           'name' => 'image_file_name',
                           'folder' => 'jumbotron_images',
-                          'value' => ''
+                          'value' => '',
+                          'required' => false,
                     ])
                     
+                    {{-- Jumbotron Height --}}
                     <div class="col-12">
                         @include('laravel-jumbotron-images::partials.select', [
                               'title' => "Jumbotron Height",
@@ -90,6 +59,18 @@
                               'seleted' => old('jumbotron_height'),
                               'required' => true,
                               'tooltip' => 'The height is expressed in Bulma size unit like, check Bulma website.',
+                        ])
+                    </div>
+                    
+                    {{-- Background color --}}
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.input', [
+                            'title' =>  'Background color',
+                            'name' => 'background_color',
+                            'tooltip' => 'Exadecimal value for the background color. Active if a value is specified.',
+                            'placeholder' => '#HEX', 
+                            'value' => old('background_color'),
+                            'required' => false,
                         ])
                     </div>
                     
@@ -108,6 +89,54 @@
                     </div>
                     
                     <div class="col-12">
+                        <hr>
+                        <h4 class="mt-4 mb-4">Button options</h4>
+                    </div>
+                    
+                    {{-- Button url --}}
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.input', [
+                            'title' =>  'Button url',
+                            'name' => 'button_url',
+                            'placeholder' => 'https://...', 
+                            'value' => old('button_url'),
+                            'required' => false,
+                        ])
+                    </div>
+                    
+                    {{-- Button text --}}
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.input', [
+                            'title' =>  'Button text',
+                            'name' => 'button_text',
+                            'placeholder' => '', 
+                            'value' => old('button_text'),
+                            'required' => false,
+                        ])
+                    </div>
+                    
+                    {{-- Button color --}}
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.select', [
+                              'title' => "Button color",
+                              'name' => 'button_color',
+                              'placeholder' => "choose one...", 
+                              'records' => $buttonColorArray,
+                              'liveSearch' => 'false',
+                              'mobileNativeMenu' => true,
+                              'seleted' => old('button_color'),
+                              'required' => true,
+                              'tooltip' => 'Check the press-css.io website for the preview of the color available.',
+                              'required' => false,
+                        ])
+                    </div>
+                    
+                    <div class="col-12">
+                        <hr>
+                        <h4 class="mt-4 mb-4">Extra options</h4>
+                    </div>
+                    
+                    <div class="col-12">
                         @include('laravel-jumbotron-images::partials.checkbox', [
                               'name' => 'scroll_down_arrow',
                               'description' => 'Show scroll down arrow',
@@ -122,17 +151,6 @@
                               'description' => 'Parallax effect for the background image',
                               'value' => old('parallax'),
                               'required' => false,
-                        ])
-                    </div>
-                    
-                    {{-- Background color --}}
-                    <div class="col-12">
-                        @include('laravel-jumbotron-images::partials.input', [
-                            'title' =>  'Background color',
-                            'name' => 'background_color',
-                            'tooltip' => 'Exadecimal value for the background color. Active if a value is specified.',
-                            'placeholder' => '#HEX', 
-                            'value' => old('background_color')
                         ])
                     </div>
                     

@@ -38,6 +38,60 @@
                         ])
                     </div>
                     
+                    {{-- Image --}}
+                    @include('laravel-jumbotron-images::partials.upload-image', [
+                          'title' => 'Jumbotron background image', 
+                          'name' => 'image_file_name',
+                          'folder' => 'jumbotron_images',
+                          'value' => $jumbotronImage->image_file_name
+                    ])
+                    
+                    {{-- Jumbotron Height --}}
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.select', [
+                              'title' => "Jumbotron Height",
+                              'name' => 'jumbotron_height',
+                              'placeholder' => "choose one...", 
+                              'records' => $jumbotronHeightArray,
+                              'liveSearch' => 'false',
+                              'mobileNativeMenu' => true,
+                              'seleted' => $jumbotronImage->jumbotron_height,
+                              'required' => true,
+                              'tooltip' => 'The height is expressed in Bulma size unit like, check Bulma website.',
+                        ])
+                    </div>
+                    
+                    {{-- Background color --}}
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.input', [
+                            'title' =>  'Background color',
+                            'name' => 'background_color',
+                            'tooltip' => 'Exadecimal value for the background color. Active if a value is specified.',
+                            'placeholder' => '#HEX', 
+                            'value' => $jumbotronImage->background_color,
+                            'required' => false,
+                        ])
+                    </div>
+                    
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.select', [
+                              'title' => "Cover Opacity",
+                              'name' => 'cover_opacity',
+                              'placeholder' => "choose one...", 
+                              'records' => $coverOpacityArray,
+                              'liveSearch' => 'false',
+                              'mobileNativeMenu' => true,
+                              'seleted' => $jumbotronImage->cover_opacity,
+                              'required' => true,
+                              'tooltip' => 'Add an opaque layer above the background image'
+                        ])
+                    </div>
+                    
+                    <div class="col-12">
+                        <hr>
+                        <h4 class="mt-4 mb-4">Button options</h4>
+                    </div>
+                    
                     {{-- Button url --}}
                     <div class="col-12">
                         @include('laravel-jumbotron-images::partials.input', [
@@ -58,13 +112,55 @@
                         ])
                     </div>
                     
-                    {{-- Image --}}
-                    @include('laravel-jumbotron-images::partials.upload-image', [
-                          'title' => 'Jumbotron background image', 
-                          'name' => 'image_file_name',
-                          'folder' => 'jumbotron_images',
-                          'value' => $jumbotronImage->image_file_name
-                    ])
+                    {{-- Button color --}}
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.select', [
+                              'title' => "Button color",
+                              'name' => 'button_color',
+                              'placeholder' => "choose one...", 
+                              'records' => $buttonColorArray,
+                              'liveSearch' => 'false',
+                              'mobileNativeMenu' => true,
+                              'seleted' => $jumbotronImage->button_color,
+                              'required' => true,
+                              'tooltip' => 'Check the press-css.io website for the preview of the color available.',
+                              'required' => false,
+                        ])
+                    </div>
+                        
+                    <div class="col-12">
+                        <hr>
+                        <h4 class="mt-4 mb-4">Extra options</h4>
+                    </div>
+                    
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.checkbox', [
+                              'name' => 'scroll_down_arrow',
+                              'description' => 'Show scroll down arrow',
+                              'value' => $jumbotronImage->scroll_down_arrow,
+                              'required' => false,
+                        ])
+                    </div>
+                    
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.checkbox', [
+                              'name' => 'parallax',
+                              'description' => 'Parallax effect for the background image',
+                              'value' => $jumbotronImage->parallax,
+                              'required' => false,
+                        ])
+                    </div>
+                    
+                    {{-- White moon --}}
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.checkbox', [
+                              'name' => 'white_moon',
+                              'description' => 'White moon under the banner',
+                              'value' => $jumbotronImage->white_moon,
+                              'required' => false,
+                        ])
+                    </div>
+                    
                                   
                     
                     <div class="col-12">

@@ -12,9 +12,13 @@ class CreateJumbotronImagesTable extends Migration
             $table->increments('id');
             $table->string('image_file_name')->nullable();
             $table->string('button_url')->nullable();
+            $table->string('button_color')->nullable();
             $table->string('jumbotron_height')->nullable();
             $table->string('cover_opacity')->nullable();
+            $table->string('background_color')->nullable();
             $table->boolean('scroll_down_arrow')->default(0)->nullable();
+            $table->boolean('parallax')->default(0)->nullable();
+            $table->boolean('white_moon')->default(0)->nullable();
             $table->timestamps();
         });
     }

@@ -16,13 +16,9 @@ class CreateJumbotronImagesTable extends Migration
             $table->string('jumbotron_height')->nullable();
             $table->string('cover_opacity')->nullable();
             $table->string('background_color')->nullable();
-            
-            
             $table->boolean('scroll_down_arrow')->default(0)->nullable();
             $table->boolean('parallax')->default(0)->nullable();
             $table->boolean('white_moon')->default(0)->nullable();
-            
-            
             $table->timestamps();
         });
     }

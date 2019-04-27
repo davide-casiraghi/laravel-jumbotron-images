@@ -108,7 +108,10 @@ class JumbotronImageController
     {
         $jumbotronImage = JumbotronImage::find($jumbotronImageId);
 
-        return view('laravel-jumbotron-images::jumbotronImages.edit', compact('jumbotronImage'));
+        return view('laravel-jumbotron-images::jumbotronImages.edit', compact('jumbotronImage'))
+                    ->with('jumbotronHeightArray', $this->getJumbotronHeightArray())
+                    ->with('buttonColorArray', $this->getButtonColorArray())
+                    ->with('coverOpacityArray', $this->getCoverOpacityArray());
     }
 
     /***************************************************************************/
@@ -167,6 +170,11 @@ class JumbotronImageController
         $jumbotronImage->jumbotron_height = $request->get('jumbotron_height');
         $jumbotronImage->cover_opacity = $request->get('cover_opacity');
         $jumbotronImage->scroll_down_arrow = $request->get('scroll_down_arrow');
+        $jumbotronImage->background_color = $request->get('background_color');
+        $jumbotronImage->cover_opacity = $request->get('cover_opacity');
+        $jumbotronImage->button_color = $request->get('button_color');
+        $jumbotronImage->parallax = $request->get('parallax');
+        $jumbotronImage->white_moon = $request->get('white_moon');
         
         // Teacher profile picture upload
         if ($request->file('image_file_name')) {
