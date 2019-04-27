@@ -65,19 +65,19 @@ class LaravelJumbotronImages
         if ($jumbotronImage->scroll_down_arrow == 1) {
             $ret['scroll_down_arrow'] = "<div class='scroll-arrow white'><span>SCROLL DOWN</span><img src='/vendor/laravel-jumbotron-images/assets/images/angle-down-regular.svg'></div>";
         }
-        
+
         switch ($jumbotronImage->text_horizontal_alignment) {
-			case 0:
-				$ret['text_horizontal_alignment'] = "text-align: left;";
-				break;
-			case 1:
-				$ret['text_horizontal_alignment'] = "text-align: center;";
-				break;
-			case 2:
-				$ret['text_horizontal_alignment'] = "text-align: right;";
-				break;
-		}
-        
+            case 0:
+                $ret['text_horizontal_alignment'] = 'text-align: left;';
+                break;
+            case 1:
+                $ret['text_horizontal_alignment'] = 'text-align: center;';
+                break;
+            case 2:
+                $ret['text_horizontal_alignment'] = 'text-align: right;';
+                break;
+        }
+
         if ($jumbotronImage->text_width != 100) {
             switch ($jumbotronImage->text_horizontal_alignment) {
                 case 0:	// Left
@@ -91,10 +91,6 @@ class LaravelJumbotronImages
                 break;
             }
         }
-        
-        
-        
-        
 
         return $ret;
     }
