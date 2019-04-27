@@ -175,7 +175,7 @@ class JumbotronImageController
         $jumbotronImage->button_color = $request->get('button_color');
         $jumbotronImage->parallax = ($request->parallax == 'on') ? 1 : 0;
         $jumbotronImage->white_moon = ($request->white_moon == 'on') ? 1 : 0;
-        
+
         // Teacher profile picture upload
         if ($request->file('image_file_name')) {
             $imageFile = $request->file('image_file_name');
@@ -275,7 +275,7 @@ class JumbotronImageController
 
         return $ret;
     }
-    
+
     /***************************************************************************/
 
     /**
