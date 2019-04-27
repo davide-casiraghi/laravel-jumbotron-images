@@ -39,6 +39,7 @@ $(document).ready(function () {
 	                    verticalOffset: 60	//original was 40 (with 40 i have a gray line above the big image while scrolling with scalable bar)
 	                });
 	    	});
+
 		}
 		else{
 			$(".jumbotronImage .hero.parallax").css("background-attachment", "scroll");
