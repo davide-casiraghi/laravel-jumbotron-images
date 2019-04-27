@@ -220,8 +220,8 @@
 			position: relative; /* for the moon */
 	    	padding: 0;
 	    	
-	    	&::after{ 
-			background-image: url(../../../assets/images/curve-bg-moon.svg);
+	    	&::after{   
+			background-image: url(../../../vendor/laravel-jumbotron-images/assets/images/curve-bg-moon.svg);
 		    background-size: 100% 100%;
 		    content: "";
 		    display: block;
