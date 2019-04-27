@@ -62,7 +62,7 @@ class LaravelJumbotronImages
         
         /* Scroll down arrow */
 		if ($jumbotronImage->scroll_down_arrow  == 1){
-			$ret['scroll_down_arrow'] = "<div class='scroll-arrow white'><span>SCROLL DOWN</span><img src='".JURI :: base(true)."/modules/mod_lifefullscreenbanner/img/angle-down-regular.svg'></div>";
+			$ret['scroll_down_arrow'] = "<div class='scroll-arrow white'><span>SCROLL DOWN</span><img src='/vendor/laravel-jumbotron-images/assets/images/angle-down-regular.svg'></div>";
 		}
         
         if ($jumbotronImage->text_width != 100){
