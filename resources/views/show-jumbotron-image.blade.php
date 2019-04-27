@@ -49,7 +49,7 @@
                     
         </div>
 
-        <div class="cover" style="{{$jumbotronImage->cover_opacity}}"></div>
+        <div class="cover" style="{{$jumbotronImage->parameters['cover_opacity']}}"></div>
 
     </section>
         

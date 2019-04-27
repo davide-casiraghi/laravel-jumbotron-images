@@ -46,7 +46,7 @@ class LaravelJumbotronImages
     public static function getParametersArray($jumbotronImage)
     {
         $ret = [
-             'opacity' => 'opacity: '.$jumbotronImage->opacity.';',
+             'cover_opacity' => 'opacity: '.$jumbotronImage->cover_opacity.';',
              'background_color' => 'background: #'.$jumbotronImage->background_color.';',
              'image' => 'background-image:url(/storage/images/jumbotron_images/'.$jumbotronImage->image_file_name.');',
          ];
