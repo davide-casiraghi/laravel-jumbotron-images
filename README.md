@@ -21,11 +21,11 @@ composer require davide-casiraghi/laravel-jumbotron-images
 ### Publish all the vendor files
 ```php artisan vendor:publish --force```
 
-### Add to /resources/js/app.js
-require('./vendor/laravel-jumbotron-images/jquery.stellar');
-require('./vendor/laravel-jumbotron-images/laravel-jumbotron-images');
+### Add the JS files to /resources/js/app.js
+require('./vendor/laravel-jumbotron-images/jquery.stellar');  
+require('./vendor/laravel-jumbotron-images/laravel-jumbotron-images');  
 
-### Add to /resources/sass/app.scss
+### Add the SCSS file to /resources/sass/app.scss
 @import 'vendor/laravel-jumbotron-images/laravel-jumbotron-images';
 
 ### Add your jumbotrons to the jumbotrons table
