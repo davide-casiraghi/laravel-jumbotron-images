@@ -1,4 +1,4 @@
-jQuery(document).ready(function () {
+$(document).ready(function () {
 
 	// Check if is mobile
 		var isMobile = {
@@ -30,9 +30,9 @@ jQuery(document).ready(function () {
 
 	// Parallax with stellar - http://markdalgleish.com/projects/stellar.js
 		if( !isMobile.any() ){
-	        jQuery(function(){
+	        $(function(){
 	                //console.log("is not mobile");
-	                jQuery.stellar({
+	                $.stellar({
 	                    horizontalScrolling: false,
 	                    // Refreshes parallax content on window load and resize
 	                    responsive: true,
@@ -41,7 +41,7 @@ jQuery(document).ready(function () {
 	    	});
 		}
 		else{
-			jQuery(".jumbotronImage .hero.parallax").css("background-attachment", "scroll");
-	        jQuery(".jumbotronImage .hero.parallax").css("background-size", "190% 100%");
+			$(".jumbotronImage .hero.parallax").css("background-attachment", "scroll");
+	        $(".jumbotronImage .hero.parallax").css("background-size", "190% 100%");
 		}
 });
