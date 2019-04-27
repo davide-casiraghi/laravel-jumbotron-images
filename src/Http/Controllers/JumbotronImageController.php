@@ -169,12 +169,12 @@ class JumbotronImageController
         $jumbotronImage->button_url = $request->get('button_url');
         $jumbotronImage->jumbotron_height = $request->get('jumbotron_height');
         $jumbotronImage->cover_opacity = $request->get('cover_opacity');
-        $jumbotronImage->scroll_down_arrow = $request->get('scroll_down_arrow');
+        $jumbotronImage->scroll_down_arrow = ($request->scroll_down_arrow == 'on') ? 1 : 0;
         $jumbotronImage->background_color = $request->get('background_color');
         $jumbotronImage->cover_opacity = $request->get('cover_opacity');
         $jumbotronImage->button_color = $request->get('button_color');
-        $jumbotronImage->parallax = $request->get('parallax');
-        $jumbotronImage->white_moon = $request->get('white_moon');
+        $jumbotronImage->parallax = ($request->parallax == 'on') ? 1 : 0;
+        $jumbotronImage->white_moon = ($request->white_moon == 'on') ? 1 : 0;
         
         // Teacher profile picture upload
         if ($request->file('image_file_name')) {
