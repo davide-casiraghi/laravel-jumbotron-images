@@ -14,9 +14,9 @@ class LaravelJumbotronImages
     public function getJumbotronImage($id)
     {
         $jumbotronImage = JumbotronImage::find($id);
-        
+        $jumbotronImage->parameters = $this->getParametersArray($jumbotronImage);
+
         $ret = $jumbotronImage;
-        $ret['params'] = $this->getParametersArray($jumbotronImage);
         return $ret;
     }
     
@@ -30,7 +30,7 @@ class LaravelJumbotronImages
     public function showJumbotronImage($jumbotronImageId)
     {    
         $jumbotronImage = JumbotronImage::find($jumbotronImageId);
-        $jumbotronParameters = $this->getParametersArray($jumbotronImage);
+        $jumbotronImage->parameters = $this->getParametersArray($jumbotronImage);
         
         return view('laravel-jumbotron-images::jumbotronImages.show', compact('jumbotronImage'));
     }
@@ -38,17 +38,18 @@ class LaravelJumbotronImages
     /***************************************************************************/
     
     /**
-     * Return and array with the parameters for the show-jumbotron-image view.
+     * Attach to the jumbotron image object an array with the parameters for the show-jumbotron-image view.
      *
      * @return array
      */
     public static function getParametersArray($jumbotronImage)
     {   
+        //$jumbotronImage->parameters['banner_height'] = $jumbotronImage->bannerheight,
+        
         $ret = [
              'opacity' => 'opacity: '.$jumbotronImage->opacity.';',
              'background_color' => "background: #".$jumbotronImage->background_color.";",
              'image' => "background-image:url(images/banners/".$jumbotronImage->image_file_name.");",
-             'banner_height' => $jumbotronImage->bannerheight,
          ];
              
         /* Parallax - The element is defined with stellar plugin like: <section class="parallax" data-stellar-background-ratio="0.5" ><span>Summer</span></section>*/
@@ -57,9 +58,14 @@ class LaravelJumbotronImages
 			$ret['parallax_ratio'] = "data-stellar-background-ratio='0.5'";
 		}
          
-         if ($jumbotronImage->white_moon == 1){
+        if ($jumbotronImage->white_moon == 1){
             $ret['white_moon'] = " moon-curve ";
-		 }
+        }
+        
+        /* Scroll indicator */
+		if ($jumbotronImage->scroll_down_arrow  == 1){
+			$ret['scroll_down_arrow'] = "<div class='scroll-arrow white'><span>SCROLL DOWN</span><img src='".JURI :: base(true)."/modules/mod_lifefullscreenbanner/img/angle-down-regular.svg'></div>";
+		}
 
         return $ret;
     }
