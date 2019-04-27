@@ -74,6 +74,7 @@
                         ])
                     </div>
                     
+                    {{-- Cover Opacity --}}
                     <div class="col-12">
                         @include('laravel-jumbotron-images::partials.select', [
                               'title' => "Cover Opacity",
@@ -87,6 +88,58 @@
                               'tooltip' => 'Add an opaque layer above the background image'
                         ])
                     </div>
+                    
+                    {{-- ====================================================== --}}
+                    
+                    <div class="col-12">
+                        <hr>
+                        <h4 class="mt-4 mb-4">Text options</h4>
+                    </div>
+                    
+                    {{-- Text width --}}
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.select', [
+                              'title' => "Width",
+                              'name' => 'text_width',
+                              'placeholder' => "choose one...", 
+                              'records' => $textWidthArray,
+                              'liveSearch' => 'false',
+                              'mobileNativeMenu' => true,
+                              'seleted' => old('text_width'),
+                              'tooltip' => 'Just for the desktop view.',
+                              'required' => false,
+                        ])
+                    </div>
+                    
+                    {{-- Text vertical alignment --}}
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.select', [
+                              'title' => "Vertical alignment",
+                              'name' => 'text_vertical_alignment',
+                              'placeholder' => "choose one...", 
+                              'records' => $textVerticalAlignmentArray,
+                              'liveSearch' => 'false',
+                              'mobileNativeMenu' => true,
+                              'seleted' => old('text_vertical_alignment'),
+                              'required' => false,
+                        ])
+                    </div>
+                    
+                    {{-- Text vertical alignment --}}
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.select', [
+                              'title' => "Hotizontal alignment",
+                              'name' => 'text_horizontal_alignment',
+                              'placeholder' => "choose one...", 
+                              'records' => $textHorizontalAlignmentArray,
+                              'liveSearch' => 'false',
+                              'mobileNativeMenu' => true,
+                              'seleted' => old('text_horizontal_alignment'),
+                              'required' => false,
+                        ])
+                    </div>
+                    
+                    {{-- ====================================================== --}}
                     
                     <div class="col-12">
                         <hr>
@@ -125,7 +178,6 @@
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
                               'seleted' => old('button_color'),
-                              'required' => true,
                               'tooltip' => 'Check the press-css.io website for the preview of the color available.',
                               'required' => false,
                         ])

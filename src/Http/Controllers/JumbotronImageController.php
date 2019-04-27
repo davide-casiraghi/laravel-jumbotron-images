@@ -57,7 +57,10 @@ class JumbotronImageController
         return view('laravel-jumbotron-images::jumbotronImages.create')
                     ->with('jumbotronHeightArray', $this->getJumbotronHeightArray())
                     ->with('buttonColorArray', $this->getButtonColorArray())
-                    ->with('coverOpacityArray', $this->getCoverOpacityArray());
+                    ->with('coverOpacityArray', $this->getCoverOpacityArray())
+                    ->with('textWidthArray', $this->getTextWidthArray())
+                    ->with('textVerticalAlignmentArray', $this->getTextVerticalAlignmentArray())
+                    ->with('textHorizontalAlignmentArray', $this->getTextHorizontalAlignmentArray());
     }
 
     /***************************************************************************/
@@ -111,7 +114,10 @@ class JumbotronImageController
         return view('laravel-jumbotron-images::jumbotronImages.edit', compact('jumbotronImage'))
                     ->with('jumbotronHeightArray', $this->getJumbotronHeightArray())
                     ->with('buttonColorArray', $this->getButtonColorArray())
-                    ->with('coverOpacityArray', $this->getCoverOpacityArray());
+                    ->with('coverOpacityArray', $this->getCoverOpacityArray())
+                    ->with('textWidthArray', $this->getTextWidthArray())
+                    ->with('textVerticalAlignmentArray', $this->getTextVerticalAlignmentArray())
+                    ->with('textHorizontalAlignmentArray', $this->getTextHorizontalAlignmentArray());        
     }
 
     /***************************************************************************/
@@ -309,6 +315,66 @@ class JumbotronImageController
                  'press-grey' => 'Grey',
                  'press-bluegrey' => 'Blue grey',
                  'press-black' => 'Black',
+             ];
+
+        return $ret;
+    }
+    
+    /***************************************************************************/
+
+    /**
+     * Return and array with the text possible width options.
+     *
+     * @return array
+     */
+    public static function getTextWidthArray()
+    {
+        $ret = [
+                 '100' => '100%',
+                 '90' => '90%',
+                 '80' => '80%',
+                 '70' => '70%',
+                 '60' => '60%',
+                 '50' => '50%',
+                 '40' => '40%',
+                 '30' => '30%',
+                 '20' => '20%',
+             ];
+
+        return $ret;
+    }
+    
+    /***************************************************************************/
+
+    /**
+     * Return and array with the text possible vertical alignment options.
+     *
+     * @return array
+     */
+    public static function getTextVerticalAlignmentArray()
+    {
+        $ret = [
+                 'align-items: flex-start;' => 'top',
+                 'align-items: center;' => 'center',
+                 'align-items: flex-end;' => 'bottom',
+             ];
+
+        return $ret;
+    }
+    
+    /***************************************************************************/
+
+    /**
+     * Return and array with the text possible horizontal alignment options.
+     *
+     * @return array
+     */
+    public static function getTextHorizontalAlignmentArray()
+    {
+        $ret = [
+                 'text-align: left;' => 'left',
+                 'align-items: center;' => 'center',
+                 'align-items: flex-end;' => 'right',
              ];
 
         return $ret;
