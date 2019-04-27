@@ -13,11 +13,8 @@ class LaravelJumbotronImages
      */
     public function getJumbotronImage($id)
     {
-        $jumbotronImage = JumbotronImage::find($id);
-        $jumbotronImage->parameters = $this->getParametersArray($jumbotronImage);
-
-        $ret = $jumbotronImage;
-
+        $ret = JumbotronImage::find($id);
+    
         return $ret;
     }
 
