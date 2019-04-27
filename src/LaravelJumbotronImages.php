@@ -45,21 +45,21 @@ class LaravelJumbotronImages
     public static function getParametersArray($jumbotronImage)
     {   
         $ret = [
-                 'opacity' => 'opacity: '.$jumbotronImage->opacity.';',
-                 'background_color' => "background: #".$jumbotronImage->background_color.";",
-                 'image' => "background-image:url(images/banners/".$jumbotronImage->image_file_name.");",
-                 'banner_height' => $jumbotronImage->bannerheight,
-             ];
+             'opacity' => 'opacity: '.$jumbotronImage->opacity.';',
+             'background_color' => "background: #".$jumbotronImage->background_color.";",
+             'image' => "background-image:url(images/banners/".$jumbotronImage->image_file_name.");",
+             'banner_height' => $jumbotronImage->bannerheight,
+         ];
              
-            /* Parallax - The element is defined with stellar plugin like: <section class="parallax" data-stellar-background-ratio="0.5" ><span>Summer</span></section>*/
-            if ($jumbotronImage->parallax == 1){
-				$ret['parallax'] = " parallax";
-				$ret['parallax_ratio'] = "data-stellar-background-ratio='0.5'";
-			}
-             
-             if ($jumbotronImage->white_moon == 1){
-                $ret['white_moon'] = " moon-curve ";
-    		 }
+        /* Parallax - The element is defined with stellar plugin like: <section class="parallax" data-stellar-background-ratio="0.5" ><span>Summer</span></section>*/
+        if ($jumbotronImage->parallax == 1){
+			$ret['parallax'] = " parallax";
+			$ret['parallax_ratio'] = "data-stellar-background-ratio='0.5'";
+		}
+         
+         if ($jumbotronImage->white_moon == 1){
+            $ret['white_moon'] = " moon-curve ";
+		 }
 
         return $ret;
     }
