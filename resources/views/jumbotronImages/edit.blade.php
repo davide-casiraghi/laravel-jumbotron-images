@@ -137,6 +137,20 @@
                         ])
                     </div>
                     
+                    {{-- Text shadow  --}}
+                    <div class="col-12">
+                        @include('laravel-jumbotron-images::partials.select', [
+                              'title' => "Shadow",
+                              'name' => 'text_shadow',
+                              'placeholder' => "choose one...", 
+                              'records' => $textShadowArray,
+                              'liveSearch' => 'false',
+                              'mobileNativeMenu' => true,
+                              'seleted' => $jumbotronImage->text_shadow,
+                              'required' => false,
+                        ])
+                    </div>
+                    
                     {{-- ====================================================== --}}
                     
                     <div class="col-12">

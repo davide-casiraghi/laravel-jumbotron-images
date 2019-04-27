@@ -1,4 +1,4 @@
-<div class="jumbotronImage">
+{{--<div class="jumbotronImage">
     @if($jumbotronImage)
         {{$jumbotronImage->title}}<br />
         {{$jumbotronImage->body}}<br />
@@ -16,15 +16,15 @@
             No jumbotron corresponding to the specified ID has been found.
         </div>
     @endif
-</div>
+</div>--}}
 
 
-{{--
+
 <div class="jumbotronImage">
     <section class="hero {{$jumbotronImage->parameters['white_moon']}} {{$jumbotronImage->jumbotron_height}} {{$jumbotronImage->parameters['parallax']}}" style="{{$jumbotronImage->parameters['image']}} {{$jumbotronImage->parameters['background_color']}} {{$jumbotronImage->parameters['parallax']}}" {{$jumbotronImage->parameters['parallax_ratio']}}>
-        <div class="hero-body" style="{{$jumbotronImage->parameters['text_horizontal_alignment']}}">
+        <div class="hero-body" style="{{$jumbotronImage->text_horizontal_alignment}}">
             
-            <div class="container" style="{{$jumbotronImage->parameters['text_horizontal_alignment']}} {{$jumbotronImage->parameters['text_shadow']}}">
+            <div class="container" style="{{$jumbotronImage->text_horizontal_alignment}} {{$jumbotronImage->text_shadow}}">
                 @if($jumbotronImage->title)
                     <h1 class="title">
                         <p style="{{$parameters['text_width']}}">{{$jumbotronImage->title}}</p>
@@ -39,7 +39,7 @@
                 @include('partials.forms.button', [
                       'text' =>  $jumbotronImage->button_text,
                       'name' => 'button',
-                      'url' => button_url,
+                      'url' => $jumbotronImage->button_url,
                       'roundedCorners' => 'true',
                 ])
                 
@@ -55,4 +55,3 @@
         
     
 </div>
---}}

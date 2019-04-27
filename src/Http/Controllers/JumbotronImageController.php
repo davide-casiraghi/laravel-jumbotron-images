@@ -60,7 +60,8 @@ class JumbotronImageController
                     ->with('coverOpacityArray', $this->getCoverOpacityArray())
                     ->with('textWidthArray', $this->getTextWidthArray())
                     ->with('textVerticalAlignmentArray', $this->getTextVerticalAlignmentArray())
-                    ->with('textHorizontalAlignmentArray', $this->getTextHorizontalAlignmentArray());
+                    ->with('textHorizontalAlignmentArray', $this->getTextHorizontalAlignmentArray())
+                    ->with('textShadowArray', $this->getTextShadowArray());
     }
 
     /***************************************************************************/
@@ -117,7 +118,8 @@ class JumbotronImageController
                     ->with('coverOpacityArray', $this->getCoverOpacityArray())
                     ->with('textWidthArray', $this->getTextWidthArray())
                     ->with('textVerticalAlignmentArray', $this->getTextVerticalAlignmentArray())
-                    ->with('textHorizontalAlignmentArray', $this->getTextHorizontalAlignmentArray());
+                    ->with('textHorizontalAlignmentArray', $this->getTextHorizontalAlignmentArray())
+                    ->with('textShadowArray', $this->getTextShadowArray());
     }
 
     /***************************************************************************/
@@ -254,12 +256,12 @@ class JumbotronImageController
     public static function getJumbotronHeightArray()
     {
         $ret = [
-                 'is-small' => 'Small',
-                 'is-medium' => 'Medium',
-                 'is-large' => 'Large',
-                 'is-halfheight' => 'Halfheight',
-                 'is-fullheight' => 'Fullheight',
-             ];
+             'is-small' => 'Small',
+             'is-medium' => 'Medium',
+             'is-large' => 'Large',
+             'is-halfheight' => 'Halfheight',
+             'is-fullheight' => 'Fullheight',
+         ];
 
         return $ret;
     }
@@ -274,13 +276,13 @@ class JumbotronImageController
     public static function getCoverOpacityArray()
     {
         $ret = [
-                 '0' => 'none',
-                 '0.1' => '10%',
-                 '0.2' => '20%',
-                 '0.3' => '30%',
-                 '0.4' => '40%',
-                 '0.5' => '50%',
-             ];
+             '0' => 'none',
+             '0.1' => '10%',
+             '0.2' => '20%',
+             '0.3' => '30%',
+             '0.4' => '40%',
+             '0.5' => '50%',
+         ];
 
         return $ret;
     }
@@ -295,27 +297,27 @@ class JumbotronImageController
     public static function getButtonColorArray()
     {
         $ret = [
-                 'press-red' => 'Red',
-                 'press-pink' => 'Pink',
-                 'press-purple' => 'Purple',
-                 'press-deeppurple' => 'Deep purple',
-                 'press-indigo' => 'Indigo',
-                 'press-blue' => 'Blue',
-                 'press-lightblue' => 'Light blue',
-                 'press-cyan' => 'Cyan',
-                 'press-teal' => 'Teal',
-                 'press-green' => 'Green',
-                 'press-lightgreen' => 'Light green',
-                 'press-lime' => 'Lime',
-                 'press-yellow' => 'Yellow',
-                 'press-amber' => 'Amber',
-                 'press-orange' => 'Orange',
-                 'press-deeporange' => 'Deeporange',
-                 'press-brown' => 'Brown',
-                 'press-grey' => 'Grey',
-                 'press-bluegrey' => 'Blue grey',
-                 'press-black' => 'Black',
-             ];
+             'press-red' => 'Red',
+             'press-pink' => 'Pink',
+             'press-purple' => 'Purple',
+             'press-deeppurple' => 'Deep purple',
+             'press-indigo' => 'Indigo',
+             'press-blue' => 'Blue',
+             'press-lightblue' => 'Light blue',
+             'press-cyan' => 'Cyan',
+             'press-teal' => 'Teal',
+             'press-green' => 'Green',
+             'press-lightgreen' => 'Light green',
+             'press-lime' => 'Lime',
+             'press-yellow' => 'Yellow',
+             'press-amber' => 'Amber',
+             'press-orange' => 'Orange',
+             'press-deeporange' => 'Deeporange',
+             'press-brown' => 'Brown',
+             'press-grey' => 'Grey',
+             'press-bluegrey' => 'Blue grey',
+             'press-black' => 'Black',
+         ];
 
         return $ret;
     }
@@ -330,16 +332,16 @@ class JumbotronImageController
     public static function getTextWidthArray()
     {
         $ret = [
-                 '100' => '100%',
-                 '90' => '90%',
-                 '80' => '80%',
-                 '70' => '70%',
-                 '60' => '60%',
-                 '50' => '50%',
-                 '40' => '40%',
-                 '30' => '30%',
-                 '20' => '20%',
-             ];
+             '100' => '100%',
+             '90' => '90%',
+             '80' => '80%',
+             '70' => '70%',
+             '60' => '60%',
+             '50' => '50%',
+             '40' => '40%',
+             '30' => '30%',
+             '20' => '20%',
+         ];
 
         return $ret;
     }
@@ -354,10 +356,10 @@ class JumbotronImageController
     public static function getTextVerticalAlignmentArray()
     {
         $ret = [
-                 'align-items: flex-start;' => 'top',
-                 'align-items: center;' => 'center',
-                 'align-items: flex-end;' => 'bottom',
-             ];
+             'align-items: flex-start;' => 'top',
+             'align-items: center;' => 'center',
+             'align-items: flex-end;' => 'bottom',
+         ];
 
         return $ret;
     }
@@ -372,10 +374,29 @@ class JumbotronImageController
     public static function getTextHorizontalAlignmentArray()
     {
         $ret = [
-                 'text-align: left;' => 'left',
-                 'align-items: center;' => 'center',
-                 'align-items: flex-end;' => 'right',
-             ];
+             'text-align: left;' => 'left',
+             'align-items: center;' => 'center',
+             'align-items: flex-end;' => 'right',
+         ];
+
+        return $ret;
+    }
+    
+    /***************************************************************************/
+
+    /**
+     * Return and array with the text possible shadow options.
+     *
+     * @return array
+     */
+    public static function getTextShadowArray()
+    {
+        $ret = [
+             '' => 'None',
+             'text-shadow: 2px 1px 5px rgba(0,0,0,0.3);' => 'Small',
+             'text-shadow: 2px 1px 1px rgba(0,0,0,0.3);' => 'Small Blurred',
+             'text-shadow: 3px 2px 2px rgba(0,0,0,0.3);' => 'High',
+         ];
 
         return $ret;
     }
