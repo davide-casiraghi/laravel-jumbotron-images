@@ -7,7 +7,8 @@
 <a href="https://codeclimate.com/github/davide-casiraghi/laravel-jumbotron-images/maintainability"><img src="https://api.codeclimate.com/v1/badges/998c23a3b93bddddde3f/maintainability" /></a>
 [![GitHub last commit](https://img.shields.io/github/last-commit/davide-casiraghi/laravel-jumbotron-images.svg)](https://github.com/davide-casiraghi/laravel-jumbotron-images) 
 
-Add a jumbotron images with title and description to your pages. The titles and descriptions support multilanguage.
+Add a jumbotron images with title and description to the pages of your Laravel application.  
+The titles and descriptions support multilanguage.
 
 ## Installation
 
