@@ -1,33 +1,271 @@
-.quoteOfTheDay{
-    text-align:center; padding:2rem;
-    
-    .text{
-        position:relative; 
-        display:inline;
-        
-        .start-quote{
-            position: absolute; 
-            top: -1.5rem; 
-            left: -3rem; 
-            height: 1.5rem; 
-            font-family:georgia; 
-            font-size:2rem;
-        }
-        .end-quote{
-            position: absolute; 
-            width: auto; 
-            height: .8em; 
-            margin: 0 0 0 5px; 
-            right: -3rem; 
-            bottom: -1rem; 
-            font-family:georgia; 
-            font-size:2rem;
-        }
-    }
-    cite {
-        color: #999;
-        font-size: 14px;
-        display: block;
-        margin-top: 5px;
-    }
+.jumbotronImage{
+
+	position: relative;
+
+	section {
+	    padding: 3rem 1.5rem;
+
+	    &.hero{
+		    /*-webkit-box-align: stretch;
+		    -ms-flex-align: stretch;*/
+		    align-items: stretch;
+		    /*display: -webkit-box;
+		    display: -ms-flexbox;*/
+		    display: flex;
+		    /*-webkit-box-orient: vertical;
+		    -webkit-box-direction: normal;
+		    -ms-flex-direction: column;*/
+		    flex-direction: column;
+		    /*-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;*/
+		    justify-content: space-between;
+
+		    background-position: center center;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+
+		    /* Create the parallax scrolling effect */
+  			/*background-attachment: fixed;*/
+
+		    &.is-fullheight {
+		        min-height: 100vh;
+	    	}
+	    	&.is-halfheight {
+		        min-height: 50vh;
+	    	}
+			&.is-large{
+	    		@media screen and (min-width: 769px){
+					padding-bottom: 18rem;
+    				padding-top: 18rem;
+	    		}
+	    	}
+	    	&.is-medium{
+	    		@media screen and (min-width: 769px){
+					padding-bottom: 9rem;
+    				padding-top: 9rem;
+	    		}
+	    	}
+	    	&.is-small{
+	    		padding-bottom: 1.5rem;
+  				padding-top: 1.5rem;
+	    	}
+			&.parallax{
+	    		background-attachment: fixed;
+
+	    		transition: 0s linear;
+    			transition-property: background-position;
+    			background-color: #333;
+	    	}
+			
+
+	    	.hero-body {
+				/*-webkit-box-align: center;
+				-ms-flex-align: center;*/
+				align-items: center;
+				/*display: -webkit-box;
+				display: -ms-flexbox;*/
+				display: flex;
+
+				/*-webkit-box-flex: 1;
+			    -ms-flex-positive: 1;*/
+			    flex-grow: 1;
+			    /*-ms-flex-negative: 0;*/
+			    flex-shrink: 0;
+			    padding: 3rem 1.5rem;
+
+			    z-index: 1;
+
+				&>.container{
+					/*-webkit-box-flex: 1;
+				    -ms-flex-positive: 1;*/
+				    flex-grow: 1;
+				   /* -ms-flex-negative: 1;*/
+				    flex-shrink: 1;
+
+				    z-index: 2;
+
+					p{
+						/* In desktop view the parameter TEXT WIDTH doesn't affect */
+						@media (max-width: 768px) {
+							width: 100%!important;
+							margin: auto!important;
+							float: none!important;
+						}
+					}
+
+					.title {
+					    color: #FFF;
+					    /*font-size: 2rem;
+					    font-weight: 600;*/
+					    line-height: 1.125;
+					    word-break: break-word;
+
+					}
+					.subtitle {
+					    color: #FFF;
+					    /*font-size: 1.25rem;
+					    font-weight: 400;*/
+					    line-height: 1.25;
+					    word-break: break-word;
+					}
+					button{
+						margin-top: 1rem;
+					}
+
+    				.scroll-arrow {
+    				    /*display: none;*/
+    				    cursor: pointer;
+    				    position: absolute;
+    				    left: 50%;
+    				    margin-left: -75px;
+    				    width: 150px;
+    				    z-index: 10;
+    				    height: 30px;
+    				    text-align: center;
+    				    padding: 0;
+    				    box-sizing: border-box;
+
+    				    bottom: 120px; 
+
+    				    @media screen and (max-width: 800px){
+    						bottom: 140px; 
+    			    	}
+
+    					&:hover{
+    				    	span{
+    				    		display: inline-block;
+    				    	}
+    				    	img{
+    				    		display: none;
+    				    	}
+    				    }
+
+    					
+    					&.white {
+    					    color: rgba(255, 255, 255, 0.8);
+    					}
+
+    					img{
+    						width: 50px;
+    						cursor: pointer;
+    	
+    						/* https://codepen.io/metagrapher/pen/tgcLl */
+    						animation: pulse 5s infinite; 
+    					}
+
+    					span {
+    					    display: none;
+    					    font-family: "Avenir Next";
+    					    letter-spacing: 2px;
+    					    font-size: 12px;
+    					    text-align: center;
+    					}
+    				}
+				}
+			}
+
+			&.hero-gradient-white-zinc{  /*uigradients.com/*/
+				background: #ada996; /* fallback for old browsers */
+
+				background: -webkit-linear-gradient(bottom, #ada996, #f2f2f2, #dbdbdb, #eaeaea);
+				background: -o-linear-gradient(bottom, #ada996, #f2f2f2, #dbdbdb, #eaeaea);
+				background: linear-gradient(to top, #ada996, #f2f2f2, #dbdbdb, #eaeaea); /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+				
+				color: #333;
+			}				
+
+			&.hero-gradient-white-clouds{
+				background: #ECE9E6;  /* fallback for old browsers */
+				background: -webkit-linear-gradient(bottom, #FFFFFF, #ECE9E6);
+				background: -o-linear-gradient(bottom, #FFFFFF, #ECE9E6);
+				background: linear-gradient(to top, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			}
+
+			.cover{
+			    /*opacity: .3;*/
+				position: absolute;
+			    top: 0;
+			    left: 0;
+			    width: 100%;
+			    height: 100%;
+			    background: #000;
+			    z-index: 0;
+			}
+
+			.video_background{
+				position: absolute;
+			    top: 0;
+			    left: 0;
+			    width: 100%;
+			    /*height: 100%;
+			    background: #000;*/
+			    z-index: 0;
+			    /*
+			    @media (max-width: 768px) {
+					background-color: red;
+					height: 100%;
+					width: auto;
+					margin-left: -270px;
+			    }*/
+/*
+			    @media screen and (max-width: 769px){
+					background-color: red;
+					height: 100%;
+					width: auto;
+					margin-left: -270px;
+			    }*/
+			}
+		}
+		&.moon-curve{
+			position: relative; /* for the moon */
+	    	padding: 0;
+	    	
+	    	&::after{ 
+			background-image: url(../../../modules/mod_lifefullscreenbanner/img/curve-bg-moon.svg);
+		    background-size: 100% 100%;
+		    content: "";
+		    display: block;
+		    height: 40px;
+		    position: absolute;
+		    bottom: -1px;
+		    width: 100%;
+		    z-index: 1;
+		    /*background-color: orange;*/
+			}
+		}	
+	}
+
+	.columns {
+	    display: flex;
+	    overflow: hidden;
+	    margin: 1em 0;
+	    color: #fff;
+	    border: 1px solid #333;
+	    align-items: center;
+	    width: 100%;
+
+	    &> div {
+	        flex: 1;
+		}
+	
+		.left {
+		    padding: 1em;
+		    background-color: #337ab7;
+		    text-align: left;
+		}
+
+		.right {
+		    padding: 1em;
+		    background-color: #5cb85c;
+		    text-align: right;    
+		}
+	}	
+}
+
+@keyframes pulse{
+	0%   {opacity: .2;}
+	25%  {opacity: .4;}
+	50%  {opacity: .6;}
+	75%  {opacity: .8;}
+	100% {opacity: 1;}
 }
