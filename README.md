@@ -22,12 +22,15 @@ composer require davide-casiraghi/laravel-jumbotron-images
 ```php artisan vendor:publish --force```
 
 ### Add the JS files to /resources/js/app.js
+```
 require('./vendor/laravel-jumbotron-images/jquery.stellar');  
 require('./vendor/laravel-jumbotron-images/laravel-jumbotron-images');  
+```
 
 ### Add the SCSS file to /resources/sass/app.scss
+```
 @import 'vendor/laravel-jumbotron-images/laravel-jumbotron-images';
-
+```
 ### Add your jumbotrons to the jumbotrons table
 Once you have published the package you can go to this route to manage your jumbotrons:  
 **/jumbotron-images**
