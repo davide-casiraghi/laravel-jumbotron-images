@@ -207,7 +207,7 @@ class LaravelJumbotronImageTest extends TestCase
             'image_file_name' => 'test.jpg',
             'button_url' => 'test button url',
         ]);
-        
+
         $jumbotronImage = LaravelJumbotronImages::getJumbotronImage(1);
         $this->assertStringContainsString($jumbotronImage->image_file_name, 'test.jpg');
     }
