@@ -117,7 +117,7 @@ class JumbotronImageController
                     ->with('coverOpacityArray', $this->getCoverOpacityArray())
                     ->with('textWidthArray', $this->getTextWidthArray())
                     ->with('textVerticalAlignmentArray', $this->getTextVerticalAlignmentArray())
-                    ->with('textHorizontalAlignmentArray', $this->getTextHorizontalAlignmentArray());        
+                    ->with('textHorizontalAlignmentArray', $this->getTextHorizontalAlignmentArray());
     }
 
     /***************************************************************************/
@@ -319,7 +319,7 @@ class JumbotronImageController
 
         return $ret;
     }
-    
+
     /***************************************************************************/
 
     /**
@@ -343,7 +343,7 @@ class JumbotronImageController
 
         return $ret;
     }
-    
+
     /***************************************************************************/
 
     /**
@@ -361,7 +361,7 @@ class JumbotronImageController
 
         return $ret;
     }
-    
+
     /***************************************************************************/
 
     /**
@@ -379,5 +379,4 @@ class JumbotronImageController
 
         return $ret;
     }
-
 }
