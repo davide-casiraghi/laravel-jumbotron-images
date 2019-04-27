@@ -21,7 +21,7 @@ composer require davide-casiraghi/laravel-jumbotron-images
 ## Publish all the vendor files
 ```php artisan vendor:publish --force```
 
-## Add jumbotron in to the jumbotron table
+## Add your jumbotrons to the jumbotrons table
 Once you have published the package you can go to this route to manage your jumbotrons:  
 **/jumbotron-images**
 
