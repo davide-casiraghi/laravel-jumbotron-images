@@ -18,10 +18,30 @@ You can install the package via composer:
 composer require davide-casiraghi/laravel-jumbotron-images
 ```
 
+## Publish all the vendor files
+```php artisan vendor:publish --force```
+
+## Add jumbotron in to the jumbotron table
+Once you have published the package you can go to this route to manage your jumbotrons:  
+**/jumbotron-images**
+
 ## Usage
 
+Include the facade in your controller:
 ``` php
-// Usage description here
+use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImages;
+```
+
+Pass to the view the Jumbotron datas
+``` php
+return view('welcome', [
+    'jumbotronImage' => LaravelJumbotronImages::getJumbotronImage(1),
+]);
+```
+
+``` php
+Include in the view the jumbotron view.
+@include('vendor.laravel-jumbotron-images.show-jumbotron-image', $jumbotronImage)
 ```
 
 ### Testing
