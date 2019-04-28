@@ -299,4 +299,44 @@ class LaravelJumbotronImageTest extends TestCase
 
         Storage::assertExists($filePath);
     }
+    
+    /** @test */
+    /*public function it_save_on_db()
+    {
+        // Symulate the upload
+        $local_test_file = __DIR__.'/test-files/large-avatar.png';
+        $uploadedFile = new \Illuminate\Http\UploadedFile(
+                $local_test_file,
+                'large-avatar.png',
+                'image/png',
+                null,
+                null,
+                true
+            );
+
+        // Call the function saveOnDB()
+        $jumbotronImage = new JumbotronImage();
+        //App::setLocale('en');
+        
+        $request = new \Illuminate\Http\Request();
+        $request->replace([
+              'button_url' => 'https://www.test.it',
+          ]);
+        $request->merge([
+            'image_file_name' => $uploadedFile
+        ]);
+        dd($request);
+        
+        $jumbotronImageController = new JumbotronImageController();
+        
+        $jumbotronImageController->saveOnDb($request, $jumbotronImage);
+        
+        $this->assertDatabaseHas('jumbotron_images', ['button_url' => 'https://www.test.itd']);
+        
+        //$directory = "/";
+        //dd(Storage::allFiles($directory));
+
+    }*/
+    
+    
 }
