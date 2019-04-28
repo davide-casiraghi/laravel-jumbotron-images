@@ -50,21 +50,12 @@ class LaravelJumbotronImages
              'background_color' => 'background: #'.$jumbotronImage->background_color.';',
              'image' => 'background-image:url(/storage/images/jumbotron_images/'.$jumbotronImage->image_file_name.');',
          ];
-
+         $ret['white_moon'] = ($jumbotronImage->white_moon == 1) ? " moon-curve " : "";
+         $ret['scroll_down_arrow'] = ($jumbotronImage->scroll_down_arrow == 1) ? "<div class='scroll-arrow white'><span>SCROLL DOWN</span><img src='/vendor/laravel-jumbotron-images/assets/images/angle-down-regular.svg'></div>" : "";
+         
         /* Parallax - The element is defined with stellar plugin like: <section class="parallax" data-stellar-background-ratio="0.5" ><span>Summer</span></section>*/
-        if ($jumbotronImage->parallax == 1) {
-            $ret['parallax'] = ' parallax';
-            $ret['parallax_ratio'] = "data-stellar-background-ratio='0.5'";
-        }
-
-        if ($jumbotronImage->white_moon == 1) {
-            $ret['white_moon'] = ' moon-curve ';
-        }
-
-        /* Scroll down arrow */
-        if ($jumbotronImage->scroll_down_arrow == 1) {
-            $ret['scroll_down_arrow'] = "<div class='scroll-arrow white'><span>SCROLL DOWN</span><img src='/vendor/laravel-jumbotron-images/assets/images/angle-down-regular.svg'></div>";
-        }
+        $ret['parallax'] = ($jumbotronImage->parallax == 1) ? " parallax" : "";
+        $ret['parallax_ratio'] = ($jumbotronImage->parallax == 1) ? "data-stellar-background-ratio='0.5'" : "";
 
         /* Horizontal Alignment */
         switch ($jumbotronImage->text_horizontal_alignment) {
