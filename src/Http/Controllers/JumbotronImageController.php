@@ -200,7 +200,7 @@ class JumbotronImageController
         } else {
             $jumbotronImage->image_file_name = $request->image_file_name;
         }
-        
+
         $jumbotronImage->save();
     }
 
