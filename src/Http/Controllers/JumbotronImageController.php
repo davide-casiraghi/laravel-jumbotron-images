@@ -218,7 +218,7 @@ class JumbotronImageController
      * @param  string $thumbWidth
      * @return void
      */
-    public function uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth)
+    public static function uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth)
     {
 
         // Create dir if not exist (in /storage/app/public/images/..)

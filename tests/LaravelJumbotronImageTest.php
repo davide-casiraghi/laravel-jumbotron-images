@@ -10,6 +10,7 @@ use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
 
 use DavideCasiraghi\LaravelJumbotronImages\Http\Controllers\JumbotronImageController;
+use Illuminate\Support\Facades\Storage;
 
 class LaravelJumbotronImageTest extends TestCase
 {
@@ -270,12 +271,15 @@ class LaravelJumbotronImageTest extends TestCase
     /** @test */
     public function it_uploads_an_image()
     {
-        $local_file = __DIR__ . '/test-files/large-avatar.jpg';
+        // Fake any disk here
+        Storage::fake('local');
+        
+        $local_file = __DIR__ . '/test-files/large-avatar.png';
         
         $uploadedFile = new \Illuminate\Http\UploadedFile(
             $local_file,
-            'large-avatar.jpg',
-            'image/jpeg',
+            'large-avatar.png',
+            'image/png',
             null,
             null,
             true
@@ -289,6 +293,11 @@ class LaravelJumbotronImageTest extends TestCase
 
         JumbotronImageController::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
     
-        dd($uploadedFile);
+    
+        $filePath = 'app/public/images/'.$imageSubdir.'/large-avatar.png';
+    
+        Storage::disk('local')->assertExists($filePath);
+        
+        //dd($uploadedFile);
     }
 }
