@@ -280,23 +280,23 @@ class LaravelJumbotronImageTest extends TestCase
                 null,
                 true
             );
-        
-        // Call the function uploadImageOnServer()
-            $imageFile = $uploadedFile;
-            $imageName = $imageFile->hashName();
-            $imageSubdir = 'jumbotron_images';
-            $imageWidth = '1067';
-            $thumbWidth = '690';
 
-            JumbotronImageController::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
-        
+        // Call the function uploadImageOnServer()
+        $imageFile = $uploadedFile;
+        $imageName = $imageFile->hashName();
+        $imageSubdir = 'jumbotron_images';
+        $imageWidth = '1067';
+        $thumbWidth = '690';
+
+        JumbotronImageController::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
+
         // Leave this lines here - they can be very useful for new tests
-            //$directory = "/";
-            //dump(Storage::allDirectories($directory));
-            //dd(Storage::allFiles($directory));
-        
-        $filePath = "public/images/".$imageSubdir."/".$imageName;
-        
+        //$directory = "/";
+        //dump(Storage::allDirectories($directory));
+        //dd(Storage::allFiles($directory));
+
+        $filePath = 'public/images/'.$imageSubdir.'/'.$imageName;
+
         Storage::assertExists($filePath);
     }
 }
