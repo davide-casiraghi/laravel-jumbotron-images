@@ -272,7 +272,7 @@ class LaravelJumbotronImageTest extends TestCase
     public function it_uploads_an_image()
     {
         // Fake any disk here
-        Storage::fake('local');
+        Storage::fake('public');
         
         $local_file = __DIR__ . '/test-files/large-avatar.png';
         
@@ -292,11 +292,11 @@ class LaravelJumbotronImageTest extends TestCase
         $thumbWidth = '690';
 
         JumbotronImageController::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
+        
     
+        $filePath = 'app/public/images/jumbotron_images/large-avatar.png';
     
-        $filePath = 'app/public/images/'.$imageSubdir.'/large-avatar.png';
-    
-        Storage::disk('local')->assertExists($filePath);
+        Storage::disk('public')->assertExists($filePath);
         
         //dd($uploadedFile);
     }
