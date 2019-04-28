@@ -4,13 +4,12 @@ namespace Davidecasiraghi\LaravelJumbotronImages\Tests;
 
 use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImages;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
-
 use DavideCasiraghi\LaravelJumbotronImages\Http\Controllers\JumbotronImageController;
-use Illuminate\Support\Facades\Storage;
 
 class LaravelJumbotronImageTest extends TestCase
 {
@@ -267,13 +266,13 @@ class LaravelJumbotronImageTest extends TestCase
         //dd($jumbotronImageView->jumbotronImage->text_vertical_alignment);
         $this->assertStringContainsString($jumbotronImageView->jumbotronImage->text_vertical_alignment, 'align-items: center;');
     }
-    
+
     /** @test */
     public function it_uploads_an_image()
-    {        
+    {
         // Symulate the upload
-            $local_test_file = __DIR__ . '/test-files/large-avatar.png';
-            $uploadedFile = new \Illuminate\Http\UploadedFile(
+        $local_test_file = __DIR__.'/test-files/large-avatar.png';
+        $uploadedFile = new \Illuminate\Http\UploadedFile(
                 $local_test_file,
                 'large-avatar.png',
                 'image/png',
@@ -281,26 +280,23 @@ class LaravelJumbotronImageTest extends TestCase
                 null,
                 true
             );
-            //dd($uploadedFile);
-        
-        // Fake any disk here
-            Storage::fake('local');
-            
-        // Call the function uploadImageOnServer()
-            $imageFile = $uploadedFile;
-            $imageName = $imageFile->hashName();
-            $imageSubdir = 'jumbotron_images';
-            $imageWidth = '1067';
-            $thumbWidth = '690';
+        //dd($uploadedFile);
 
-            JumbotronImageController::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
-        
-    
+        // Fake any disk here
+        Storage::fake('local');
+
+        // Call the function uploadImageOnServer()
+        $imageFile = $uploadedFile;
+        $imageName = $imageFile->hashName();
+        $imageSubdir = 'jumbotron_images';
+        $imageWidth = '1067';
+        $thumbWidth = '690';
+
+        JumbotronImageController::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
+
         $filePath = Storage::disk('local')->getAdapter()->applyPathPrefix($imageName);  //http://blog.mauriziobonani.com/get-the-full-path-of-a-file-using-the-storage-facade-on-laravel/
-    
+
         Storage::disk('local')->assertMissing($filePath);
         //Storage::disk('local')->assertExists($filePath);
-        
-        
     }
 }
