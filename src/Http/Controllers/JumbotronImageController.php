@@ -237,7 +237,7 @@ class JumbotronImageController
                                         $constraint->aspectRatio();
                                     })
                                 ->save(storage_path($destinationPath.$imageName), 75);
-
+        //dd($image);
         // Create the thumb
         $image->resize($thumbWidth, null,
                     function ($constraint) {

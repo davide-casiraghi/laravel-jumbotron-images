@@ -294,7 +294,7 @@ class LaravelJumbotronImageTest extends TestCase
         JumbotronImageController::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
         
     
-        $filePath = 'app/public/images/jumbotron_images/large-avatar.png';
+        $filePath = 'app/public/images/jumbotron_images/'.$imageName;
     
         Storage::disk('public')->assertExists($filePath);
         
