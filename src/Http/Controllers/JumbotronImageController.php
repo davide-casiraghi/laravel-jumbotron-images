@@ -187,7 +187,7 @@ class JumbotronImageController
         $jumbotronImage->text_horizontal_alignment = $request->get('text_horizontal_alignment');
         $jumbotronImage->text_shadow = $request->get('text_shadow');
 
-        // Teacher profile picture upload
+        // Jumbotron image upload
         if ($request->file('image_file_name')) {
             $imageFile = $request->file('image_file_name');
             $imageName = $imageFile->hashName();
