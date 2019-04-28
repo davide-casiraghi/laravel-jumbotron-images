@@ -294,20 +294,9 @@ class LaravelJumbotronImageTest extends TestCase
 
             JumbotronImageController::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
         
-        $directory = "/";
-        //dump($imageName);
-        //dump(Storage::allDirectories($directory));
-        //dd(Storage::allFiles($directory));
-        //dump(Storage::disk('public'));
-    
-        //$filePath = Storage::disk('public')->getAdapter()->applyPathPrefix($imageName);  //http://blog.mauriziobonani.com/get-the-full-path-of-a-file-using-the-storage-facade-on-laravel/
-        //dd($filePath);
+        
         $filePath = "public/images/jumbotron_images/".$imageName;
         
         Storage::assertExists($filePath);
-        //Storage::disk('public')->assertMissing($filePath);
-        //Storage::disk('local')->assertExists($filePath);
-        
-        
     }
 }
