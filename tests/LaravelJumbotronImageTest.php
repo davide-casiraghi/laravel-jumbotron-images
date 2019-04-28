@@ -327,10 +327,9 @@ class LaravelJumbotronImageTest extends TestCase
         ]);
         dd($request);
         
+        
         $jumbotronImageController = new JumbotronImageController();
-        
         $jumbotronImageController->saveOnDb($request, $jumbotronImage);
-        
         $this->assertDatabaseHas('jumbotron_images', ['button_url' => 'https://www.test.itd']);
         
         //$directory = "/";
