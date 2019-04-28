@@ -4,13 +4,12 @@ namespace Davidecasiraghi\LaravelJumbotronImages\Tests;
 
 use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImages;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
-
 use DavideCasiraghi\LaravelJumbotronImages\Http\Controllers\JumbotronImageController;
-use Illuminate\Support\Facades\Storage;
 
 class LaravelJumbotronImageTest extends TestCase
 {
@@ -267,13 +266,13 @@ class LaravelJumbotronImageTest extends TestCase
         //dd($jumbotronImageView->jumbotronImage->text_vertical_alignment);
         $this->assertStringContainsString($jumbotronImageView->jumbotronImage->text_vertical_alignment, 'align-items: center;');
     }
-    
+
     /** @test */
     public function it_uploads_an_image()
-    {        
+    {
         // Symulate the upload
-            $local_test_file = __DIR__ . '/test-files/large-avatar.png';
-            $uploadedFile = new \Illuminate\Http\UploadedFile(
+        $local_test_file = __DIR__.'/test-files/large-avatar.png';
+        $uploadedFile = new \Illuminate\Http\UploadedFile(
                 $local_test_file,
                 'large-avatar.png',
                 'image/png',
