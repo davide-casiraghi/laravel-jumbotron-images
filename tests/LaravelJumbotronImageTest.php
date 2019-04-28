@@ -282,9 +282,6 @@ class LaravelJumbotronImageTest extends TestCase
                 true
             );
         
-        // Create a fake Storage
-            //Storage::fake('public');
-            
         // Call the function uploadImageOnServer()
             $imageFile = $uploadedFile;
             $imageName = $imageFile->hashName();
@@ -294,8 +291,12 @@ class LaravelJumbotronImageTest extends TestCase
 
             JumbotronImageController::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
         
+        // Leave this lines here - they can be very useful for new tests
+            //$directory = "/";
+            //dump(Storage::allDirectories($directory));
+            //dd(Storage::allFiles($directory));
         
-        $filePath = "public/images/jumbotron_images/".$imageName;
+        $filePath = "public/images/".$imageSubdir."/".$imageName;
         
         Storage::assertExists($filePath);
     }
