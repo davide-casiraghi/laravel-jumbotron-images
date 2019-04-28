@@ -9,6 +9,8 @@ use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImages;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
 
+use DavideCasiraghi\LaravelJumbotronImages\Http\Controllers\JumbotronImageController;
+
 class LaravelJumbotronImageTest extends TestCase
 {
     /**
@@ -263,5 +265,28 @@ class LaravelJumbotronImageTest extends TestCase
         $jumbotronImageView = LaravelJumbotronImages::showJumbotronImage($id);
         //dd($jumbotronImageView->jumbotronImage->text_vertical_alignment);
         $this->assertStringContainsString($jumbotronImageView->jumbotronImage->text_vertical_alignment, 'align-items: center;');
+    }
+    
+    /** @test */
+    public function it_uploads_an_image()
+    {
+        $uploadedFile = new \Illuminate\Http\UploadedFile(
+            $local_file,
+            'large-avatar.jpg',
+            'image/jpeg',
+            null,
+            null,
+            true
+        );
+        
+        $imageFile = $uploadedFile;
+        $imageName = $imageFile->hashName();
+        $imageSubdir = 'jumbotron_images';
+        $imageWidth = '1067';
+        $thumbWidth = '690';
+
+        JumbotronImageController::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
+    
+        dd($uploadedFile);
     }
 }
