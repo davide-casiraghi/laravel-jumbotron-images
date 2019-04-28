@@ -270,10 +270,7 @@ class LaravelJumbotronImageTest extends TestCase
     
     /** @test */
     public function it_uploads_an_image()
-    {
-        // Fake any disk here
-        Storage::fake('public');
-        
+    {        
         // Symulate the upload
             $local_test_file = __DIR__ . '/test-files/large-avatar.png';
             $uploadedFile = new \Illuminate\Http\UploadedFile(
@@ -286,6 +283,9 @@ class LaravelJumbotronImageTest extends TestCase
             );
             //dd($uploadedFile);
         
+        // Fake any disk here
+            Storage::fake('local');
+            
         // Call the function uploadImageOnServer()
             $imageFile = $uploadedFile;
             $imageName = $imageFile->hashName();
@@ -296,10 +296,10 @@ class LaravelJumbotronImageTest extends TestCase
             JumbotronImageController::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
         
     
-        //$filePath = 'app/public/images/jumbotron_images/'.$imageName;
-        $filePath = '/app/public/images/jumbotron_images/'.$imageName;
+        $filePath = Storage::disk('local')->getAdapter()->applyPathPrefix($imageName);  //http://blog.mauriziobonani.com/get-the-full-path-of-a-file-using-the-storage-facade-on-laravel/
     
-        Storage::disk('public')->assertExists($filePath);
+        Storage::disk('local')->assertMissing($filePath);
+        //Storage::disk('local')->assertExists($filePath);
         
         
     }
