@@ -9,6 +9,7 @@ class LaravelJumbotronImages
     /**
      * Return a Jumbotron image.
      *
+     * @param  int  $jumbotronImageId
      * @return \DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage
      */
     public function getJumbotronImage($jumbotronImageId)
@@ -26,6 +27,7 @@ class LaravelJumbotronImages
     /**
      * Show a Jumbotron Image.
      *
+     * @param  int  $jumbotronImageId
      * @return \DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage
      */
     public function showJumbotronImage($jumbotronImageId)
@@ -40,7 +42,7 @@ class LaravelJumbotronImages
 
     /**
      * Attach to the jumbotron image object an array with the parameters for the show-jumbotron-image view.
-     *
+     * @param  \DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage  $jumbotronImage
      * @return array
      */
     public static function getParametersArray($jumbotronImage)
