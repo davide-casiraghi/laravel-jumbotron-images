@@ -270,6 +270,8 @@ class LaravelJumbotronImageTest extends TestCase
     /** @test */
     public function it_uploads_an_image()
     {
+        $local_file = __DIR__ . '/test-files/large-avatar.jpg';
+        
         $uploadedFile = new \Illuminate\Http\UploadedFile(
             $local_file,
             'large-avatar.jpg',
