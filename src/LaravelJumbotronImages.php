@@ -7,7 +7,7 @@ use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 class LaravelJumbotronImages
 {
     /**
-     * Return a random quote.
+     * Return a Jumbotron image.
      *
      * @return \DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage
      */
@@ -21,7 +21,7 @@ class LaravelJumbotronImages
         return $ret;
     }
 
-    /*****************************/
+    /***************************************************************************/
 
     /**
      * Show a Jumbotron Image.
@@ -66,6 +66,7 @@ class LaravelJumbotronImages
             $ret['scroll_down_arrow'] = "<div class='scroll-arrow white'><span>SCROLL DOWN</span><img src='/vendor/laravel-jumbotron-images/assets/images/angle-down-regular.svg'></div>";
         }
 
+        /* Horizontal Alignment */
         switch ($jumbotronImage->text_horizontal_alignment) {
             case 0:
                 $ret['text_horizontal_alignment'] = 'text-align: left;';
@@ -78,6 +79,7 @@ class LaravelJumbotronImages
                 break;
         }
 
+        /* Text Width */
         if ($jumbotronImage->text_width != 100) {
             switch ($jumbotronImage->text_horizontal_alignment) {
                 case 0:	// Left
