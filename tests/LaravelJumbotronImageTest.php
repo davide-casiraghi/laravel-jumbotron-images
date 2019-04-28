@@ -274,30 +274,33 @@ class LaravelJumbotronImageTest extends TestCase
         // Fake any disk here
         Storage::fake('public');
         
-        $local_file = __DIR__ . '/test-files/large-avatar.png';
+        // Symulate the upload
+            $local_test_file = __DIR__ . '/test-files/large-avatar.png';
+            $uploadedFile = new \Illuminate\Http\UploadedFile(
+                $local_test_file,
+                'large-avatar.png',
+                'image/png',
+                null,
+                null,
+                true
+            );
+            //dd($uploadedFile);
         
-        $uploadedFile = new \Illuminate\Http\UploadedFile(
-            $local_file,
-            'large-avatar.png',
-            'image/png',
-            null,
-            null,
-            true
-        );
-        
-        $imageFile = $uploadedFile;
-        $imageName = $imageFile->hashName();
-        $imageSubdir = 'jumbotron_images';
-        $imageWidth = '1067';
-        $thumbWidth = '690';
+        // Call the function uploadImageOnServer()
+            $imageFile = $uploadedFile;
+            $imageName = $imageFile->hashName();
+            $imageSubdir = 'jumbotron_images';
+            $imageWidth = '1067';
+            $thumbWidth = '690';
 
-        JumbotronImageController::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
+            JumbotronImageController::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
         
     
-        $filePath = 'app/public/images/jumbotron_images/'.$imageName;
+        //$filePath = 'app/public/images/jumbotron_images/'.$imageName;
+        $filePath = '/app/public/images/jumbotron_images/'.$imageName;
     
         Storage::disk('public')->assertExists($filePath);
         
-        //dd($uploadedFile);
+        
     }
 }
