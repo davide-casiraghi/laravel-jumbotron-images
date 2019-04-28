@@ -374,9 +374,9 @@ class JumbotronImageController
     public static function getTextHorizontalAlignmentArray()
     {
         $ret = [
-             0 => 'Left',
-             1 => 'Center',
-             2 => 'Right',
+             'left' => 'Left',
+             'center' => 'Center',
+             'right' => 'Right',
          ];
 
         return $ret;

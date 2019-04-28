@@ -58,7 +58,8 @@ class LaravelJumbotronImages
         $ret['parallax_ratio'] = ($jumbotronImage->parallax == 1) ? "data-stellar-background-ratio='0.5'" : "";
 
         /* Horizontal Alignment */
-        switch ($jumbotronImage->text_horizontal_alignment) {
+        $ret['text_horizontal_alignment'] = "text-align: ".$jumbotronImage->text_horizontal_alignment.";";
+        /*switch ($jumbotronImage->text_horizontal_alignment) {
             case 0:
                 $ret['text_horizontal_alignment'] = 'text-align: left;';
                 break;
@@ -68,18 +69,18 @@ class LaravelJumbotronImages
             case 2:
                 $ret['text_horizontal_alignment'] = 'text-align: right;';
                 break;
-        }
+        }*/
 
         /* Text Width */
         if ($jumbotronImage->text_width != 100) {
             switch ($jumbotronImage->text_horizontal_alignment) {
-                case 0:	// Left
+                case 'left':	// Left
                     $ret['text_width'] = 'width: '.$jumbotronImage->text_width.'%;';
                 break;
-                case 1: // Center
+                case 'center': // Center
                     $ret['text_width'] = 'width: '.$jumbotronImage->text_width.'%; margin: auto;';
                 break;
-                case 2: // Right
+                case 'right': // Right
                     $ret['text_width'] = 'width: '.$jumbotronImage->text_width.'%; float: right;';
                 break;
             }

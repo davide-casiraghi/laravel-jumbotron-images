@@ -235,7 +235,7 @@ class LaravelJumbotronImageTest extends TestCase
             'white_moon' => 1,
             'text_width' => '80',
             'text_vertical_alignment' => 'align-items: center;',
-            'text_horizontal_alignment' => '1',
+            'text_horizontal_alignment' => 'center',
             'text_shadow' => 1,
         ]);
 
