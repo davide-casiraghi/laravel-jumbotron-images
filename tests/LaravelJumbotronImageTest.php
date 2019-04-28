@@ -299,8 +299,8 @@ class LaravelJumbotronImageTest extends TestCase
 
         Storage::assertExists($filePath);
     }
-    
-    /** @test */
+
+    /* @test */
     /*public function it_save_on_db()
     {
         // Symulate the upload
@@ -317,7 +317,7 @@ class LaravelJumbotronImageTest extends TestCase
         // Call the function saveOnDB()
         $jumbotronImage = new JumbotronImage();
         //App::setLocale('en');
-        
+
         $request = new \Illuminate\Http\Request();
         $request->replace([
               'button_url' => 'https://www.test.it',
@@ -326,17 +326,15 @@ class LaravelJumbotronImageTest extends TestCase
             'image_file_name' => $uploadedFile
         ]);
         dd($request);
-        
+
         $jumbotronImageController = new JumbotronImageController();
-        
+
         $jumbotronImageController->saveOnDb($request, $jumbotronImage);
-        
+
         $this->assertDatabaseHas('jumbotron_images', ['button_url' => 'https://www.test.itd']);
-        
+
         //$directory = "/";
         //dd(Storage::allFiles($directory));
 
     }*/
-    
-    
 }
