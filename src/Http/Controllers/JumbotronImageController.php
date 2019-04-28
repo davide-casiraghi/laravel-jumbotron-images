@@ -211,7 +211,7 @@ class JumbotronImageController
      * $imageFile - the file to upload
      * $imageSubdir is the subdir in /storage/app/public/images/..
      *
-     * @param  \Illuminate\Http\UploadedFile[] $imageFile
+     * @param  array $imageFile
      * @param  string $imageName
      * @param  string $imageSubdir
      * @param  string $imageWidth
