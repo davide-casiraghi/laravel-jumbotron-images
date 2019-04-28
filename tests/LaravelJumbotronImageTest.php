@@ -281,9 +281,8 @@ class LaravelJumbotronImageTest extends TestCase
                 null,
                 true
             );
-            //dd($uploadedFile);
         
-        // Fake any disk here
+        // Create a fake Storage
             Storage::fake('local');
             
         // Call the function uploadImageOnServer()
