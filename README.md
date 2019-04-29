@@ -21,6 +21,9 @@ composer require davide-casiraghi/laravel-jumbotron-images
 ### Publish all the vendor files
 ```php artisan vendor:publish --force```
 
+### Run the database migrations
+```php artisan migrate```
+
 ### Add the JS files to /resources/js/app.js
 ```
 require('./vendor/laravel-jumbotron-images/jquery.stellar');  
