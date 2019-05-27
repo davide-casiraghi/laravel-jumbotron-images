@@ -58,6 +58,11 @@ Include in the view the jumbotron view.
 @include('vendor.laravel-jumbotron-images.show-jumbotron-image', $jumbotronImage)
 ```
 
+### The snippet
+The library replace all the occurrences of this kind of snippet
+
+{# jumbotron id=[1] #}
+
 ### Testing
 
 You can run unit tests checking the code coverage using this command.
