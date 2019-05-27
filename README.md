@@ -64,7 +64,7 @@ The library replace all the occurrences of this kind of snippet
 ``` bash
 {# jumbotron id=[1] #}
 ```
-### Testing
+## Testing
 
 You can run unit tests checking the code coverage using this command.
 ``` bash
@@ -72,7 +72,7 @@ You can run unit tests checking the code coverage using this command.
 ```
 So you can find the reports about the code coverage in this file **/html/index.html**
 
-### Changelog
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
