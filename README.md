@@ -45,7 +45,8 @@ Include the facade in your controller:
 use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImages;
 ```
 
-Pass to the view the Jumbotron datas:
+Pass to the view the Jumbotron datas.
+In this case we want to show the jumbotron with id = 1.
 ``` php
 return view('welcome', [
     'jumbotronImage' => LaravelJumbotronImages::getJumbotronImage(1),
