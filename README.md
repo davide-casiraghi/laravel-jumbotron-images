@@ -61,8 +61,9 @@ Include in the view the jumbotron view.
 ### The snippet
 The library replace all the occurrences of this kind of snippet
 
+``` bash
 {# jumbotron id=[1] #}
-
+```
 ### Testing
 
 You can run unit tests checking the code coverage using this command.
