@@ -99,4 +99,51 @@ class LaravelJumbotronImages
             return;
         }
     }
+    
+    /**************************************************************************/
+
+    /**
+     *  Return the same text with the jumbotrons HTML replaced
+     *  where the token strings has been found.
+     *
+     *  @param string $text
+     *  @return string $ret
+     **/
+    public function replace_jumbotron_snippets_with_template($text)
+    {
+        $matches = self::getJumbotronSnippetOccurrences($text);
+
+        if ($matches) {
+            foreach ($matches as $key => $single_jumbotron_matches) {
+                //$parameters = self::getParameters($single_jumbotron_matches);
+                $post = self::getJumbotron($parameters['post_id']);
+                $cardHtml = self::prepareCardHtml($parameters, $post);
+
+                // Substitute the card html to the token that has been found
+                $text = str_replace($parameters['token'], $cardHtml, $text);
+            }
+        }
+
+        $ret = $text;
+
+        return $ret;
+    }
+    
+    /**************************************************************************/
+
+    /**
+     *  Provide the post data array (post_title, post_body, post_image).
+     *
+     *  @param int $jumbotronId
+     *  @return  \DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage    $ret
+     **/
+    public static function getJumbotron($jumbotronId)
+    {
+        //$postModel = $this->postModelConfig['class'];
+        $ret = JumbotronImage::where('id', $jumbotronId)->first();
+
+        return $ret;
+    }
+    
+    
 }
