@@ -110,7 +110,7 @@ class LaravelJumbotronImages
      *  @param string $text
      *  @return string $ret
      **/
-    public function replace_jumbotron_snippets_with_template($text)
+    public function replaceJumbotronSnippetsWithTemplate($text)
     {
         $matches = self::getJumbotronSnippetOccurrences($text);
 

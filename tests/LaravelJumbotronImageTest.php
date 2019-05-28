@@ -354,5 +354,26 @@ class LaravelJumbotronImageTest extends TestCase
         $this->assertEquals($parameters['jumbotron_id'], null);
         
     }
+    
+    /** @test */
+    public function it_gets_get_a_jumbotron_from_db()
+    {
+        JumbotronImage::insert([
+            'image_file_name' => 'test image name',
+            'button_url' => 'test button url',
+        ]);
+        
+        $jumbotronImage = LaravelJumbotronImages::getJumbotron(1);
+        $this->assertEquals('test image name', $jumbotronImage->image_file_name);
+        
+    }
+    
+    
+    
+    
+
+    
+    
+    
 
 }
