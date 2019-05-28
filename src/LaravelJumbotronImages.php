@@ -115,12 +115,13 @@ class LaravelJumbotronImages
 
         if ($matches) {
             foreach ($matches as $key => $single_jumbotron_matches) {
-                //$parameters = self::getParameters($single_jumbotron_matches);
-                $post = self::getJumbotron($parameters['post_id']);
-                $cardHtml = self::prepareCardHtml($parameters, $post);
+                $snippetParameters = self::getSnippetParameters($single_jumbotron_matches);
+                $jumbotron = self::getJumbotron($snippetParameters['jumbotron_id']);
+                $jumbotronParameters = $this->getParametersArray($jumbotronImage);
+                $jumbotronHtml = self::prepareJumbotronHtml($jumbotronParameters, $jumbotron);
 
                 // Substitute the card html to the token that has been found
-                $text = str_replace($parameters['token'], $cardHtml, $text);
+                $text = str_replace($parameters['token'], $jumbotronHtml, $text);
             }
         }
 
@@ -139,11 +140,63 @@ class LaravelJumbotronImages
      **/
     public static function getJumbotron($jumbotronId)
     {
-        //$postModel = $this->postModelConfig['class'];
         $ret = JumbotronImage::where('id', $jumbotronId)->first();
-
         return $ret;
     }
     
+    /**************************************************************************/
+
+    /**
+     *  Returns the snippet parameters.
+     *
+     *  @param array $matches
+     *  @return array $ret
+     **/
+    public static function getSnippetParameters($matches)
+    {
+        $ret = [];
+
+        // Get activation string parameters (from article)
+        $ret['token'] = $matches[0];
+        //dump($matches);
+        $ret['jumbotron_id'] = $matches[2];
+        
+        //dump($ret);
+        return $ret;
+    }
     
+    /**
+     *  Prepare the card HTML.
+     *
+     *  @param array $parameters
+     *  @param \DavideCasiraghi\LaravelCards\Models\Post $post
+     *
+     *  @return string $ret
+     **/
+    public static function prepareJumbotronHtml($parameters, $jumbotron)
+    {
+        if (! is_null($post)) {
+            $ret = "<div class='row featurette' style='".$parameters['bkg_color'].' '.$parameters['text_color']."'>";
+            if ($parameters['container_wrap']) {
+                $ret .= "<div class='container'>";
+            }
+            $ret .= "<div class='text ".$parameters['text_col_size_class'].' my-auto px-4 '.$parameters['text_col_order_class']."'>";
+            $ret .= "<h2 class='featurette-heading mt-5'>".$post['title'].'</h2>';
+            $ret .= "<div class='lead mb-4'>".$post['body'].'</div>';
+            $ret .= '</div>';
+            $ret .= "<div class='image ".$parameters['img_col_size_class'].' '.$parameters['img_col_order_class']."'>";
+            if (! empty($post['post_image_src'])) {
+                $ret .= "<img class='featurette-image img-fluid mx-auto' src='".$post['image']."' alt='".$post['image_alt']."'>";
+            }
+            $ret .= '</div>';
+            if ($parameters['container_wrap']) {
+                $ret .= '</div>';
+            }
+            $ret .= '</div>';
+        } else {
+            $ret = "<div class='alert alert-warning' role='alert'>The post with id ".$parameters['post_id'].' has not been found.</div>';
+        }
+
+        return $ret;
+    }
 }
