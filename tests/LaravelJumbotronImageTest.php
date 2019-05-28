@@ -368,6 +368,20 @@ class LaravelJumbotronImageTest extends TestCase
         
     }
     
+    /** @test */
+    public function it_generate_jumbotron_html()
+    {
+        JumbotronImage::insert([
+            'image_file_name' => 'test image name',
+            'button_url' => 'test button url',
+        ]);
+        
+        $text = 'Lorem ipsum {# jumbotron id=[1] #} sid amet.';
+        $text = LaravelJumbotronImages::replaceJumbotronSnippetsWithTemplate($text);
+        
+        $this->assertStringContainsString($text, 'test button url');
+    }
+    
     
     
     
