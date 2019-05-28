@@ -345,6 +345,14 @@ class LaravelJumbotronImageTest extends TestCase
         $parameters = LaravelJumbotronImages::getSnippetParameters($matches[0]);
 
         $this->assertEquals($parameters['jumbotron_id'], '1');
+        
+        $text = 'Lorem ipsum';
+        
+        $matches = LaravelJumbotronImages::getJumbotronSnippetOccurrences($text);
+        $parameters = LaravelJumbotronImages::getSnippetParameters($matches[0]);
+        
+        $this->assertEquals($parameters['jumbotron_id'], null);
+        
     }
 
 }
