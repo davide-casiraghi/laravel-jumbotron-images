@@ -118,7 +118,7 @@ class LaravelJumbotronImages
             foreach ($matches as $key => $single_jumbotron_matches) {
                 $snippetParameters = self::getSnippetParameters($single_jumbotron_matches);
                 $jumbotron = self::getJumbotron($snippetParameters['jumbotron_id']);
-                $jumbotronParameters = $this->getParametersArray($jumbotronImage);
+                $jumbotronParameters = $this->getParametersArray($jumbotron);
                 //$jumbotronHtml = self::prepareJumbotronHtml($jumbotronParameters, $jumbotron);
                 $jumbotronHtml = self::showJumbotronImage($jumbotronParameters, $jumbotron);
                 
