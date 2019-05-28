@@ -77,4 +77,26 @@ class LaravelJumbotronImages
 
         return $ret;
     }
+    
+    /**************************************************************************/
+
+    /**
+     *  Find the card snippet occurances in the text.
+     *
+     *  @param string $text
+     *  @return array $matches
+     **/
+    public static function getJumbotronSnippetOccurrences($text)
+    {
+        $re = '/{\#
+                \h+jumbotron
+                \h+(id)=\[([^]]*)]
+                \h*\#}/x';
+
+        if (preg_match_all($re, $text, $matches, PREG_SET_ORDER, 0)) {
+            return $matches;
+        } else {
+            return;
+        }
+    }
 }
