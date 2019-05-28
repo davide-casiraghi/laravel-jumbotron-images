@@ -6,7 +6,7 @@
         {{$jumbotronImage->image_file_name}}<br />
         aaaaaaaa<br />
         {{$jumbotronImage->jumbotron_height}}<br />
-        {{$jumbotronImage->parameters['image']}}<br />
+        {{$jumbotronImageParameters['image']}}<br />
         @if(!empty($jumbotronImage->image_file_name))
             <img class="ml-3 float-right img-fluid mb-2" src="/storage/images/jumbotron_images/thumb_{{ $jumbotronImage->image_file_name }}" >
         @endif
@@ -21,17 +21,17 @@
 
 
 <div class="jumbotronImage">
-    <section class="hero {{$jumbotronImage->parameters['white_moon']}} {{$jumbotronImage->jumbotron_height}} {{$jumbotronImage->parameters['parallax']}}" style="{{$jumbotronImage->parameters['image']}} {{$jumbotronImage->parameters['background_color']}} {{$jumbotronImage->parameters['parallax']}}" {!!$jumbotronImage->parameters['parallax_ratio']!!}>
+    <section class="hero {{$jumbotronImageParameters['white_moon']}} {{$jumbotronImage->jumbotron_height}} {{$jumbotronImageParameters['parallax']}}" style="{{$jumbotronImageParameters['image']}} {{$jumbotronImageParameters['background_color']}} {{$jumbotronImageParameters['parallax']}}" {!!$jumbotronImageParameters['parallax_ratio']!!}>
         <div class="hero-body" style="{{$jumbotronImage->text_vertical_alignment}}">
             
-            <div class="container" style="{{$jumbotronImage->parameters['text_horizontal_alignment']}} {{$jumbotronImage->text_shadow}}">
+            <div class="container" style="{{$jumbotronImageParameters['text_horizontal_alignment']}} {{$jumbotronImage->text_shadow}}">
                 @if($jumbotronImage->title)
                     <h1 class="title mb-4 font-weight-bold">
-                        <div class="mb-5" style="{{$parameters['text_width']}}">{{$jumbotronImage->title}}</div>
+                        <div class="mb-5" style="{{$jumbotronImageParameters['text_width']}}">{{$jumbotronImage->title}}</div>
                     </h1>
                 @endif
                 @if($jumbotronImage->body)
-                    <div class="subtitle mb-5" style="{{$jumbotronImage->parameters['text_width']}}">{{$jumbotronImage->body}}</div>
+                    <div class="subtitle mb-5" style="{{$jumbotronImageParameters['text_width']}}">{{$jumbotronImage->body}}</div>
                 @endif
                 
                 @include('partials.forms.button', [
@@ -41,13 +41,13 @@
                       'roundedCorners' => 'true',
                 ])
                 
-                {!!$jumbotronImage->parameters['scroll_down_arrow']!!}
+                {!!$jumbotronImageParameters['scroll_down_arrow']!!}
                 
             </div>
                     
         </div>
 
-        <div class="cover" style="{{$jumbotronImage->parameters['cover_opacity']}}"></div>
+        <div class="cover" style="{{$jumbotronImageParameters['cover_opacity']}}"></div>
 
     </section>
         
