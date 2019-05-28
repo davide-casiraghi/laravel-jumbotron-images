@@ -336,4 +336,15 @@ class LaravelJumbotronImageTest extends TestCase
         //dd(Storage::allFiles($directory));
 
     }*/
+    
+    /** @test */
+    public function it_gets_the_snippet_parameter_array()
+    {
+        $text = 'Lorem ipsum {# jumbotron id=[1] #} sid amet {# jumbotron id=[2] #}.';
+        $matches = LaravelJumbotronImages::getJumbotronSnippetOccurrences($text);
+        $parameters = LaravelJumbotronImages::getSnippetParameters($matches[0]);
+
+        $this->assertEquals($parameters['jumbotron_id'], '1');
+    }
+
 }
