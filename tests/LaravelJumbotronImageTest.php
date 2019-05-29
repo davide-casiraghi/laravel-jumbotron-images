@@ -336,7 +336,7 @@ class LaravelJumbotronImageTest extends TestCase
         //dd(Storage::allFiles($directory));
 
     }*/
-    
+
     /** @test */
     public function it_gets_the_snippet_parameter_array()
     {
@@ -345,16 +345,15 @@ class LaravelJumbotronImageTest extends TestCase
         $parameters = LaravelJumbotronImages::getSnippetParameters($matches[0]);
 
         $this->assertEquals($parameters['jumbotron_id'], '1');
-        
+
         $text = 'Lorem ipsum';
-        
+
         $matches = LaravelJumbotronImages::getJumbotronSnippetOccurrences($text);
         $parameters = LaravelJumbotronImages::getSnippetParameters($matches[0]);
-        
+
         $this->assertEquals($parameters['jumbotron_id'], null);
-        
     }
-    
+
     /** @test */
     public function it_gets_get_a_jumbotron_from_db()
     {
@@ -362,12 +361,11 @@ class LaravelJumbotronImageTest extends TestCase
             'image_file_name' => 'test image name',
             'button_url' => 'test button url',
         ]);
-        
+
         $jumbotronImage = LaravelJumbotronImages::getJumbotron(1);
         $this->assertEquals('test image name', $jumbotronImage->image_file_name);
-        
     }
-    
+
     /** @test */
     public function it_generate_jumbotron_html()
     {
@@ -385,10 +383,9 @@ class LaravelJumbotronImageTest extends TestCase
             'text_horizontal_alignment' => 'center',
             'text_shadow' => 1,
         ]);
-        
+
         $text = 'Lorem ipsum {# jumbotron id=[1] #} sid amet.';
         $text = LaravelJumbotronImages::replaceJumbotronSnippetsWithTemplate($text);
         $this->assertStringContainsString('http://www.google.it', $text);
-    }    
-
+    }
 }
