@@ -166,5 +166,4 @@ class LaravelJumbotronImages
         //dump($ret);
         return $ret;
     }
-
 }
