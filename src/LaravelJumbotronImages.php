@@ -50,6 +50,7 @@ class LaravelJumbotronImages
      */
     public static function getParametersArray($jumbotronImage)
     {
+        //dd($jumbotronImage->text_vertical_alignment);
         $ret = [
              'cover_opacity' => 'opacity: '.$jumbotronImage->cover_opacity.';',
              'background_color' => 'background: #'.$jumbotronImage->background_color.';',
