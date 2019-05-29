@@ -212,18 +212,12 @@ class LaravelJumbotronImageTest extends TestCase
 
         $jumbotronImage = LaravelJumbotronImages::getJumbotronImage(1);
         $this->assertStringContainsString($jumbotronImage->image_file_name, 'test.jpg');
-
-        //$jumbotronImage = LaravelJumbotronImages::showJumbotronImage(1);
-        //$jumbotronImage->assertViewIs('laravel-jumbotron-images::show-jumbotron-image')
-        //->assertViewHas('jumbotronImage')
-        //$jumbotronImage->assertStatus(200);
-
-        //$this->assertStringContainsString($jumbotronImage->image_file_name, 'test title');
     }
 
     /** @test */
     public function it_returns_parameters_array()
     {
+        // text_horizontal_alignment: center
         $id = JumbotronImage::insertGetId([
             'image_file_name' => 'test.jpg',
             'button_url' => 'http://www.google.it',
@@ -238,10 +232,50 @@ class LaravelJumbotronImageTest extends TestCase
             'text_horizontal_alignment' => 'center',
             'text_shadow' => 1,
         ]);
-
         $jumbotronImage = JumbotronImage::find($id);
         $parameters = LaravelJumbotronImages::getParametersArray($jumbotronImage);
         $this->assertStringContainsString($parameters['text_horizontal_alignment'], 'text-align: center;');
+    
+        // text_horizontal_alignment: left
+        $id = JumbotronImage::insertGetId([
+            'image_file_name' => 'test.jpg',
+            'button_url' => 'http://www.google.it',
+            'button_color' => 'press-teal',
+            'jumbotron_height' => 'is-fullheight',
+            'cover_opacity' => '0.3',
+            'scroll_down_arrow' => 1,
+            'parallax' => 1,
+            'white_moon' => 1,
+            'text_width' => '80',
+            'text_vertical_alignment' => 'align-items: center;',
+            'text_horizontal_alignment' => 'left',
+            'text_shadow' => 1,
+        ]);
+        $jumbotronImage = JumbotronImage::find($id);
+        $parameters = LaravelJumbotronImages::getParametersArray($jumbotronImage);
+        $this->assertStringContainsString($parameters['text_horizontal_alignment'], 'text-align: left;');
+    
+        // text_horizontal_alignment: right
+        $id = JumbotronImage::insertGetId([
+            'image_file_name' => 'test.jpg',
+            'button_url' => 'http://www.google.it',
+            'button_color' => 'press-teal',
+            'jumbotron_height' => 'is-fullheight',
+            'cover_opacity' => '0.3',
+            'scroll_down_arrow' => 1,
+            'parallax' => 1,
+            'white_moon' => 1,
+            'text_width' => '80',
+            'text_vertical_alignment' => 'align-items: center;',
+            'text_horizontal_alignment' => 'right',
+            'text_shadow' => 1,
+        ]);
+        $jumbotronImage = JumbotronImage::find($id);
+        $parameters = LaravelJumbotronImages::getParametersArray($jumbotronImage);
+        $this->assertStringContainsString($parameters['text_horizontal_alignment'], 'text-align: right;');
+    
+    
+    
     }
 
     /** @test */
