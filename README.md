@@ -21,6 +21,9 @@ composer require davide-casiraghi/laravel-jumbotron-images
 ### Publish all the vendor files
 ```php artisan vendor:publish --force```
 
+### Run the database migrations
+```php artisan migrate```
+
 ### Add the JS files to /resources/js/app.js
 ```
 require('./vendor/laravel-jumbotron-images/jquery.stellar');  
@@ -42,7 +45,8 @@ Include the facade in your controller:
 use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImages;
 ```
 
-Pass to the view the Jumbotron datas:
+Pass to the view the Jumbotron datas.
+In this case we want to show the jumbotron with id = 1.
 ``` php
 return view('welcome', [
     'jumbotronImage' => LaravelJumbotronImages::getJumbotronImage(1),
@@ -54,7 +58,13 @@ Include in the view the jumbotron view.
 @include('vendor.laravel-jumbotron-images.show-jumbotron-image', $jumbotronImage)
 ```
 
-### Testing
+### The snippet
+The library replace all the occurrences of this kind of snippet
+
+``` bash
+{# jumbotron id=[1] #}
+```
+## Testing
 
 You can run unit tests checking the code coverage using this command.
 ``` bash
@@ -62,7 +72,7 @@ You can run unit tests checking the code coverage using this command.
 ```
 So you can find the reports about the code coverage in this file **/html/index.html**
 
-### Changelog
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
