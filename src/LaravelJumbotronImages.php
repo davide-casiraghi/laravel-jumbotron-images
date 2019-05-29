@@ -33,7 +33,9 @@ class LaravelJumbotronImages
     public function showJumbotronImage($jumbotronImageId)
     {
         $jumbotronImage = JumbotronImage::find($jumbotronImageId);
-        $jumbotronImageParameters = $this->getParametersArray($jumbotronImage);
+        
+        //$jumbotronImageParameters = $this->getParametersArray($jumbotronImage);
+        $jumbotronImageParameters = ($jumbotronImage) ? $this->getParametersArray($jumbotronImage) : null;
 
         return view('laravel-jumbotron-images::show-jumbotron-image', compact('jumbotronImage'))
             ->with('jumbotronImageParameters', $jumbotronImageParameters);
