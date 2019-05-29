@@ -301,12 +301,12 @@ class LaravelJumbotronImageTest extends TestCase
     /** @test */
     public function it_uploads_an_image()
     {
-        
+
         // Delete directory
         //dd(Storage::directories('public/images')); // List directories
         $directory = 'public/images/jumbotron_images/';
         Storage::deleteDirectory($directory);
-        
+
         // Symulate the upload
         $local_test_file = __DIR__.'/test-files/large-avatar.png';
         $uploadedFile = new \Illuminate\Http\UploadedFile(
