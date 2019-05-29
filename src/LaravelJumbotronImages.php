@@ -34,7 +34,7 @@ class LaravelJumbotronImages
     {
         $jumbotronImage = JumbotronImage::find($jumbotronImageId);
         $jumbotronImageParameters = $this->getParametersArray($jumbotronImage);
-        
+
         return view('laravel-jumbotron-images::show-jumbotron-image', compact('jumbotronImage'))
             ->with('jumbotronImageParameters', $jumbotronImageParameters);
     }
@@ -78,7 +78,7 @@ class LaravelJumbotronImages
 
         return $ret;
     }
-    
+
     /**************************************************************************/
 
     /**
@@ -100,7 +100,7 @@ class LaravelJumbotronImages
             return;
         }
     }
-    
+
     /**************************************************************************/
 
     /**
@@ -119,8 +119,8 @@ class LaravelJumbotronImages
                 $snippetParameters = self::getSnippetParameters($single_jumbotron_matches);
                 $jumbotron = self::getJumbotron($snippetParameters['jumbotron_id']);
                 $jumbotronView = self::showJumbotronImage($snippetParameters['jumbotron_id']);
-                $jumbotronHtml = $jumbotronView->render(); 
-                
+                $jumbotronHtml = $jumbotronView->render();
+
                 // Substitute the jumbotron html to the token that has been found
                 $text = str_replace($snippetParameters['token'], $jumbotronHtml, $text);
             }
@@ -130,7 +130,7 @@ class LaravelJumbotronImages
 
         return $ret;
     }
-    
+
     /**************************************************************************/
 
     /**
@@ -142,9 +142,10 @@ class LaravelJumbotronImages
     public static function getJumbotron($jumbotronId)
     {
         $ret = JumbotronImage::where('id', $jumbotronId)->first();
+
         return $ret;
     }
-    
+
     /**************************************************************************/
 
     /**
@@ -161,11 +162,11 @@ class LaravelJumbotronImages
         $ret['token'] = $matches[0];
         //dump($matches);
         $ret['jumbotron_id'] = $matches[2];
-        
+
         //dump($ret);
         return $ret;
     }
-    
+
     /**
      *  Prepare the card HTML.
      *
