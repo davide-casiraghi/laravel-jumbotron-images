@@ -34,8 +34,8 @@ class LaravelJumbotronImages
     {
         $jumbotronImage = JumbotronImage::find($jumbotronImageId);
         $jumbotronImageParameters = $this->getParametersArray($jumbotronImage);
-
-        return view('laravel-jumbotron-images::jumbotronImages.show', compact('jumbotronImage'))
+        
+        return view('laravel-jumbotron-images::show-jumbotron-image', compact('jumbotronImage'))
             ->with('jumbotronImageParameters', $jumbotronImageParameters);
     }
 
@@ -118,13 +118,15 @@ class LaravelJumbotronImages
             foreach ($matches as $key => $single_jumbotron_matches) {
                 $snippetParameters = self::getSnippetParameters($single_jumbotron_matches);
                 $jumbotron = self::getJumbotron($snippetParameters['jumbotron_id']);
-                $jumbotronParameters = $this->getParametersArray($jumbotron);
-                //$jumbotronHtml = self::prepareJumbotronHtml($jumbotronParameters, $jumbotron);
-                $jumbotronHtml = self::showJumbotronImage($jumbotronParameters, $jumbotron);
+                //$jumbotronParameters = $this->getParametersArray($jumbotron);
                 
-
+                //dd($jumbotronParameters);
+                //$jumbotronHtml = self::prepareJumbotronHtml($jumbotronParameters, $jumbotron);
+                $jumbotronHtml = self::showJumbotronImage($snippetParameters['jumbotron_id']);
+                
                 // Substitute the card html to the token that has been found
-                $text = str_replace($parameters['token'], $jumbotronHtml, $text);
+                $text = str_replace($snippetParameters['token'], $jumbotronHtml, $text);
+                
             }
         }
 

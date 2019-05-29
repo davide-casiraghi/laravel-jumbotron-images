@@ -372,22 +372,23 @@ class LaravelJumbotronImageTest extends TestCase
     public function it_generate_jumbotron_html()
     {
         JumbotronImage::insert([
-            'image_file_name' => 'test image name',
-            'button_url' => 'test button url',
+            'image_file_name' => 'test.jpg',
+            'button_url' => 'http://www.google.it',
+            'button_color' => 'press-teal',
+            'jumbotron_height' => 'is-fullheight',
+            'cover_opacity' => '0.3',
+            'scroll_down_arrow' => 1,
+            'parallax' => 1,
+            'white_moon' => 1,
+            'text_width' => '80',
+            'text_vertical_alignment' => 'align-items: center;',
+            'text_horizontal_alignment' => 'center',
+            'text_shadow' => 1,
         ]);
         
         $text = 'Lorem ipsum {# jumbotron id=[1] #} sid amet.';
         $text = LaravelJumbotronImages::replaceJumbotronSnippetsWithTemplate($text);
-        
-        $this->assertStringContainsString($text, 'test button url');
-    }
-    
-    
-    
-    
-
-    
-    
-    
+        $this->assertStringContainsString('http://www.google.it', $text);
+    }    
 
 }

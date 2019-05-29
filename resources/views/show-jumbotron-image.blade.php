@@ -34,7 +34,7 @@
                     <div class="subtitle mb-5" style="{{$jumbotronImageParameters['text_width']}}">{{$jumbotronImage->body}}</div>
                 @endif
                 
-                @include('partials.forms.button', [
+                @include('laravel-jumbotron-images::partials.button', [
                       'text' =>  $jumbotronImage->button_text,
                       'name' => 'button',
                       'url' => $jumbotronImage->button_url,
