@@ -299,6 +299,17 @@ class LaravelJumbotronImageTest extends TestCase
     }
 
     /** @test */
+    public function it_shows_alert_when_no_jumbotron_found()
+    {
+        $jumbotronImageView = LaravelJumbotronImages::showJumbotronImage(2);
+        //dd($jumbotronImageView->jumbotronImage->text_vertical_alignment);
+        $this->assertStringContainsString('No jumbotron corresponding to the specified ID has been found.',$jumbotronImageView->render());
+    }
+
+
+
+
+    /** @test */
     public function it_uploads_an_image()
     {
 
