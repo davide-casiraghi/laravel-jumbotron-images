@@ -12,7 +12,7 @@ class LaravelJumbotronImages
      * @param  int  $jumbotronImageId
      * @return \DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage
      */
-    public function getJumbotronImage($jumbotronImageId)
+    /*public function getJumbotronImage($jumbotronImageId)
     {
         $jumbotronImage = JumbotronImage::find($jumbotronImageId);
         $jumbotronImage->parameters = $this->getParametersArray($jumbotronImage);
@@ -20,7 +20,7 @@ class LaravelJumbotronImages
         $ret = $jumbotronImage;
 
         return $ret;
-    }
+    }*/
 
     /***************************************************************************/
 

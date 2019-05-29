@@ -34,12 +34,14 @@
                     <div class="subtitle mb-5" style="{{$jumbotronImageParameters['text_width']}}">{{$jumbotronImage->body}}</div>
                 @endif
                 
-                @include('laravel-jumbotron-images::partials.button', [
-                      'text' =>  $jumbotronImage->button_text,
-                      'name' => 'button',
-                      'url' => $jumbotronImage->button_url,
-                      'roundedCorners' => 'true',
-                ])
+                @if ($jumbotronImage->button_url)
+                    @include('laravel-jumbotron-images::partials.button', [
+                          'text' =>  $jumbotronImage->button_text,
+                          'name' => 'button',
+                          'url' => $jumbotronImage->button_url,
+                          'roundedCorners' => 'true',
+                    ])
+                @endif
                 
                 {!!$jumbotronImageParameters['scroll_down_arrow']!!}
                 

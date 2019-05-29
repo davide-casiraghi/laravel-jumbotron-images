@@ -203,7 +203,7 @@ class LaravelJumbotronImageTest extends TestCase
     }
 
     /** @test */
-    public function the_facade_can_be_reached()
+    /*public function the_facade_can_be_reached()
     {
         $id = JumbotronImage::insertGetId([
             'image_file_name' => 'test.jpg',
@@ -212,7 +212,7 @@ class LaravelJumbotronImageTest extends TestCase
 
         $jumbotronImage = LaravelJumbotronImages::getJumbotronImage(1);
         $this->assertStringContainsString($jumbotronImage->image_file_name, 'test.jpg');
-    }
+    }*/
 
     /** @test */
     public function it_returns_parameters_array()
