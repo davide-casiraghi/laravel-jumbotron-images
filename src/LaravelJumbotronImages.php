@@ -44,7 +44,7 @@ class LaravelJumbotronImages
     /***************************************************************************/
 
     /**
-     * Attach to the jumbotron image object an array with the parameters for the show-jumbotron-image view.
+     * Return an array with the parameters for the show-jumbotron-image view.
      * @param  \DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage  $jumbotronImage
      * @return array
      */

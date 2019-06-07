@@ -1,6 +1,6 @@
 <?php
 
-namespace Davidecasiraghi\LaravelJumbotronImages\Tests;
+namespace DavideCasiraghi\LaravelJumbotronImages\Tests;
 
 use Orchestra\Testbench\TestCase;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
