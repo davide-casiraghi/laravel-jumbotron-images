@@ -42,6 +42,7 @@ class LaravelJumbotronImageTranslationTest extends TestCase
         return [
             LaravelJumbotronImagesServiceProvider::class,
             \Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
+            \Astrotomic\Translatable\TranslatableServiceProvider::class,
         ];
     }
 
