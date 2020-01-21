@@ -45,7 +45,7 @@ class LaravelJumbotronImagesServiceProvider extends ServiceProvider
 
             // Publishing assets.
             $this->publishes([
-            __DIR__.'/../resources/assets/images' => public_path('vendor/laravel-jumbotron-images/assets/images/'),
+                __DIR__.'/../resources/assets/images' => public_path('vendor/laravel-jumbotron-images/assets/images/'),
             ], 'images');
             $this->publishes([
                 __DIR__.'/../resources/assets/sass' => resource_path('sass/vendor/laravel-jumbotron-images/'),

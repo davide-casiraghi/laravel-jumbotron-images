@@ -2,10 +2,10 @@
 
 namespace DavideCasiraghi\LaravelJumbotronImages\Http\Controllers;
 
-use Validator;
+use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
+use Validator;
 
 class JumbotronImageTranslationController
 {
