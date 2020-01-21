@@ -2,10 +2,10 @@
 
 namespace DavideCasiraghi\LaravelJumbotronImages\Tests;
 
-use Orchestra\Testbench\TestCase;
+use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
 use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
-use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
+use Orchestra\Testbench\TestCase;
 
 class LaravelJumbotronImageTranslationTest extends TestCase
 {
@@ -184,7 +184,7 @@ class LaravelJumbotronImageTranslationTest extends TestCase
             'jumbotron_image_id' => $id,
             'text' => 'test spanish text updated',
             'language_code' => 'es',
-         ]);
+        ]);
 
         //dd($request);
         /*$this->followingRedirects()
