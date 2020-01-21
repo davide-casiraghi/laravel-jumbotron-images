@@ -51,11 +51,11 @@ class LaravelJumbotronImages
     public static function getParametersArray($jumbotronImage)
     {
         $ret = [
-             'cover_opacity' => 'opacity: '.$jumbotronImage->cover_opacity.';',
-             'background_color' => 'background: #'.$jumbotronImage->background_color.';',
-             'image' => 'background-image:url(/storage/images/jumbotron_images/'.$jumbotronImage->image_file_name.');',
-             'text_horizontal_alignment' => 'text-align: '.$jumbotronImage->text_horizontal_alignment.';',
-         ];
+            'cover_opacity' => 'opacity: '.$jumbotronImage->cover_opacity.';',
+            'background_color' => 'background: #'.$jumbotronImage->background_color.';',
+            'image' => 'background-image:url(/storage/images/jumbotron_images/'.$jumbotronImage->image_file_name.');',
+            'text_horizontal_alignment' => 'text-align: '.$jumbotronImage->text_horizontal_alignment.';',
+        ];
         $ret['white_moon'] = ($jumbotronImage->white_moon == 1) ? ' moon-curve ' : '';
         $ret['scroll_down_arrow'] = ($jumbotronImage->scroll_down_arrow == 1) ? "<div class='scroll-arrow white'><span>SCROLL DOWN</span><img src='/vendor/laravel-jumbotron-images/assets/images/angle-down-regular.svg'></div>" : '';
 

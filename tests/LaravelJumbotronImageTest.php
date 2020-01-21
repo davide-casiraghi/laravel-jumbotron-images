@@ -2,14 +2,14 @@
 
 namespace DavideCasiraghi\LaravelJumbotronImages\Tests;
 
-use Orchestra\Testbench\TestCase;
+use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImages;
+use DavideCasiraghi\LaravelJumbotronImages\Http\Controllers\JumbotronImageController;
+use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
+use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
+use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImage;
-use DavideCasiraghi\LaravelJumbotronImages\Facades\LaravelJumbotronImages;
-use DavideCasiraghi\LaravelJumbotronImages\Models\JumbotronImageTranslation;
-use DavideCasiraghi\LaravelJumbotronImages\LaravelJumbotronImagesServiceProvider;
-use DavideCasiraghi\LaravelJumbotronImages\Http\Controllers\JumbotronImageController;
+use Orchestra\Testbench\TestCase;
 
 class LaravelJumbotronImageTest extends TestCase
 {
@@ -133,9 +133,9 @@ class LaravelJumbotronImageTest extends TestCase
 
         $request = new \Illuminate\Http\Request();
         $request->replace([
-              'title' => 'test title updated',
-              'body' => 'test body updated',
-          ]);
+            'title' => 'test title updated',
+            'body' => 'test body updated',
+        ]);
 
         $this->put('jumbotron-images/1', [$request, 1])
              ->assertStatus(302);
